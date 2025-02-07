@@ -4,10 +4,400 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/output.css">
-    <script src="/static/languaje.js"></script>
-    <title>Bencomo Dental Clinic</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/splide.min.css">
+    <script src="/static/js/splide.min.js" ></script>    
+    <title id="title">Bencomo Clinica Dental</title>
 </head>
-<body>
-    <h1 class="font-black text-emerald-400">Example</h1>
+<body class="bg-white">
+    
+    <!--Navbar-->
+    <div class="mt-5 w-[95%] mx-auto hidden lg:flex justify-between">
+        <div class="flex flex-row items-center gap-3 xl:gap-6">
+            <img src="/static/img/logo.png" alt="">
+            <a id="specialists" class="item-link" href="">Especialistas</a>
+            <a id="reviews" class="item-link" href="">Testimonios</a>
+            <a id="contact" class="item-link" href="">Contacto</a>
+            <a id="payment" class="item-link" href="">Metodos De Pago</a>
+            <a id="faq" class="item-link" href="">FAQ</a>
+        </div>
+        <div>
+            <div id="selector-es" class="hover-btn-blue selector-es cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
+                <!--Espanol-->
+                <p  class="text-white item-link">Español</p>
+                <img id="mx-flag" src="/static/img/mx.png" alt="Language Selector" class="">
+            </div>
+            <div id="selector-en" class="selector-en hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
+                <!--English-->
+                <p  class="text-white item-link">English</p>
+                <img id="us-flag" src="/static/img/us.png" alt="" class="">
+            </div>
+        </div>
+    </div>
+    <!--Menu-->
+    <div class="mt-5 min-h-12 flex flex-row max-w-[95%] mx-auto justify-between lg:hidden">
+        <div>
+            <img src="/static/img/logo.png" class="" alt="">
+        </div>
+        <img id="open-icon" src="/static/img/open.png" class="size-10" alt="">
+    </div>
+    
+    <div id="menu" class="flex flex-col absolute transition-transform duration-500 ease-in-out -translate-x-full left-0 gap-6 w-[85%] text-center bg-gray rounded-br-2xl rounded-tr-2xl shadow-gray-500 shadow-2xl h-dvh">
+        <img id="close-icon" src="/static/img/close.png" class=" size-10 mx-auto" alt="">
+        <div id="selector-es-menu" class="selector-es hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
+            <!--Espanol-->
+            <p  class="text-white">Español</p>
+            <img id="mx-flag" src="/static/img/mx.png" alt="Language Selector" class="">
+        </div>
+        <div id="selector-en-menu" class="selector-en hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
+            <!--English-->
+            <p  class="text-white">English</p>
+            <img id="us-flag" src="/static/img/us.png" alt="" class="">
+        </div>
+        <a id="location-menu" href="" class="item-menu">Ubicación</a>
+        <a id="specialists-menu" href="" class="item-menu">Especialistas</a>
+        <a id="reviews-menu" href="" class="item-menu">Testimonios</a>
+        <a id="contact-menu" href="" class="item-menu">Contacto</a>
+        <a id="payment-menu" href="" class="item-menu">Métodos de pago</a>
+        <a id="faq-menu" class="mb-10 item-menu" href="">FAQ</a>
+    </div>
+
+    <!--Hero Section-->
+    <section id="hero" class="opacity-0 transition-opacity duration-1000">
+        <div class="mt-4 flex flex-col w-[95%] bg-gradient-to-br from-lightBlue to-deepBlue mx-auto rounded-3xl">
+            <!--Items Container-->
+            <div class="flex flex-col w-[100%] max-w-[748px] xl:max-w-[90%] xl:flex-row mx-auto">
+                <div class="mt-28 mx-auto xl:min-w-[50%] flex justify-end">
+                    <img id="hero-img" src="/static/img/hero-img.png" alt="imagen" class="opacity-0 duration-500 ease-in">
+                </div>
+
+                <div class="flex flex-col justify-center xl:items-start xl:min-w-[50%]">
+                    <div class="flex">
+                        <h1 class="hero-main-text" id="hero-title">Garantizamos resultados excepcionales en poco tiempo</h1>
+                    </div>
+                    <!--CTAs-->
+                    <div class="flex flex-col w-[95%] max-w-[748px] gap-3 mx-auto xl:mx-0 mt-5 mb-3 xl:flex-row">
+                        
+                        <a id="" href="" class="">
+                            <div class="hover-btn hover-btn-white flex flex-row justify-center gap-2 items-center text-center py-2 w-[95%] xl:w-[250px] 2xl:w-[400px] text-deepestBlue font-quicksand font-bold text-2xl xl:text-3xl bg-white rounded-3xl mx-auto">
+                                <p class="appointment-buttons">Agendar Cita</p>
+                                <img src="/static/img/date-icon.png" alt="" class="size-8">
+                            </div>
+                        </a>
+        
+                        <a href="" class="">
+                            <div class="hover-btn hover-btn-blue transition-all duration-1000 flex flex-row justify-center gap-2 items-center text-center py-2 w-[95%] xl:w-[250px] 2xl:w-[300px] text-white font-quicksand font-bold text-2xl xl:text-3xl bg-deepestBlue rounded-3xl mx-auto">
+                                <p class="location-button">Ubicación</p>
+                                <img src="/static/img/gps-icon.png"  alt="" class="size-8">
+                            </div>
+                        </a>
+                    </div>
+                    <p id="hero-paragraph" class=" font-quicksand font-medium text-lg text-white text-center mb-16 xl:text-2xl">Entra como paciente y sal como amigo</p>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+    </section>
+
+    <!--About Us Section-->
+    <section id="about-us" class="animate-scroll opacity-0 transition-opacity duration-1000">
+        <div class="flex flex-col xl:flex-row bg-gray w-[95%] rounded-4xl mx-auto mt-10 lg:mx-auto xl:items-center justify-evenly lg:h-[700px]">
+            <div class="flex flex-col justify-center items-center xl:h-[500px] max-w-[748px] mt-10 bg-white w-[95%] xl:max-w-[25%] mx-auto xl:mx-0 rounded-4xl  mb-2">
+                <h1 id="about-title" class="text-center headers mb-2 ">Sobre nosotros</h1>
+                <p id="about-paragraph" class="text-center paragraphs xl:w-[300px] max-w-[748px] mx-auto">"Somos una clínica dental que cumple con los más altos estándares para cuidar de su salud bucal y de su familia, contamos con personal especializado, capacitado, certificado y actualizado para darle una atención de primera calidad."</p>
+            </div>
+            <div class="flex flex-col  xl:h-[500px] justify-around xl:items-start">
+                <h1 id="about-video-title" class="headers text-center xl:ml-4">Un video sobre nosotros</h1>
+                <video src="/static/img/about-us-video.mp4" type="video/mp4" controls class="w-[95%] max-w-[748px] mx-auto rounded-4xl"></video>
+            </div>
+        </div>
+    </section>
+
+    <!--Location Section-->
+    <section id="location" class="animate-scroll opacity-0 transition-opacity duration-1000">
+        <div class="flex flex-col relative bg-[url(/static/img/ubication-bg.png)] bg-cover rounded-4xl w-[95%] max-w-[748px] lg:max-w-[95%] xl:max-w-[95%] items-center justify-center mx-auto mt-28 h-auto xl:h-[700px] gap-10">
+            <div class="absolute inset-0 z-1 opacity-95 bg-lightBlue rounded-4xl"></div>
+            <!--Content-->
+            <h1 id="location-title" class="headers-white w-[95%] mt-10 z-10">Ubicación</h1>
+            <div class="flex flex-col lg:flex-row w-[95%] gap-6  mb-10">
+                <!--First Div-->
+                <div class="flex z-10 lg:w-[50%]">
+                    <div class="flex flex-col  bg-white rounded-4xl">
+                        <img src="/static/img/location-image.png" alt="">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex flex-row items-center">
+                                <img src="/static/img/gps-blue-icon.svg"  alt="" class="size-8">
+                                <h1 class="headers">Ciudad Juarez</h1>
+                            </div>
+                            <p  id="location-paragraph" class="paragraphs w-[98%] mx-auto">A solo 5 minutos del puente libre, nos encuentras en Épsilon 1823, Magnaplex (justo al costado del Hotel Maria Bonita, sobre Rafael Pérez Serna).</p>
+                            <div class="flex w-[98%] justify-end">
+                                <a id="location-btn" href="" class="font-quicksand mb-2 text-xl py-4 px-5 bg-deepestBlue rounded-4xl text-center text-white font-medium">Indicaciones</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!--Second Div-->
+                <div class="flex overflow-hidden lg:w-[50%] h-[400px] lg:h-auto rounded-4xl  z-10">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3392.7048687467554!2d-106.4273764!3d31.7512558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86e75b900f34e731%3A0xf164954dd1564a69!2sBencomo%20Dental%20Clinic!5e0!3m2!1sen!2smx!4v1738882294897!5m2!1sen!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Specialists-->
+    <div class="flex flex-col slider_wrapper w-[95%] mt-10 lg:mt-28 mb-10 lg:mb-28">
+        <h1 id="Our Specialists" class="headers w-[95%] mx-auto mt-10 lg:mt-32 text-center lg:text-left">Nuestros Especialistas</h1>
+        <div class="flex slider_wrapper w-[95%] mx-auto justify-center mt-10 lg:mb-32  overflow-hidden">
+            <section class="splide animate-scroll opacity-0 transition-opacity duration-1000" aria-label="Splide Basic HTML Example ">
+                <div class="splide__arrows">
+                    <button class="splide__arrow splide__arrow--prev">
+                        <img src="/static/img/left-arrow.png" alt="">
+                    </button>
+                    <button class="splide__arrow splide__arrow--next">
+                        <img src="/static/img/right-arrow.png" alt="">
+                    </button>
+                </div>
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <!--First Container-->
+                        <li class="splide__slide">
+                            <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl">
+                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <div class="flex flex-col w-[90%] mx-auto mb-6 gap-1">
+                                    <p class="doctor-title-female font-quicksand font-medium text-base lg:text-lg text-white">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-white">Melissa Bencomo</h1>
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-white">Ondontologia General y Rehabilitacion Oral</p>
+                                    <a href="" class="hover-btn hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
+                                        <p>Agendar Cita</p>
+                                        <img src="/static/img/date-white.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </li>
+                        <!--Second Container-->
+                        <li class="splide__slide">
+                            <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
+                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
+                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <img src="/static/img/date-white.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </li>
+                        <!--Third Container-->
+                        <li class="splide__slide">
+                            <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
+                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
+                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <img src="/static/img/date-white.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--Fourth Container-->
+                        <li class="splide__slide">
+                            <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
+                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
+                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <img src="/static/img/date-white.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--Fifth Container-->
+                        <li class="splide__slide">
+                            <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
+                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
+                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <img src="/static/img/date-white.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                        <!--Sixth Container-->
+                        <li class="splide__slide">
+                            <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
+                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
+                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
+                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <img src="/static/img/date-white.png" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </li>
+                    </ul>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+    </div>
+    
+    <!--Testimonies-->
+    <section id="Testimonies" class="animate-scroll opacity-0 transition-opacity duration-1000">
+        <div class="flex flex-col  lg:flex-row w-[95%] mx-auto justify-center gap-3 lg:h-[800px]">
+            <!--Left and first Container-->
+            <div class="flex flex-col bg-[url(/static/img/ubication-bg.png)] rounded-4xl w-[100%] min-h-[800px] lg:w-[50%] justify-center relative">
+                <div class="absolute inset-0 z-1 opacity-95 bg-deepestBlue rounded-4xl"></div>
+                <div class="flex flex-col w-[80%] mx-auto h-[90%] z-10">
+                    <h1 class="headers-white text-center w-[100%] mb-4 mt-4">Nuestros pacientes hablan por nosotros</h1>
+                    <!--First Testimony-->
+                    <div id='testimony-1' class="bg-white rounded-4xl min-h-[70%] w-[95%] lg:w-[90%] xl:w-[75%] mx-auto lg:mt-5">
+                        <div class="flex flex-col w-[95%] h-[450px]  items-center mx-auto justify-center ">
+                        <h1 id="testimony-1-name" class="text-left w-[100%] font-bold font-quicksand text-lg lg:text-xl">Orlando Aguayo</h1>
+                        <p id="testiomony-1-paragraph" class="text-left paragraphs">La mejor clinica dental que he visitado, una experiencia diferente al visitar el dentista, Se los recomiendo mucho.</p>
+                        <h1 id="via-facebook" class="w-[100%] text-left font-bold font-quicksand text-lg lg:text-xl">Via Facebook</h1>
+                        </div>
+                    </div>
+                    <!--Second Testimony-->
+                    <div id='testimony-2' class="bg-white rounded-4xl min-h-[70%] w-[95%] lg:w-[90%] xl:w-[75%] mx-auto lg:mt-5 transition-all duration-1000">
+                        <div class="flex flex-col w-[95%] h-[450px]  items-center mx-auto justify-center ">
+                        <h1 id="testimony-1-name" class="text-left w-[100%] font-bold font-quicksand text-lg lg:text-xl">Tanya Loya</h1>
+                        <p id="testiomony-1-paragraph" class="text-left paragraphs">Excelente clínica! El trato de todos es super amable te hacen sentir cómodo desde que llegas. El Dr. García ha sido sin duda el mejor dentista al que he acudido, se toma el tiempo de explicar cada paso del tratamiento y hacerte sentir en confianza/seguro durante el proceso! 100% los recomiendo
+                        </p>
+                        <h1 id="via-facebook" class="w-[100%] text-left font-bold font-quicksand text-lg lg:text-xl">Via Google</h1>
+                        </div>
+                    </div>
+                    <!--Third Testimony-->
+                    <div id='testimony-3' class="bg-white rounded-4xl min-h-[70%] w-[95%] lg:w-[90%] xl:w-[75%] mx-auto lg:mt-5 ease-in transition-all  duration-1000">
+                        <div class="flex flex-col w-[95%] h-[450px]  items-center mx-auto justify-center ">
+                        <h1 id="testimony-1-name" class="text-left w-[100%] font-bold font-quicksand text-lg lg:text-xl">Becky Arias</h1>
+                        <p id="testiomony-1-paragraph" class="text-left paragraphs">Soy muy nerviosa para asistir al dentista, pero en esta Clínica y en manos de la doctora Bencomo me he sentido de maravilla. ¡El trato es muy cálido y respetuoso y el trabajo que hicieron en mi boca es el mejor de mi vida! ¡Gracias mil!
+                        </p>
+                        <h1 id="via-facebook" class="w-[100%] text-left font-bold font-quicksand text-lg lg:text-xl">Via Facebook</h1>
+                        </div>
+                    </div>
+                    <!--Arrows-->
+                    <div class="flex flex-row mx-auto mt-3 mb-3 gap-3">
+                        <button id="arrow-left" class="cursor-pointer">
+                            <img src="/static/img/left-arrow-white.png" alt="">
+                        </button>
+                        <button id="arrow-right" class="cursor-pointer">
+                            <img src="/static/img/right-arrow-white.png" alt="">
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+            <!--Right and Second Container-->
+            <div class="flex flex-col bg-lightBlue rounded-4xl w-[100%] lg:w-[50%] min-h-[400px] lg:min-h-[800px] justify-center relative">
+                <div class="absolute inset-0 z-10  bg-[url(/static/img/bg-testimony-images.png)] rounded-4xl opacity-15"></div>
+                <div class="flex flex-col min-h-[70%] items-center justify-center mx-auto z-20">
+                    <h1 class="headers-white text-center w-[80%] mb-4 lg:mb-12 mt-4">Una <span class="line-through">imagen</span> sonrisa vale más que mil palabras</h1>
+                    <!--Image-1-->
+                    <div id="testimony-image-1" class="flex flex-col w-[95%] max-w-[650px] mx-auto  mt-7 ">
+                        <img src="/static/img/smile-1.png" alt="" class="mx-auto">
+                    </div>
+                    <!--Image-2-->
+                    <div id="testimony-image-2" class="flex flex-col w-[95%] max-w-[650px] justify-center mt-7 mx-auto">
+                        <img src="/static/img/smile-2.png" alt="" class="mx-auto">
+                    </div>
+                    <!--Image-3-->
+                    <div id="testimony-image-3" class="flex flex-col w-[95%] max-w-[650px] justify-center mt-7 mx-auto">
+                        <img src="/static/img/smile-3.png" alt="" class="mx-auto">
+                    </div>
+                    <!--Arrows-->
+                    <div class="flex flex-row mt-3 gap-3">
+                        <button id="testimony-image-arrow-left" class="cursor-pointer">
+                            <img src="/static/img/left-arrow-white.png" alt="" class="mx-auto">
+                        </button>
+                        <button id="testimony-image-arrow-right" class="cursor-pointer">
+                            <img src="/static/img/right-arrow-white.png" alt="" class="mx-auto">
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <!--Testimony-video Section-->
+    <section class="opacity-0 transition-opacity duration-1000 mt-12">
+        <div id="space" class="flex flex-col  w-[95%] mx-auto gap-4 bg-gray rounded-4xl transition-colors ease-in-out duration-1000">
+            <h1 class="headers text-center mt-4 lg:mt-20">Un testimonio...</h1>
+            <p class="paragraphs text-center">De lo que significamos para nuestros pacientes</p>
+            <div class="flex flex-row mx-auto items-center gap-2">
+                <p id="light-paragraph" class="text-lightBlue font-nunito text-center">Apaga la luz para ver mejor</p>
+                <p id="light-paragraph" class="text-lightBlue font-nunito text-center">Enciende la luz</p>
+                <button id="" class="cursor-pointer">
+                    <img id="light-off" src="/static/img/light-des.png" alt="">
+                    <img id="light-on" src="/static/img/light-ac.png" alt="" class="hidden">
+                </button>
+            </div>
+            <video src="/static/img/testimony-video.mp4" class="mb-20 max-w-[95%] lg:max-w-[80%] mx-auto rounded-4xl" type="video/mp4" controls ></video>
+        </div>
+    </section>
+    <!--Slider #1 Script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var splide = new Splide( '.splide', {
+                perPage: 3,
+                perMove: 1,
+                pagination: false,
+                omitEnd: 'true',
+                width: '100%',
+                gap: '.5em',
+                breakpoints : {
+                    780: {
+                        perPage: 1,
+                        width: '100%',
+                    },
+
+                    1024: {
+                        perPage: 2,
+                        width: '100%',
+                    }
+                }
+            });
+
+        splide.mount();
+        });
+    </script>
+
+
+
+    <!--Slider #2 Script-->
+    <!--Scripts-->
+    <script src="/static/js/light.js"></script>
+    <script src="/static/js/menu.js"></script>
+    <script src="/static/js/language.js"></script>
+    <script src="/static/js/animations.js"></script>
+    <script src="/static/js/scroll.js"></script>
+    <script src="/static/js/testimony-slider.js"></script>
+    <script> const CONTENT_URL= "{{ url_for('static', filename='content.json') }}" </script>
+    <script src="{{ url_for('static', filename='language.js') }}"></script> 
 </body>
+
 </html>

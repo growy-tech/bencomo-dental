@@ -1,0 +1,41 @@
+{
+    "en":{
+        "lan" : "English",
+        "title" : "Bencomo Dental Clinic",
+        "locationMenu": "Location",
+        "specialistsMenu": "Specialists",
+        "reviewsMenu": "Reviews",
+        "contactMenu": "Contact",
+        "paymentMenu": "Payment Methods",
+        "faqMenu": "FAQ",
+        "heroTitle": "We guarantee exceptional results with speed",
+        "appointmentElements" : "Book Now",
+        "locationButtons": "Our Location",
+        "heroParagraph": "From patient to friend",
+        "aboutTitle": "About Us",
+        "aboutParagraph": "Our dental clinic adheres to the highest standards of oral health care for you and your family. We have a specialized, trained, certified, and current staff to ensure you receive top-quality attention.",
+        "aboutVideo": "A video about us",
+        "locationTitle": "Get directions",
+        "locationParagraph": "Located just 5 minutes from the Free Bridge, we're at Epsilon 1823, Magnaplex (adjacent to the Hotel Maria Bonita, on Rafael Pérez Serna)."
+    },
+
+    "es":{
+        "lan" : "Español",
+        "title" : "Clinica Dental Bencomo",
+        "locationMenu": "Ubicación",
+        "specialistsMenu": "Especialistas",
+        "reviewsMenu": "Testimonios",
+        "contactMenu": "Contacto",
+        "paymentMenu": "Métodos de pago",
+        "faqMenu": "FAQ",
+        "heroTitle": "Garantizamos resultados en poco tiempo",
+        "appointmentElements": "Agendar Cita",
+        "locationButtons": "Ubicación",
+        "heroParagraph": "Entra como paciente y sal como amigo",
+        "aboutTitle": "Sobre nosotros",
+        "aboutParagraph": "Somos una clínica dental que cumple con los más altos estándares para cuidar de su salud bucal y de su familia, contamos con personal especializado, capacitado, certificado y actualizado para darle una atención de primera calidad.",
+        "aboutVideo": "Un video sobre nosotros",
+        "locationTitle": "Ubicación",
+        "locationParagraph": "A solo 5 minutos del puente libre, nos encuentras en Épsilon 1823, Magnaplex (justo al costado del Hotel Maria Bonita, sobre Rafael Pérez Serna)."
+    }
+}

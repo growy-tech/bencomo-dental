@@ -3,9 +3,9 @@
     "dev": "npx @tailwindcss/cli -i ./temp/input.css -o ./static/output.css --watch"
   },
   "dependencies": {
+    "@splidejs/splide": "^4.1.4",
     "@tailwindcss/cli": "^4.0.3",
+    "swiper": "^11.2.2",
     "tailwindcss": "^4.0.3"
   }
 }
-
-

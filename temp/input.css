@@ -1,1 +1,68 @@
 @import "tailwindcss";
+
+@theme {
+    --font-nunito: Nunito Sans;
+    --font-quicksand: Quicksand;
+
+
+    --color-deepBlue: #013345;
+    --color-deepestBlue: #1C2340;
+    --color-lightBlue: #027FAB;
+    --color-gray: #F5F5F5;
+}
+
+.item-menu {
+    @apply font-quicksand font-bold text-deepestBlue text-base
+}
+
+.item-link {
+    @apply font-quicksand text-lg xl:text-xl font-bold
+}
+
+.hero-main-text {
+    @apply font-bold text-white font-quicksand text-4xl text-center w-[98%] mx-auto   xl:mx-0 xl:text-5xl xl:text-left 2xl:text-7xl
+}
+
+.hover-btn {
+    @apply hover:scale-105  hover:shadow-xl shadow-lightBlue transition-shadow duration-1000
+}
+
+.hover-btn-blue {
+    @apply hover:bg-gradient-to-br hover:from-lightBlue hover:to-deepestBlue hover:text-white  transition-colors duration-1000
+}
+
+.hover-btn-white {
+    @apply hover:bg-gradient-to-br hover:from-lightBlue hover:to-white transition-colors duration-1000
+}
+
+.headers {
+    @apply font-bold font-quicksand text-3xl xl:text-5xl text-deepestBlue
+}
+
+.headers-white {
+    @apply font-bold font-quicksand text-3xl xl:text-5xl text-white
+}
+
+.paragraphs {
+    @apply font-nunito text-lg xl:text-xl text-deepestBlue
+}
+
+.slider_wrapper {
+    @apply mx-auto bg-gray rounded-4xl
+}
+
+.splide__track {
+    @apply w-[85%]  mx-auto  mb-10
+}
+
+.cont {
+    @apply hover:bg-gradient-to-b hover:from-deepestBlue hover:to-lightBlue hover:transition-colors hover:duration-1000
+}
+
+.group:hover p{
+    @apply text-white
+}
+
+.group:hover h1{
+    @apply text-white
+}

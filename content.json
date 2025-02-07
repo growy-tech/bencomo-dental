@@ -1,0 +1,24 @@
+{
+    "en":{
+        "lan" : "English",
+        "title" : "Bencomo Dental Clinic",
+        "locationMenu": "Location",
+        "specialistsMenu": "Specialists",
+        "reviewsMenu": "Reviews",
+        "contactMenu": "Contact",
+        "paymentMenu": "Payment Methods",
+        "faqMenu": "FAQ",
+        "heroTitle": "We guarantee exceptional results with speed"
+    },
+
+    "es":{
+        "lan" : "Español",
+        "title" : "Clínica Dental Bencomo",
+        "locationMenu": "Ubicacion",
+        "specialistsMenu": "Especialistas",
+        "reviewsMenu": "Testimonios",
+        "contactMenu": "Contacto",
+        "paymentMenu": "Métodos de pago",
+        "faqMenu": "FAQ"
+    }
+}
