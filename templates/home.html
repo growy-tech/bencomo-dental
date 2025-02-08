@@ -536,12 +536,12 @@
                                             <img src="/static/img/s-4.png" alt="">
                                         </li>
                                         <!--Fifth Container-->
-                                        <li class="splide__slide">
-                                            
+                                        <li class="splide__slide flex items-end">
+                                            <img src="/static/img/s-5.png" alt="" >
                                         </li>
                                         <!--Sixth Container-->
-                                        <li class="splide__slide">
-                                            
+                                        <li class="splide__slide flex">
+                                            <img src="/static/img/s-6.png" alt="">
                                         </li>
                                     </ul>
                                     </ul>
@@ -568,7 +568,8 @@
                 omitEnd: 'true',
                 width: '100%',
                 gap: '.5em',
-                omitEnd: true,                breakpoints : {
+                omitEnd: true,                
+                breakpoints : {
                     780: {
                         perPage: 1,
                         width: '100%',
@@ -591,21 +592,22 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var splide = new Splide( '#insurances-slide', {
-                perPage: 3,
+                perPage: 4,
                 rewind : true,
                 fixedHeight: '6rem',
                 autoplay: true,
+                width: '100%',
+                gap: '.5em',
                 breakpoints: {
                     768: {
                         perPage: 2,
                         padding: '10%',
-                        gap: '4em',
+                        gap: '1em',
                     },
 
-                    600: {
+                    480: {
                         perPage: 1,
-                        padding: '15%',
-                        gap: '3em',
+                        gap: '2.9em'
                     }
                 }
             });
