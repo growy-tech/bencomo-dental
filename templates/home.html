@@ -153,7 +153,7 @@
     <div class="flex flex-col slider_wrapper w-[95%] mt-10 lg:mt-28 mb-10 lg:mb-28">
         <h1 id="Our Specialists" class="headers w-[95%] mx-auto mt-10 lg:mt-32 text-center lg:text-left">Nuestros Especialistas</h1>
         <div class="flex slider_wrapper w-[95%] mx-auto justify-center mt-10 lg:mb-32  overflow-hidden">
-            <section class="splide animate-scroll opacity-0 transition-opacity duration-1000" aria-label="Splide Basic HTML Example ">
+            <section id="specialists-slide" class="splide animate-scroll opacity-0 transition-opacity duration-1000" aria-label="Splide Basic HTML Example ">
                 <div class="splide__arrows">
                     <button class="splide__arrow splide__arrow--prev">
                         <img src="/static/img/left-arrow.png" alt="">
@@ -364,7 +364,7 @@
     <section id="payment" class="opacity-0 transition-opacity duration-1000 mt-12">
         <div class="flex flex-col lg:flex-row w-[95%] mx-auto mt-10 gap-6 lg:h-[595px] items-center mb-12">
             <!--Left & First Container-->
-            <div class="flex flex-col lg:basis-1/3 rounded-4xl bg-gray lg:w-[35%] lg:h-[595px]">
+            <div class="flex flex-col lg:basis-2/3 rounded-4xl bg-gray lg:w-[35%] lg:h-[595px]">
                 <div class="flex flex-col  w-[90%] sm:w-[60%] lg:w-[65%]  mx-auto items-center gap-3 mt-6">
                     <h1 class="headers text-center lg:text-left">Métodos de pago aceptados</h1>
                     <img src="/static/img/cash-icon.png" alt="" class="size-14">
@@ -374,13 +374,13 @@
                     <img src="/static/img/transfer-icon.png" alt="" class="size-14">
                     <p class="paragraph">Transferencia</p>
                     <div class="w-[100%] h-1 bg-deepestBlue"></div>
-                    <a href="" class="bg-deepestBlue px-14 py-4 rounded-4xl mb-6">
-                        <p class="font-quicksand font-medium text-white text-center">Pagar con <span class="font-bold">Stripe</span></p>
+                    <a href="" class="bg-deepestBlue px-14 py-1 rounded-4xl mb-6 hover-btn hover-btn-blue">
+                        <p class="font-quicksand font-medium text-white text-center text-2xl">Pagar con <span class="font-bold">Stripe</span></p>
                     </a>
                 </div>
             </div>
             <!--Right & Second Container-->
-            <div class="flex flex-col lg:basis-2/3 rounded-4xl bg-gradient-to-r from-deepestBlue to-lightBlue  lg:h-[595px]">
+            <div class="flex flex-col lg:basis-3/3 rounded-4xl bg-gradient-to-r from-deepestBlue to-lightBlue  lg:h-[595px]">
                 <div class="flex flex-col w-[90%] sm:w-[70%] lg:w-[75%] mx-auto items-center justify-center gap-7 mt-6">
                     <h1 class="headers-white text-center lg:text-left mt-6">Pensando en tu bienestar</h1>
                     <img src="/static/img/check.png" alt="" class="size-14">
@@ -424,28 +424,151 @@
                     </div>
                 
                     <div class="text-right">
-                        <button type="submit" class="bg-deepestBlue  text-white font-medium font-quicksand py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
+                        <button type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
                     </div>
                 </form>
             </div>
             <!--Contact Section-->
-            <div class="flex flex-col basis-1/2">
+            <div class="flex flex-col basis-1/2 z-10 mb-10">
+                <h1 class="mt-10 mb-20 headers-white text-center">Nuestras Redes Sociales</h1>
+                <div class="flex flex-col gap-5">
+                    <a href="" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
+                        <p class=" font-quicksand font-medium text-white text-center text-2xl py-2">Facebook</p>
+                        <img src="/static/img/fb-icon.png" alt="">
+                    </a>
+                    <a href="" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
+                        <p class=" font-quicksand font-medium text-white text-center text-2xl py-2">Instagram</p>
+                        <img src="/static/img/ig-icon.png" alt="">
+                    </a>
+                    <p class="paragraphs-white mx-auto">También puedes mandarnos mensaje:</p>
+                    <a href="" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
+                        <p class=" font-quicksand font-medium text-white text-center text-2xl py-2">WhatsApp</p>
+                        <img src="/static/img/whatsapp-white.png" alt="">
+                    </a>
+                </div>
+                
 
             </div>
         </div>
     </section>
 
+    <!--FAQ-->
+    <section id="faq" class="opacity-0 transition-opacity duration-100">
+        
+        <div class="flex flex-col w-[95%] mt-28 mb-28 mx-auto bg-gray rounded-4xl cursor-pointer" id="section-faq">
+            <h1 class="headers text-center mt-10">Dudas frecuentes</h1>
+            <!--Horarios-->
+            <div id="hours" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto">
+                <img id="arrow-hours" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2" alt="">
+                <h1 class="text-2xl paragraphs-white font-bold faq-item faq-question z-10">¿Cuáles son los horarios?</h1>
+                <div class="text-deepestBlue">.</div>
+            </div>
+            <!--Div to show-->
+            <div id="hours-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
+                <div class="flex flex-row items-center justify-between ">
+                    <img id="arrow-hours" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2 hidden md:flex" alt="">
+                    <div class="flex flex-col mx-auto md:mx-auto">
+                        <h1 class="paragraphs font-bold text-center mt-12">Lunes a Viernes</h1>
+                        <h1 class="text-center paragraphs ">9:00 am - 7:00 pm</h1>
+                        <h1 class="text-center paragraphs font-bold">Sabados</h1>
+                        <h1 class="text-center paragraphs mb-14">9:00 am a 7:00 pm</h1>
+                    </div>
+                    <div class="bg-white hidden md:flex">.</div>
+                </div>
+            </div>
+    
+            <!--Ubicacion-->
+            <div id="ubication" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto">
+                <img id="arrow-ubication" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2" alt="">
+                <h1 class="text-2xl paragraphs-white font-bold faq-item faq-question z-10">¿Cómo llegar a la clínica?</h1>
+                <div class="text-backgroundGreen">.</div>
+            </div>
+            <!--Div to show-->
+            <div id="ubication-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
+                <div class="flex flex-row items-center justify-between">
+                    <img id="arrow-hours" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2 hidden md:flex" alt="">
+                    <div class="flex flex-col mx-auto md:mx-auto">
+                        <h1 class="text-center mt-14 font-bold paragraphs">Ve aqui como llegar:</h1>
+                        <video src="/static/img/how-to.mp4" controls type="video/mp4" class="mb-10 rounded-4xl max-w-[95%] mx-auto"></video>
+                    </div>
+                    <div class="bg-white hidden md:flex">.</div>
+                </div>          
+            </div>
+            <!--Metodos de pago-->
+            <div id="pay" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto">
+                <img id="arrow-pay" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2" alt="">
+                <h1 class="text-2xl paragraphs-white font-bold faq-item faq-question z-10">¿Aceptan aseguranzas?</h1>
+                <div class="text-backgroundGreen">.</div>
+            </div>
+            <!--Div to show-->
+            <div id="pay-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
+                <div class="flex flex-row items-center justify-between">
+                    <img id="arrow-hours" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2 hidden md:flex" alt="">
+                    <div class="flex flex-col mx-auto md:mx-auto">
+                        <h1 class="text-center font-bold paragraphs mt-14">Si, aceptamos las siguientes aseguranzas americanas:</h1>
+                        <!--slide-->
+                        <div class="flex slider_wrapper w-[100%] mx-auto  items-center mt-10 lg:mb-32  overflow-hidden">
+                            <section id="insurances-slide" class="splide animate-scroll opacity-0 transition-opacity duration-1000" aria-label="Splide Basic HTML Example ">
+                                <div class="splide__arrows">
+                                    <button class="splide__arrow splide__arrow--prev">
+                                        <img src="/static/img/left-arrow.png" alt="">
+                                    </button>
+                                    <button class="splide__arrow splide__arrow--next">
+                                        <img src="/static/img/right-arrow.png" alt="">
+                                    </button>
+                                </div>
+                                <div class="splide__track splide__track_ m-0 overflow-hidden">
+                                    <ul class="splide__list">
+                                        <!--First Container-->
+                                        <li class="splide__slide flex items-end">
+                                            <img src="/static/img/s-1.png" alt="">
+                                        </li>
+                                        <!--Second Container-->
+                                        <li class="splide__slide flex items-end">
+                                            <img src="/static/img/s-2.png" alt="">
+                                        </li>
+                                        <!--Third Container-->
+                                        <li class="splide__slide flex items-end">
+                                            <img src="/static/img/s-3.png" alt="">
+                                        </li>
+                                        <!--Fourth Container-->
+                                        <li class="splide__slide flex items-end">
+                                            <img src="/static/img/s-4.png" alt="">
+                                        </li>
+                                        <!--Fifth Container-->
+                                        <li class="splide__slide">
+                                            
+                                        </li>
+                                        <!--Sixth Container-->
+                                        <li class="splide__slide">
+                                            
+                                        </li>
+                                    </ul>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                        <!--end slide-->
+                        <h1 class="text-center mb-14 font-paragraphs">Spei, Binance, Efectivo</h1>
+                    </div>
+                    <div class="bg-white hidden md:flex">.</div>
+                </div>
+            </div>
+        </div>
+    
+    </section>
+
     <!--Slider #1 Script-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var splide = new Splide( '.splide', {
+            var splide = new Splide( '#specialists-slide', {
                 perPage: 3,
                 perMove: 1,
                 pagination: false,
                 omitEnd: 'true',
                 width: '100%',
                 gap: '.5em',
-                breakpoints : {
+                omitEnd: true,                breakpoints : {
                     780: {
                         perPage: 1,
                         width: '100%',
@@ -455,6 +578,35 @@
                         perPage: 2,
                         width: '100%',
                     }
+
+
+                }
+            });
+
+        splide.mount();
+        });
+    </script>
+        
+    <!--Slider #2 Script-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var splide = new Splide( '#insurances-slide', {
+                perPage: 3,
+                rewind : true,
+                fixedHeight: '6rem',
+                autoplay: true,
+                breakpoints: {
+                    768: {
+                        perPage: 2,
+                        padding: '10%',
+                        gap: '4em',
+                    },
+
+                    600: {
+                        perPage: 1,
+                        padding: '15%',
+                        gap: '3em',
+                    }
                 }
             });
 
@@ -463,9 +615,9 @@
     </script>
 
 
-
     <!--Slider #2 Script-->
     <!--Scripts-->
+    <script src="/static/js/toggle.js"></script>
     <script src="/static/js/light.js"></script>
     <script src="/static/js/menu.js"></script>
     <script src="/static/js/language.js"></script>
