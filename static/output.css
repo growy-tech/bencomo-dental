@@ -945,6 +945,9 @@
   .min-h-screen {
     min-height: 100vh;
   }
+  .w-1 {
+    width: calc(var(--spacing) * 1);
+  }
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
@@ -1019,6 +1022,9 @@
   }
   .grow {
     flex-grow: 1;
+  }
+  .basis-1 {
+    flex-basis: calc(var(--spacing) * 1);
   }
   .basis-1\/2 {
     flex-basis: calc(1/2 * 100%);
@@ -2235,14 +2241,14 @@
   .opacity-0 {
     opacity: 0%;
   }
-  .opacity-95 {
-    opacity: 95%;
-  }
   .opacity-100 {
     opacity: 100%;
   }
   .opacity-15 {
     opacity: 15%;
+  }
+  .opacity-95 {
+    opacity: 95%;
   }
   .mix-blend-plus-darker {
     mix-blend-mode: plus-darker;
@@ -2635,6 +2641,16 @@
   .lg\:mt-32 {
     @media (width >= 64rem) {
       margin-top: calc(var(--spacing) * 32);
+    }
+  }
+  .lg\:mb-2 {
+    @media (width >= 64rem) {
+      margin-bottom: calc(var(--spacing) * 2);
+    }
+  }
+  .lg\:mb-10 {
+    @media (width >= 64rem) {
+      margin-bottom: calc(var(--spacing) * 10);
     }
   }
   .lg\:mb-12 {

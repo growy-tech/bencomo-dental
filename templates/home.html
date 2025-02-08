@@ -478,13 +478,13 @@
             </div>
     
             <!--Ubicacion-->
-            <div id="ubication" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto">
+            <div id="ubication" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto z-10">
                 <img id="arrow-ubication" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2" alt="">
-                <h1 class="text-2xl paragraphs-white font-bold faq-item faq-question z-10">¿Cómo llegar a la clínica?</h1>
+                <h1 class="text-2xl paragraphs-white font-bold faq-item faq-question ">¿Cómo llegar a la clínica?</h1>
                 <div class="text-backgroundGreen">.</div>
             </div>
             <!--Div to show-->
-            <div id="ubication-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl bg-white">
+            <div id="ubication-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl bg-white z-1">
                 <div class="flex flex-row items-center justify-between">
                     <img id="arrow-hours" src="/static/img/arrow.png" class="object-contain ml-3 my-2 hidden md:flex" alt="">
                     <div class="flex flex-col mx-auto md:mx-auto">
@@ -507,8 +507,8 @@
                     <div class="flex flex-col mx-auto md:mx-auto">
                         <h1 class="text-center font-bold paragraphs mt-14">Si, aceptamos las siguientes aseguranzas americanas:</h1>
                         <!--slide-->
-                        <div class="flex slider_wrapper w-[95%]  mx-auto  items-center mt-10 lg:mb-32  overflow-hidden">
-                            <section id="insurances-slide" class="splide flex  justify-end animate-scroll opacity-0 transition-opacity duration-1000 mb-16" aria-label="Splide Basic HTML Example ">
+                        <div class="flex slider_wrapper w-[95%]  mx-auto  items-center mt-10 lg:mb-2 overflow-hidden">
+                            <section id="insurances-slide" class="splide flex  justify-end animate-scroll opacity-0 transition-opacity duration-1000 mb-10" aria-label="Splide Basic HTML Example ">
                                 <div class="splide__arrows">
                                     <button class="splide__arrow splide__arrow--prev">
                                         <img src="/static/img/left-arrow.png" alt="">
@@ -573,6 +573,18 @@
                             </section>
                         </div>
                         <!--end slide-->
+                    <!--MX insurance logos-->
+                    <div class="flex flex-col mx-auto mb-6">
+                        <h1 class="text-center font-bold paragraphs">Y las siguientes aseguranzas mexicanas:</h1>
+                        <ul class="flex flex-row mx-auto">
+                            <li>
+                                <img src="/static/img/sm-1.png" alt="">
+                            </li>
+                            <li>
+                                <img src="/static/img/sm-2.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
             
                     </div>
                     <div class="bg-white hidden md:flex">.</div>
@@ -630,7 +642,8 @@
 
                     480: {
                         perPage: 1,
-                        gap: '1.5em'
+                        gap: '1.5em',
+                        rewind: true,
                     }
                 }
             });
