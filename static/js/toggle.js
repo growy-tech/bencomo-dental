@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () =>  {
-    const arrowHours = document.getElementById('hours');
+    const arrowHours = document.getElementById('hours-fix');
     const hoursDiv = document.getElementById('hours-div');
     const ubication = document.getElementById('ubication');
     const ubicationDiv = document.getElementById('ubication-div')
