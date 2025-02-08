@@ -127,7 +127,7 @@
                 <!--First Div-->
                 <div class="flex z-10 lg:w-[50%]">
                     <div class="flex flex-col  bg-white rounded-4xl">
-                        <img src="/static/img/location-image.png" alt="">
+                        <img src="/static/img/location-image.png" alt="" class="w-[100%] rounded-t-4xl">
                         <div class="flex flex-col gap-3">
                             <div class="flex flex-row items-center">
                                 <img src="/static/img/gps-blue-icon.svg"  alt="" class="size-8">
@@ -135,7 +135,7 @@
                             </div>
                             <p  id="location-paragraph" class="paragraphs w-[98%] mx-auto">A solo 5 minutos del puente libre, nos encuentras en Épsilon 1823, Magnaplex (justo al costado del Hotel Maria Bonita, sobre Rafael Pérez Serna).</p>
                             <div class="flex w-[98%] justify-end">
-                                <a id="location-btn" href="" class="font-quicksand mb-2 text-xl py-4 px-5 bg-deepestBlue rounded-4xl text-center text-white font-medium">Indicaciones</a>
+                                <a id="directions-btn" href="" class="font-quicksand mb-2 text-xl py-4 px-5 bg-deepestBlue rounded-4xl text-center text-white font-medium">Indicaciones</a>
                             </div>
                         </div>
 
@@ -151,7 +151,7 @@
 
     <!--Specialists-->
     <div class="flex flex-col slider_wrapper w-[95%] mt-10 lg:mt-28 mb-10 lg:mb-28">
-        <h1 id="Our Specialists" class="headers w-[95%] mx-auto mt-10 lg:mt-32 text-center lg:text-left">Nuestros Especialistas</h1>
+        <h1 id="our-specialists" class="headers w-[95%] mx-auto mt-10 lg:mt-32 text-center lg:text-left">Nuestros Especialistas</h1>
         <div class="flex slider_wrapper w-[95%] mx-auto justify-center mt-10 lg:mb-32  overflow-hidden">
             <section id="specialists-slide" class="splide animate-scroll opacity-0 transition-opacity duration-1000" aria-label="Splide Basic HTML Example ">
                 <div class="splide__arrows">
@@ -171,9 +171,9 @@
                                 <div class="flex flex-col w-[90%] mx-auto mb-6 gap-1">
                                     <p class="doctor-title-female font-quicksand font-medium text-base lg:text-lg text-white">Doctora</p>
                                     <h1 class="font quicksand font-bold text-xl lg:text-2xl text-white">Melissa Bencomo</h1>
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-white">Ondontologia General y Rehabilitacion Oral</p>
-                                    <a href="" class="hover-btn hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
-                                        <p>Agendar Cita</p>
+                                    <p id="doctor-des-1" class="font-quicksand font-medium text-base lg:text-lg text-white">Ondontologia General y Rehabilitacion Oral</p>
+                                    <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
+                                        <p class="appointment-buttons  font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
                                         <img src="/static/img/date-white.png" alt="">
                                     </a>
                                 </div>
@@ -183,13 +183,13 @@
                         <!--Second Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="/static/img/person-2.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
-                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <p class="doctor-title-male font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctor</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Emmanuel Ferniza</h1>
+                                    <p id="doctor-des-2" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Endodoncista</p>
                                     <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
-                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
                                         <img src="/static/img/date-white.png" alt="">
                                     </a>
                                 </div>
@@ -199,13 +199,13 @@
                         <!--Third Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="/static/img/person-3.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
-                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <p class="doctor-title-male font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctor</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Ever Rentería</h1>
+                                    <p id="doctor-des-3" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Maxilofacial</p>
                                     <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
-                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
                                         <img src="/static/img/date-white.png" alt="">
                                     </a>
                                 </div>
@@ -214,13 +214,13 @@
                         <!--Fourth Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="/static/img/person-4.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
-                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <p class="doctor-title-male font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctor</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Oscar Chaparro</h1>
+                                    <p id="doctor-des-4" class=" font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Odontología General</p>
                                     <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
-                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
                                         <img src="/static/img/date-white.png" alt="">
                                     </a>
                                 </div>
@@ -229,14 +229,14 @@
                         <!--Fifth Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="/static/img/person-5.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
-                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <p class="doctor-title-female font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Valeria Trimmer </h1>
+                                    <p id="doctor-des-5" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Periodoncista</p>
                                     <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
-                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/date-white.png" alt="">
+                                        <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <img src="/static/img/whatsapp-white.png" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -244,14 +244,14 @@
                         <!--Sixth Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-1.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="/static/img/person-6.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
-                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Melissa Bencomo</h1>
-                                    <p class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ondontologia General y Rehabilitacion Oral</p>
+                                    <p class="doctor-title-female font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
+                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Selma Pérez</h1>
+                                    <p id="doctor-des-6" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Odontopediatra</p>
                                     <a href="" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
-                                        <p class="font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/date-white.png" alt="">
+                                        <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
+                                        <img src="/static/img/whatsapp-white.png" alt="">
                                     </a>
                                 </div>
                             </div>

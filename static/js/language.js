@@ -20,7 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutVideo = document.getElementById('about-video-title');
     const locationTitle = document.getElementById('location-title');
     const locationParagraph= document.getElementById('location-paragraph');
-
+    const directionsBtn = document.getElementById('directions-btn');
+    const specialistsTitle = document.getElementById('our-specialists');
+    const doctorTitleFemale = document.querySelectorAll('.doctor-title-female');
+    const doctorTitleMale = document.querySelectorAll('.doctor-title-male');
+    const doctorDesOne = document.getElementById('doctor-des-1');
+    const doctorDesTwo = document.getElementById('doctor-des-2');
+    const doctorDesThree = document.getElementById('doctor-des-3');
+    const doctorDesFour = document.getElementById('doctor-des-4');
+    const doctorDesFive = document.getElementById('doctor-des-5');
+    const doctorDesSix = document.getElementById('doctor-des-6');
 
 
     let languageObtain = navigator.language;
@@ -57,6 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
             aboutVideo.textContent=data[language].aboutVideo;
             locationTitle.textContent=data[language].locationTitle;
             locationParagraph.textContent=data[language].locationParagraph;
+            directionsBtn.textContent=data[language].directionsButtons;
+            specialistsTitle.textContent=data[language].specialistsTitle;
+            doctorTitleFemale.forEach(element => {
+                element.textContent=data[language].doctorTitleFemale;
+            })
+            doctorTitleMale .forEach(element => {
+                element.textContent=data[language].doctorTitleMale
+            })
+            doctorDesOne.textContent=data[language].doctorDesOne;
+            doctorDesTwo.textContent=data[language].doctorDesTwo;
+            doctorDesThree.textContent=data[language].doctorDesThree;
+            doctorDesFour.textContent=data[language].doctorDesFour;
+            doctorDesFive.textContent=data[language].doctorDesFive;
+            doctorDesSix.textContent=data[language].doctorDesSix;
         })
     }
 

@@ -1603,6 +1603,10 @@
     border-top-left-radius: 0.25rem;
     border-top-right-radius: 0.25rem;
   }
+  .rounded-t-4xl {
+    border-top-left-radius: var(--radius-4xl);
+    border-top-right-radius: var(--radius-4xl);
+  }
   .rounded-tl {
     border-top-left-radius: 0.25rem;
   }

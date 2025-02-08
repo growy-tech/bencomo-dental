@@ -16,7 +16,17 @@
         "aboutParagraph": "Our dental clinic adheres to the highest standards of oral health care for you and your family. We have a specialized, trained, certified, and current staff to ensure you receive top-quality attention.",
         "aboutVideo": "A video about us",
         "locationTitle": "Get directions",
-        "locationParagraph": "Located just 5 minutes from the Free Bridge, we're at Epsilon 1823, Magnaplex (adjacent to the Hotel Maria Bonita, on Rafael Pérez Serna)."
+        "locationParagraph": "Located just 5 minutes from the Free Bridge, we're at Epsilon 1823, Magnaplex (adjacent to the Hotel Maria Bonita, on Rafael Pérez Serna).",
+        "directionsButtons": "Get Directions",
+        "specialistsTitle": "Our Specialists",
+        "doctorTitleFemale": "Doctor",
+        "doctorTitleMale": "Doctor",
+        "doctorDesOne": "General Dentistry and Oral Rehabilitation",
+        "doctorDesTwo": "Endodontics",
+        "doctorDesThree": "Maxillofacial",
+        "doctorDesFour": "General Dentistry",
+        "doctorDesFive": "Periodontist",
+        "doctorDesSix": "Pediatric Dentist"
     },
 
     "es":{
@@ -36,6 +46,16 @@
         "aboutParagraph": "Somos una clínica dental que cumple con los más altos estándares para cuidar de su salud bucal y de su familia, contamos con personal especializado, capacitado, certificado y actualizado para darle una atención de primera calidad.",
         "aboutVideo": "Un video sobre nosotros",
         "locationTitle": "Ubicación",
-        "locationParagraph": "A solo 5 minutos del puente libre, nos encuentras en Épsilon 1823, Magnaplex (justo al costado del Hotel Maria Bonita, sobre Rafael Pérez Serna)."
+        "locationParagraph": "A solo 5 minutos del puente libre, nos encuentras en Épsilon 1823, Magnaplex (justo al costado del Hotel Maria Bonita, sobre Rafael Pérez Serna).",
+        "directionsButtons": "Ubicación",
+        "specialistsTitle": "Nuestros Especialistas",
+        "doctorTitleFemale": "Doctora",
+        "doctorTitleMale": "Doctor",
+        "doctorDesOne": "Odontología General y Rehabilitación Oral",
+        "doctorDesTwo": "Endodoncista",
+        "doctorDesThree": "Maxillofacial",
+        "doctorDesFour": "Odontología General",
+        "doctorDesFive": "Periodoncista",
+        "doctorDesSix": "Odontopediatra"
     }
 }
