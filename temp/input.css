@@ -47,6 +47,10 @@
     @apply font-nunito text-lg xl:text-xl text-deepestBlue
 }
 
+.paragraphs-white {
+    @apply font-nunito text-lg xl:text-xl text-white
+}
+
 .slider_wrapper {
     @apply mx-auto bg-gray rounded-4xl
 }

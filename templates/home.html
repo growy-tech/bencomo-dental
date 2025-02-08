@@ -350,7 +350,7 @@
             <p class="paragraphs text-center">De lo que significamos para nuestros pacientes</p>
             <div class="flex flex-row mx-auto items-center gap-2">
                 <p id="light-paragraph" class="text-lightBlue font-nunito text-center">Apaga la luz para ver mejor</p>
-                <p id="light-paragraph" class="text-lightBlue font-nunito text-center">Enciende la luz</p>
+                <p id="light-paragraph-2" class="text-lightBlue font-nunito text-center hidden">Enciende la luz</p>
                 <button id="" class="cursor-pointer">
                     <img id="light-off" src="/static/img/light-des.png" alt="">
                     <img id="light-on" src="/static/img/light-ac.png" alt="" class="hidden">
@@ -359,6 +359,82 @@
             <video src="/static/img/testimony-video.mp4" class="mb-20 max-w-[95%] lg:max-w-[80%] mx-auto rounded-4xl" type="video/mp4" controls ></video>
         </div>
     </section>
+
+    <!--Payment Methods-->
+    <section id="payment" class="opacity-0 transition-opacity duration-1000 mt-12">
+        <div class="flex flex-col lg:flex-row w-[95%] mx-auto mt-10 gap-6 lg:h-[595px] items-center mb-12">
+            <!--Left & First Container-->
+            <div class="flex flex-col lg:basis-1/3 rounded-4xl bg-gray lg:w-[35%] lg:h-[595px]">
+                <div class="flex flex-col  w-[90%] sm:w-[60%] lg:w-[65%]  mx-auto items-center gap-3 mt-6">
+                    <h1 class="headers text-center lg:text-left">Métodos de pago aceptados</h1>
+                    <img src="/static/img/cash-icon.png" alt="" class="size-14">
+                    <p class="paragraph">Efectivo</p>
+                    <img src="/static/img/card-icon.png" alt="" class="size-14">
+                    <p class="paragraph">Tarjetas debito y credito</p>
+                    <img src="/static/img/transfer-icon.png" alt="" class="size-14">
+                    <p class="paragraph">Transferencia</p>
+                    <div class="w-[100%] h-1 bg-deepestBlue"></div>
+                    <a href="" class="bg-deepestBlue px-14 py-4 rounded-4xl mb-6">
+                        <p class="font-quicksand font-medium text-white text-center">Pagar con <span class="font-bold">Stripe</span></p>
+                    </a>
+                </div>
+            </div>
+            <!--Right & Second Container-->
+            <div class="flex flex-col lg:basis-2/3 rounded-4xl bg-gradient-to-r from-deepestBlue to-lightBlue  lg:h-[595px]">
+                <div class="flex flex-col w-[90%] sm:w-[70%] lg:w-[75%] mx-auto items-center justify-center gap-7 mt-6">
+                    <h1 class="headers-white text-center lg:text-left mt-6">Pensando en tu bienestar</h1>
+                    <img src="/static/img/check.png" alt="" class="size-14">
+                    <p class="font-white paragraphs paragraphs-white text-center">Son bienvendas tarjetas internacionales</p>
+                    <img src="/static/img/check.png" alt="" class="size-14">
+                    <p class="font-white paragraphs paragraphs-white text-center">Planes de finaciamiento directo</p>
+                    <img src="/static/img/payment-graph.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Contact Section-->
+    <section id="contact" class="opacity-0 transition-opacity duration-1000">
+        <div class="flex flex-col lg:flex-row relative w-[95%] bg-[url(/static/img/ubication-bg.png)] bg-cover rounded-4xl mx-auto mb-10">
+            <div class="absolute inset-0 z-1 opacity-95 bg-lightBlue rounded-4xl"></div>
+            <!--Form-->
+            <div class="flex flex-col basis-1/2 w-[95%] mx-auto z-10 rounded-4xl gap-3">
+                <h1 class="headers-white text-center  mt-10">Contacto</h1>
+                <p class="paragraphs-white text-center">Siempre estamos dispuestos a leerte</p>
+                <form id="form" class="max-w-[95%] mx-auto p-6 rounded-4xl shadow-md ">
+                    <div class="mb-4">
+                        <label for="name" class="block  font-bold mb-2 paragraphs-white">Nombre:</label>
+                        <input type="text" id="nombre" name="name" class="w-full rounded-4xl bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                
+                    <div class="flex space-x-4 mb-4">
+                        <div class="w-1/2">
+                        <label for="email" class="block  font-bold mb-2 paragraphs-white">Email:</label>
+                        <input type="email" id="email" name="email" class="w-full bg-white px-3 py-2 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="w-1/2">
+                        <label for="phone" class="block text-gray-700 font-bold mb-2 paragraphs-white">Teléfono:</label>
+                        <input type="tel" id="phone" name="phone" class="w-full bg-white px-3 py-2 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label for="msg" class="block text-gray-700 font-bold mb-2 paragraphs-white">Mensaje:</label>
+                        <textarea id="msg" name="msg" class="w-full bg-white px-3 py-2 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500" rows="6" required></textarea>
+                    </div>
+                
+                    <div class="text-right">
+                        <button type="submit" class="bg-deepestBlue  text-white font-medium font-quicksand py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
+                    </div>
+                </form>
+            </div>
+            <!--Contact Section-->
+            <div class="flex flex-col basis-1/2">
+
+            </div>
+        </div>
+    </section>
+
     <!--Slider #1 Script-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
