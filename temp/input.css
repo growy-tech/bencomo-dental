@@ -70,7 +70,3 @@
 .group:hover h1{
     @apply text-white
 }
-
-.splide__track_2{
-    @apply items center justify-center h-[300px]
-}

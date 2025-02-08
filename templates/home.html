@@ -458,15 +458,15 @@
         <div class="flex flex-col w-[95%] mt-28 mb-28 mx-auto bg-gray rounded-4xl cursor-pointer" id="section-faq">
             <h1 class="headers text-center mt-10">Dudas frecuentes</h1>
             <!--Horarios-->
-            <div id="hours" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto">
+            <div id="hours" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto z-10">
                 <img id="arrow-hours" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2" alt="">
                 <h1 class="text-2xl paragraphs-white font-bold faq-item faq-question z-10">¿Cuáles son los horarios?</h1>
                 <div class="text-deepestBlue">.</div>
             </div>
             <!--Div to show-->
-            <div id="hours-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
+            <div id="hours-div" class="mx-auto -mt-7 bg-white border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
                 <div class="flex flex-row items-center justify-between ">
-                    <img id="arrow-hours" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2 hidden md:flex" alt="">
+                    <img id="arrow-hours" src="/static/img/arrow.png" class="size-10  object-contain ml-3 my-2 hidden md:flex " alt="">
                     <div class="flex flex-col mx-auto md:mx-auto">
                         <h1 class="paragraphs font-bold text-center mt-12">Lunes a Viernes</h1>
                         <h1 class="text-center paragraphs ">9:00 am - 7:00 pm</h1>
@@ -484,9 +484,9 @@
                 <div class="text-backgroundGreen">.</div>
             </div>
             <!--Div to show-->
-            <div id="ubication-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
+            <div id="ubication-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl bg-white">
                 <div class="flex flex-row items-center justify-between">
-                    <img id="arrow-hours" src="/static/img/arrow.png" class="size-10 object-contain ml-3 my-2 hidden md:flex" alt="">
+                    <img id="arrow-hours" src="/static/img/arrow.png" class="object-contain ml-3 my-2 hidden md:flex" alt="">
                     <div class="flex flex-col mx-auto md:mx-auto">
                         <h1 class="text-center mt-14 font-bold paragraphs">Ve aqui como llegar:</h1>
                         <video src="/static/img/how-to.mp4" controls type="video/mp4" class="mb-10 rounded-4xl max-w-[95%] mx-auto"></video>
@@ -507,8 +507,8 @@
                     <div class="flex flex-col mx-auto md:mx-auto">
                         <h1 class="text-center font-bold paragraphs mt-14">Si, aceptamos las siguientes aseguranzas americanas:</h1>
                         <!--slide-->
-                        <div class="flex slider_wrapper w-[100%] mx-auto  items-center mt-10 lg:mb-32  overflow-hidden">
-                            <section id="insurances-slide" class="splide animate-scroll opacity-0 transition-opacity duration-1000" aria-label="Splide Basic HTML Example ">
+                        <div class="flex slider_wrapper w-[95%]  mx-auto  items-center mt-10 lg:mb-32  overflow-hidden">
+                            <section id="insurances-slide" class="splide flex  justify-end animate-scroll opacity-0 transition-opacity duration-1000 mb-16" aria-label="Splide Basic HTML Example ">
                                 <div class="splide__arrows">
                                     <button class="splide__arrow splide__arrow--prev">
                                         <img src="/static/img/left-arrow.png" alt="">
@@ -517,31 +517,55 @@
                                         <img src="/static/img/right-arrow.png" alt="">
                                     </button>
                                 </div>
-                                <div class="splide__track splide__track_ m-0 overflow-hidden">
-                                    <ul class="splide__list">
-                                        <!--First Container-->
-                                        <li class="splide__slide flex items-end">
+                                <div class="splide__track splide__track_ m-0 mt-8 overflow-hidden">
+                                    <ul class="splide__list items-end">
+                                        <!--1 Container-->
+                                        <li class="splide__slide flex items-center">
                                             <img src="/static/img/s-1.png" alt="">
                                         </li>
-                                        <!--Second Container-->
-                                        <li class="splide__slide flex items-end">
+                                        <!--2 Container-->
+                                        <li class="splide__slide flex items-center">
                                             <img src="/static/img/s-2.png" alt="">
                                         </li>
-                                        <!--Third Container-->
-                                        <li class="splide__slide flex items-end">
+                                        <!--3 Container-->
+                                        <li class="splide__slide flex items-center">
                                             <img src="/static/img/s-3.png" alt="">
                                         </li>
-                                        <!--Fourth Container-->
-                                        <li class="splide__slide flex items-end">
+                                        <!--4 Container-->
+                                        <li class="splide__slide flex items-center">
                                             <img src="/static/img/s-4.png" alt="">
                                         </li>
-                                        <!--Fifth Container-->
-                                        <li class="splide__slide flex items-end">
+                                        <!--5 Container-->
+                                        <li class="splide__slide flex items-center">
                                             <img src="/static/img/s-5.png" alt="" >
                                         </li>
-                                        <!--Sixth Container-->
-                                        <li class="splide__slide flex">
+                                        <!--6 Container-->
+                                        <li class="splide__slide flex items-center">
                                             <img src="/static/img/s-6.png" alt="">
+                                        </li>
+                                        <!--7 Container-->
+                                        <li class="splide__slide flex items-center">
+                                            <img src="/static/img/s-7.png" alt="">
+                                        </li>
+                                        <!--8 Container-->
+                                        <li class="splide__slide flex items-center">
+                                            <img src="/static/img/s-8.png" alt="">
+                                        </li>
+                                        <!--9 Container-->
+                                        <li class="splide__slide flex items-center">
+                                            <img src="/static/img/s-9.png" alt="">
+                                        </li>
+                                        <!--10 Container-->
+                                        <li class="splide__slide flex items-center">
+                                            <img src="/static/img/s-10.png" alt="">
+                                        </li>
+                                        <!--11 Container-->
+                                        <li class="splide__slide flex items-center">
+                                            <img src="/static/img/s-11.png" alt="">
+                                        </li>
+                                        <!--12 Container-->
+                                        <li class="splide__slide flex items-center">
+                                            <img src="/static/img/s-12.png" alt="">
                                         </li>
                                     </ul>
                                     </ul>
@@ -549,7 +573,7 @@
                             </section>
                         </div>
                         <!--end slide-->
-                        <h1 class="text-center mb-14 font-paragraphs">Spei, Binance, Efectivo</h1>
+            
                     </div>
                     <div class="bg-white hidden md:flex">.</div>
                 </div>
@@ -594,20 +618,19 @@
             var splide = new Splide( '#insurances-slide', {
                 perPage: 4,
                 rewind : true,
-                fixedHeight: '6rem',
-                autoplay: true,
+                fixedHeight: '3rem',
                 width: '100%',
                 gap: '.5em',
                 breakpoints: {
                     768: {
                         perPage: 2,
                         padding: '10%',
-                        gap: '1em',
+                        gap: '2em',
                     },
 
                     480: {
                         perPage: 1,
-                        gap: '2.9em'
+                        gap: '2.3em'
                     }
                 }
             });
