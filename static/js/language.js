@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonyOne = document.getElementById('testimony-1-paragraph');
     const testimonyTwo = document.getElementById('testimony-2-paragraph');
     const testimonyThree = document.getElementById('testimony-3-paragraph');
+    const testimonyFour = document.getElementById('testimony-4-paragraph');
     const viaFacebook = document.querySelectorAll('.via-facebook');
     const viaGoogle = document.querySelectorAll('.via-google');
     const testimonyImgTitle = document.getElementById('testimony-img-title');
@@ -136,6 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
             testimonyOne.textContent=data[language].testimonyOne;
             testimonyTwo.textContent=data[language].testimonyTwo;
             testimonyThree.textContent=data[language].testimonyThree;
+            testimonyFour.textContent=data[language].testimonyFour;
             viaFacebook.forEach(element => {
                 element.textContent=data[language].viaFacebook;
             })

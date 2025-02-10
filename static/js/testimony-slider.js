@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonyOne = document.getElementById('testimony-1');
     const testimonyTwo = document.getElementById('testimony-2');
     const testimonyThree = document.getElementById('testimony-3');
+    const testimonyFour = document.getElementById('testimony-4');
     const arrowLeft = document.getElementById('arrow-left');
     const arrowRight = document.getElementById('arrow-right');
     const testimonyImageOne = document.getElementById('testimony-image-1');
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const arrowRightTestimony = document.getElementById('testimony-image-arrow-right');
     
     
-    const packs = [testimonyOne, testimonyTwo, testimonyThree];
+    const packs = [testimonyOne, testimonyTwo, testimonyThree, testimonyFour];
     const images = [testimonyImageOne, testimonyImageTwo, testimonyImageThree];
 
     let actual = 0;
