@@ -5,4 +5,4 @@ Bencomo's website.
 - TailwindCSS.
 - JavaScript.
 - Flask.
-- Reveal.js
+- splide js
