@@ -85,7 +85,8 @@
         "paymentFooter": "Payment Methods",
         "contactFooter": "Contact",
         "testimoniesFooter": "Testimonies",
-        "growyText": "Designed, developed and created by Growy"
+        "growyText": "Designed, developed and created by Growy",
+        "paymentLink": "https://buy.stripe.com/eVa16h2rL71t1G07ss"
     },
 
     "es":{
@@ -174,6 +175,7 @@
         "paymentFooter": "Metodos de Pago",
         "contactFooter": "Contacto",
         "testimoniesFooter": "Testimonios",
-        "growyText": "Diseñado, desarrollado y creado por Growy"
+        "growyText": "Diseñado, desarrollado y creado por Growy",
+        "paymentLink": "https://buy.stripe.com/bIY3epgiB85x70kdQR"
     }
 }
