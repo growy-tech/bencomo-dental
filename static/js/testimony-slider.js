@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonyFive = document.getElementById('testimony-5');
     const testimonySix = document.getElementById('testimony-6');
     const testimonySeven = document.getElementById('testimony-7');
+    const testimonyEight = document.getElementById('testimony-8');
+    const testimonyNine = document.getElementById('testimony-9');
+    const testimonyTen = document.getElementById('testimony-10');
+    const testimonyEleven = document.getElementById('testimony-11');
+    const testimonyTwelve = document.getElementById('testimony-12');
     const arrowLeft = document.getElementById('arrow-left');
     const arrowRight = document.getElementById('arrow-right');
     const testimonyImageOne = document.getElementById('testimony-image-1');
@@ -15,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const arrowRightTestimony = document.getElementById('testimony-image-arrow-right');
     
     
-    const packs = [testimonyOne, testimonyTwo, testimonyThree, testimonyFour, testimonyFive, testimonySix, testimonySeven];
+    const packs = [testimonyOne, testimonyTwo, testimonyThree, testimonyFour, testimonyFive, testimonySix, testimonySeven, testimonyEight, testimonyNine, testimonyTen, testimonyEleven, testimonyTwelve];
     const images = [testimonyImageOne, testimonyImageTwo, testimonyImageThree];
 
     let actual = 0;
