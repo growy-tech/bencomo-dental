@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const testimonyTen = document.getElementById('testimony-10');
     const testimonyEleven = document.getElementById('testimony-11');
     const testimonyTwelve = document.getElementById('testimony-12');
+    const testimonyThirteen = document.getElementById('testimony-13')
+    const testimonyFourteen = document.getElementById('testimony-14');
     const arrowLeft = document.getElementById('arrow-left');
     const arrowRight = document.getElementById('arrow-right');
     const testimonyImageOne = document.getElementById('testimony-image-1');
@@ -20,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const arrowRightTestimony = document.getElementById('testimony-image-arrow-right');
     
     
-    const packs = [testimonyOne, testimonyTwo, testimonyThree, testimonyFour, testimonyFive, testimonySix, testimonySeven, testimonyEight, testimonyNine, testimonyTen, testimonyEleven, testimonyTwelve];
+    const packs = [testimonyOne, testimonyTwo, testimonyThree, testimonyFour, testimonyFive, testimonySix, testimonySeven, testimonyEight, testimonyNine, testimonyTen, testimonyEleven, testimonyTwelve, testimonyThirteen, testimonyFourteen];
     const images = [testimonyImageOne, testimonyImageTwo, testimonyImageThree];
 
     let actual = 0;
