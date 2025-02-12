@@ -86,7 +86,8 @@
         "contactFooter": "Contact",
         "testimoniesFooter": "Testimonies",
         "growyText": "Designed, developed and created by Growy",
-        "paymentLink": "https://buy.stripe.com/eVa16h2rL71t1G07ss"
+        "paymentLink": "https://buy.stripe.com/eVa16h2rL71t1G07ss",
+        "testimonyVideoOne": "/static/img/testimony-video-en.mp4"
     },
 
     "es":{
@@ -176,6 +177,8 @@
         "contactFooter": "Contacto",
         "testimoniesFooter": "Testimonios",
         "growyText": "Diseñado, desarrollado y creado por Growy",
-        "paymentLink": "https://buy.stripe.com/bIY3epgiB85x70kdQR"
+        "paymentLink": "https://buy.stripe.com/bIY3epgiB85x70kdQR",
+        "testimonyVideoOne": "/static/img/testimony-video.mp4"
+
     }
 }

@@ -91,7 +91,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactFooter = document.getElementById('contact-footer');
     const testimoniesFooter = document.getElementById('testimonies-footer');
     const growyText = document.getElementById('growy-text');
-    const paymentLink = document.getElementById('payment-link')
+    const paymentLink = document.getElementById('payment-link');
+    const testimonyVideoOne = document.getElementById('testimony-video');
 
 
 
@@ -208,7 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
             contactFooter.textContent = data[language].contactFooter;
             testimoniesFooter.textContent = data[language].testimoniesFooter;
             growyText.textContent = data[language].growyText;
-            paymentLink.href = data[language]. paymentLink;
+            paymentLink.href = data[language].paymentLink;
+            testimonyVideoOne.src = data[language].testimonyVideoOne;
         })
     }
 
