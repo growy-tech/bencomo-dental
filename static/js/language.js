@@ -93,7 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactFooter = document.getElementById('contact-footer');
     const testimoniesFooter = document.getElementById('testimonies-footer');
     const growyText = document.getElementById('growy-text');
-    const paymentLink = document.getElementById('payment-link');
+    const paymentLink = document.querySelectorAll('.payment-link');
+    const paymentAnchor = document.querySelectorAll('.payment-anchor');
     const testimonyVideoOne = document.getElementById('testimony-video');
 
 
@@ -161,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
             testimonyEleven.textContent=data[language].testimonyEleven;
             testimonyTwelve.textContent=data[language].testimonyTwelve;
             testimonyThirteen.textContent=data[language].testimonyThirteen;
-            testimonyFourteen.textContent=data[language].testimonyFourteen
+            testimonyFourteen.textContent=data[language].y6
             viaFacebook.forEach(element => {
                 element.textContent=data[language].viaFacebook;
             })
@@ -213,7 +214,13 @@ document.addEventListener('DOMContentLoaded', () => {
             contactFooter.textContent = data[language].contactFooter;
             testimoniesFooter.textContent = data[language].testimoniesFooter;
             growyText.textContent = data[language].growyText;
-            paymentLink.href = data[language].paymentLink;
+            paymentLink.forEach(element => {
+                element.textContent = data[language].stripeText;
+            })
+            paymentAnchor.forEach(element => 
+                element.href = data[language].paymentLink
+            )
+
             testimonyVideoOne.src = data[language].testimonyVideoOne;
             
         })
