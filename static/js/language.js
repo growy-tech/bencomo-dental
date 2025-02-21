@@ -95,6 +95,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const paymentLink = document.querySelectorAll('.payment-link');
     const paymentAnchor = document.querySelectorAll('.payment-anchor');
     const testimonyVideoOne = document.getElementById('testimony-video');
+    const suggestionText = document.getElementById('suggestion-text');
+    const formPacienteName = document.getElementById('name-text-suggestions');
+    const formSuggestionPhone = document.getElementById('phone-text-suggestion');
+    const formPacientText = document.getElementById('msg-text-suggestion');
+    const formSuggestionsTitle = document.getElementById('contact-title-suggestions');
+    const formSuggestionsSubTitle = document.getElementById('contact-paragraph-suggestions');
+    const suggestionSend = document.getElementById('send-suggestion');
 
 
 
@@ -106,6 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(CONTENT_URL)
         .then(response=>response.json())
         .then(data => {
+            suggestionSend.textContent=data[language].contactSend
+            formSuggestionsSubTitle.textContent=data[language].formSuggestionsSubTitle;
+            formSuggestionsTitle.textContent=data[language].formSuggestionsTitle;
+            formPacientText.textContent=data[language].formPacientText
+            formPacienteName.textContent=data[language].formPacienteName;
+            formSuggestionPhone.textContent=data[language].contactPhone;
             title.textContent=data[language].title;
             locationMenu.textContent=data[language].locationMenu;
             specialistsMenu.textContent=data[language].specialistsMenu;
@@ -220,6 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
             )
 
             testimonyVideoOne.src = data[language].testimonyVideoOne;
+            suggestionText.textContent = data[language].suggestionText;
             
         })
     }

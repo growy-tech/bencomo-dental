@@ -91,7 +91,13 @@
         "testimoniesFooter": "Testimonies",
         "growyText": "Designed, developed and created by Growy",
         "paymentLink": "https://buy.stripe.com/eVa16h2rL71t1G07ss",
-        "testimonyVideoOne": "/static/img/testimony-video-en.mp4"
+        "testimonyVideoOne": "/static/img/testimony-video-en.mp4",
+        "suggestionText" : "I have a suggestion",
+        "formPacienteName" : "Patient name:",
+        "formPacientText" : "Suggestion",
+        "formSuggestionsTitle" : "Suggestions",
+        "formSuggestionsSubTitle" : "We'd appreciate your feedback"
+
     },
 
     "es":{
@@ -186,7 +192,12 @@
         "testimoniesFooter": "Testimonios",
         "growyText": "Diseñado, desarrollado y creado por Growy",
         "paymentLink": "https://buy.stripe.com/bIY3epgiB85x70kdQR",
-        "testimonyVideoOne": "/static/img/testimony-video.mp4"
+        "testimonyVideoOne": "/static/img/testimony-video.mp4",
+        "suggestionText" : "Tengo una sugerencia",
+        "formPacienteName" : "Nombre del paciente:",
+        "formPacientText" : "Sugerencia",
+        "formSuggestionsTitle" : "Sugerencias",
+        "formSuggestionsSubTitle" : "Apreciamos tus sugerencias"
 
     }
 }
