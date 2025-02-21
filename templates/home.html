@@ -516,7 +516,7 @@
         <div class="flex flex-col lg:flex-row relative w-[95%] bg-[url(/static/img/ubication-bg.png)] bg-cover rounded-4xl mx-auto mb-10">
             <div class="absolute inset-0 z-1 opacity-95 bg-lightBlue rounded-4xl"></div>
             <!--Form-->
-            <div class="flex flex-col basis-1/2 w-[95%] mx-auto z-10 rounded-4xl gap-3">
+            <div id="contact-form" class="flex flex-col basis-1/2 w-[95%] mx-auto z-10 rounded-4xl gap-3">
                 <h1 id="contact-title" class="headers-white text-center  mt-10">Contacto</h1>
                 <p id="contact-paragraph" class="paragraphs-white text-center">Siempre estamos dispuestos a leerte</p>
                 <!--Form-->
@@ -544,8 +544,8 @@
                 <div class="flex flex-row gap-3 justify-end">
                     
                     <!--Change form button-->
-                    <div class="text-right cursor-pointer">
-                        <div id="suggestion-text" type="" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500">Tengo una sugerencia</div>
+                    <div class="cursor-pointer">
+                        <div id="suggestion-text" type="" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-center">Tengo una sugerencia</div>
                     </div>
                     <div class="text-right">
                         <button id="send-text" type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">Enviar</button>
@@ -555,33 +555,12 @@
                 </form>
 
             </div>
-
-
-            <!--Contact Section-->
-            <div class="flex flex-col basis-1/2 z-10 mb-10">
-                <h1 id="social-title" class="mt-10 mb-20 headers-white text-center">Nuestras Redes Sociales</h1>
-                <div class="flex flex-col gap-5">
-                    <a id="facebook-link" href="https://www.facebook.com/BencomoDentalClinicjrz/reviews" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
-                        <p id="facebook-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">Facebook</p>
-                        <img src="/static/img/fb-icon.png" alt="" class="w-[23px]">
-                    </a>
-                    <a id="instagram-link" href="https://www.instagram.com/bencomodentalclinicjrz/" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
-                        <p id="instagram-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">Instagram</p>
-                        <img src="/static/img/ig-icon.png" alt="" class="size-10">
-                    </a>
-                    <p id="message-text" class="paragraphs-white mx-auto">También puedes mandarnos mensaje:</p>
-                    <a id="whatsapp-link" href="https://wa.me/526566098566?text=  Hola, estaba en su página de internet, y necesito más información." class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
-                        <p id="whatsapp-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">WhatsApp</p>
-                        <img src="/static/img/whatsapp-white.png" alt="" class="size-10">
-                    </a>
-                </div>
-            </div>
             <!--Suggestions Section-->
             <div id="suggestions-form" class="flex flex-col basis-1/2 w-[95%] mx-auto z-10 rounded-4xl gap-3 hidden ">
                 <h1 id="contact-title-suggestions" class="headers-white text-center  mt-10">Sugerencias</h1>
                 <p id="contact-paragraph-suggestions" class="paragraphs-white text-center">Nos encantaria conocer tus sugerencias</p>
                 <!--Form-->
-                <form action="/web/mail" method="post" id="form" class="max-w-[95%] mx-auto p-6 rounded-4xl shadow-md ">
+                <form action="/web/mail/suggestions" method="post" id="form-suggestions" class="max-w-[95%] mx-auto p-6 rounded-4xl shadow-md ">
                     <div class="mb-4">
                         <label id="name-text-suggestions" for="name" class="block  font-bold mb-2 paragraphs-white">Nombre del paciente:</label>
                         <input type="text" id="nombre" name="name" class="w-full rounded-4xl bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
@@ -604,10 +583,32 @@
                     </div>
                 
                     <div class="text-right">
-                        <button id="send-text" type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
+                        <button id="send-suggestion" type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
                     </div>
                 </form>
             </div>
+
+
+            <!--Contact Section-->
+            <div class="flex flex-col basis-1/2 z-10 mb-10">
+                <h1 id="social-title" class="mt-10 mb-20 headers-white text-center">Nuestras Redes Sociales</h1>
+                <div class="flex flex-col gap-5">
+                    <a id="facebook-link" href="https://www.facebook.com/BencomoDentalClinicjrz/reviews" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
+                        <p id="facebook-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">Facebook</p>
+                        <img src="/static/img/fb-icon.png" alt="" class="w-[23px]">
+                    </a>
+                    <a id="instagram-link" href="https://www.instagram.com/bencomodentalclinicjrz/" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
+                        <p id="instagram-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">Instagram</p>
+                        <img src="/static/img/ig-icon.png" alt="" class="size-10">
+                    </a>
+                    <p id="message-text" class="paragraphs-white mx-auto">También puedes mandarnos mensaje:</p>
+                    <a id="whatsapp-link" href="https://wa.me/526566098566?text=  Hola, estaba en su página de internet, y necesito más información." class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
+                        <p id="whatsapp-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">WhatsApp</p>
+                        <img src="/static/img/whatsapp-white.png" alt="" class="size-10">
+                    </a>
+                </div>
+            </div>
+            
                 
 
             </div>
@@ -887,6 +888,8 @@
             })
         })
     </script>
+    
+    </script>
     <!--Slider #1 Script-->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -951,6 +954,7 @@
 
     <!--Slider #2 Script-->
     <!--Scripts-->
+    <script src="/static/js/toggleForms.js"></script>
     <script src="/static/js/toggle.js"></script>
     <script src="/static/js/light.js"></script>
     <script src="/static/js/menu.js"></script>
