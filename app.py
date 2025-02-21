@@ -24,7 +24,7 @@ def email():
         message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
         message["from"] = "javier.rod.dev@gmail.com"
-        message["to"] = "javier.rod.dev@gmail.com"
+        message["to"] = "bencomodentalclinic@gmail.com"
         message["subject"] = subject
 
         server.sendmail("javier.rod.dev@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
@@ -52,7 +52,7 @@ def emailSuggestions():
         message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
         message["from"] = "javier.rod.dev@gmail.com"
-        message["to"] = "javier.rod.dev@gmail.com"
+        message["to"] = "bencomodentalclinic@gmail.com"
         message["subject"] = subject
 
         server.sendmail("javier.rod.dev@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
