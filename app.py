@@ -11,7 +11,7 @@ def home():
 @app.route('/web/mail', methods=['GET', 'POST'])
 def email():
     if request.method == 'POST':
-        subject = "from bencomos site" 
+        subject = "Comentario en sitio web de Bencomo" 
         name = request.form["name"]
         email = request.form["email"]
         phone = request.form["phone"]

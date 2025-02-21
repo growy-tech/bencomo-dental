@@ -242,20 +242,7 @@
                             </div>
                         </li>
                         <!--Fifth Container-->
-                        <li class="splide__slide">
-                            <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-5.png" alt="" class="rounded-4xl mt-6 w-[90%] mx-auto">
-                                <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
-                                    <p class="doctor-title-female font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
-                                    <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Valeria Trimmer</h1>
-                                    <p id="doctor-des-5" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Periodoncista</p>
-                                    <a href="https://wa.me/526566098566?text=Hola, me interesa una cita con la Doctora Valeria Trimmer." class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
-                                        <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/whatsapp-white.png" alt="" class="size-8">
-                                    </a>
-                                </div>
-                            </div>
-                        </li>
+                        
                         <!--Sixth Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
@@ -554,12 +541,22 @@
                         <label id="msg-text" for="msg" class="block text-gray-700 font-bold mb-2 paragraphs-white">Mensaje:</label>
                         <textarea id="msg" name="msg" class="w-full bg-white px-3 py-2 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500" rows="6" required minlength="10"></textarea>
                     </div>
-                
-                    <div class="text-right">
-                        <button id="send-text" type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
+                <div class="flex flex-row gap-3 justify-end">
+                    
+                    <!--Change form button-->
+                    <div class="text-right cursor-pointer">
+                        <div id="suggestion-text" type="" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500">Tengo una sugerencia</div>
                     </div>
+                    <div class="text-right">
+                        <button id="send-text" type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">Enviar</button>
+                    </div>
+                </div>
+                    
                 </form>
+
             </div>
+
+
             <!--Contact Section-->
             <div class="flex flex-col basis-1/2 z-10 mb-10">
                 <h1 id="social-title" class="mt-10 mb-20 headers-white text-center">Nuestras Redes Sociales</h1>
@@ -578,6 +575,38 @@
                         <img src="/static/img/whatsapp-white.png" alt="" class="size-10">
                     </a>
                 </div>
+            </div>
+            <!--Suggestions Section-->
+            <div id="suggestions-form" class="flex flex-col basis-1/2 w-[95%] mx-auto z-10 rounded-4xl gap-3 hidden ">
+                <h1 id="contact-title-suggestions" class="headers-white text-center  mt-10">Sugerencias</h1>
+                <p id="contact-paragraph-suggestions" class="paragraphs-white text-center">Nos encantaria conocer tus sugerencias</p>
+                <!--Form-->
+                <form action="/web/mail" method="post" id="form" class="max-w-[95%] mx-auto p-6 rounded-4xl shadow-md ">
+                    <div class="mb-4">
+                        <label id="name-text-suggestions" for="name" class="block  font-bold mb-2 paragraphs-white">Nombre del paciente:</label>
+                        <input type="text" id="nombre" name="name" class="w-full rounded-4xl bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    </div>
+                
+                    <div class="flex space-x-4 mb-4">
+                        <div class="w-1/2">
+                        <label id="email-text" for="email" class="block  font-bold mb-2 paragraphs-white">Email:</label>
+                        <input type="email" id="email" name="email" class="w-full bg-white px-3 py-2 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div class="w-1/2">
+                        <label id="phone-text" for="phone" class="block text-gray-700 font-bold mb-2 paragraphs-white">Teléfono:</label>
+                        <input type="tel" id="phone" name="phone" class="w-full bg-white px-3 py-2 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                    </div>
+                
+                    <div class="mb-3">
+                        <label id="msg-text" for="msg" class="block text-gray-700 font-bold mb-2 paragraphs-white">Sugerencia:</label>
+                        <textarea id="msg" name="msg" class="w-full bg-white px-3 py-2 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500" rows="6" required minlength="10"></textarea>
+                    </div>
+                
+                    <div class="text-right">
+                        <button id="send-text" type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
+                    </div>
+                </form>
             </div>
                 
 
