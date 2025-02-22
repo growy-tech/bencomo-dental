@@ -1,5 +1,6 @@
 import smtplib
 import os
+import base64
 from email.mime.text import MIMEText
 from dotenv import load_dotenv
 from flask import Flask, render_template, request
@@ -13,8 +14,8 @@ def home():
 
 @app.route('/web/mail', methods=['GET', 'POST'])
 def email():
-    password = os.environ.get('MAIL_PASSWORD')
-    print(password)
+    encoded_password = os.environ.get('MAIL_PASSWORD')
+    password = base64.b64decode(encoded_password).decode()
     if request.method == 'POST':
         subject = "Comentario en sitio web de Bencomo" 
         name = request.form["name"]
@@ -43,7 +44,8 @@ def email():
 
 @app.route('/web/mail/suggestions', methods=['GET', 'POST'])
 def emailSuggestions():
-    password = os.environ.get('MAIL_PASSWORD')
+    encoded_password = os.environ.get('MAIL_PASSWORD')
+    password = base64.b64decode(encoded_password).decode()
     if request.method == 'POST':
         subject = "Sugerencia en sitio web de Bencomo" 
         name = request.form["name"]
