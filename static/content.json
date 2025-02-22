@@ -94,7 +94,7 @@
         "testimonyVideoOne": "/static/img/testimony-video-en.mp4",
         "suggestionText" : "I have a suggestion",
         "formPacienteName" : "Patient name:",
-        "formPacientText" : "Suggestion",
+        "formPacientText" : "Suggestion:",
         "formSuggestionsTitle" : "Suggestions",
         "formSuggestionsSubTitle" : "We'd appreciate your feedback"
 
@@ -195,7 +195,7 @@
         "testimonyVideoOne": "/static/img/testimony-video.mp4",
         "suggestionText" : "Tengo una sugerencia",
         "formPacienteName" : "Nombre del paciente:",
-        "formPacientText" : "Sugerencia",
+        "formPacientText" : "Sugerencia:",
         "formSuggestionsTitle" : "Sugerencias",
         "formSuggestionsSubTitle" : "Apreciamos tus sugerencias"
 
