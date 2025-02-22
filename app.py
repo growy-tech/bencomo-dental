@@ -1,9 +1,10 @@
 import smtplib
 import os
 from email.mime.text import MIMEText
+from dotenv import load_dotenv
 from flask import Flask, render_template, request
 
-
+load_dotenv()
 app = Flask(__name__)
 
 @app.route('/')
@@ -13,6 +14,7 @@ def home():
 @app.route('/web/mail', methods=['GET', 'POST'])
 def email():
     password = os.environ.get('MAIL_PASSWORD')
+    print(password)
     if request.method == 'POST':
         subject = "Comentario en sitio web de Bencomo" 
         name = request.form["name"]
