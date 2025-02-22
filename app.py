@@ -33,7 +33,7 @@ def email():
         message["to"] = "hralvarez@bencomodentalclinic.com"
         message["subject"] = subject
 
-        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "sitiowebbencomodentalclinic@gmail.com", message.as_string())
+        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "hralvarez@bencomodentalclinic.com", message.as_string())
 
         server.quit()
 
@@ -63,7 +63,7 @@ def emailSuggestions():
         message["to"] = "hralvarez@bencomodentalclinic.com"
         message["subject"] = subject
 
-        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "sitiowebbencomodentalclinic@gmail.com", message.as_string())
+        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "hralvarez@bencomodentalclinic.com", message.as_string())
 
         server.quit()
 
