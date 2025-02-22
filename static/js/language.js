@@ -107,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let languageObtain = navigator.language;
     const browserLanguage = languageObtain.split('-')[0];
-    console.log(browserLanguage);
 
     const loadContent=(language)=>{
         fetch(CONTENT_URL)
