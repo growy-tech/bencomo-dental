@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, url_for
 import smtplib
+import os
 from email.mime.text import MIMEText
 
 app = Flask(__name__)
@@ -10,6 +11,7 @@ def home():
 
 @app.route('/web/mail', methods=['GET', 'POST'])
 def email():
+    password = os.environ.get('MAIL_PASSWORD')
     if request.method == 'POST':
         subject = "Comentario en sitio web de Bencomo" 
         name = request.form["name"]
@@ -19,7 +21,7 @@ def email():
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login("javier.rod.dev@gmail.com", "bkgw zocv pagl tskn" )
+        server.login("javier.rod.dev@gmail.com", password )
 
         message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
@@ -38,6 +40,7 @@ def email():
 
 @app.route('/web/mail/suggestions', methods=['GET', 'POST'])
 def emailSuggestions():
+    password = os.environ.get('MAIL_PASSWORD')
     if request.method == 'POST':
         subject = "Sugerencia en sitio web de Bencomo" 
         name = request.form["name"]
@@ -47,7 +50,7 @@ def emailSuggestions():
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login("javier.rod.dev@gmail.com", "bkgw zocv pagl tskn" )
+        server.login("javier.rod.dev@gmail.com", password )
 
         message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
