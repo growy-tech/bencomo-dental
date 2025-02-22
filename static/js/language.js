@@ -173,7 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
             testimonyEleven.textContent=data[language].testimonyEleven;
             testimonyTwelve.textContent=data[language].testimonyTwelve;
             testimonyThirteen.textContent=data[language].testimonyThirteen;
-            testimonyFourteen.textContent=data[language].y6
+            testimonyFourteen.textContent=data[language].testimonyFourteen;
+
             viaFacebook.forEach(element => {
                 element.textContent=data[language].viaFacebook;
             })
