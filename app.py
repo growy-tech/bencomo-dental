@@ -2,10 +2,10 @@ import smtplib
 import os
 import base64
 from email.mime.text import MIMEText
-from dotenv import load_dotenv
+
 from flask import Flask, render_template, request
 
-load_dotenv()
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -25,15 +25,15 @@ def email():
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login("javier.rod.dev@gmail.com", password )
+        server.login("sitiowebbencomodentalclinic@gmail.com", password )
 
         message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
-        message["from"] = "javier.rod.dev@gmail.com"
+        message["from"] = "sitiowebbencomodentalclinic@gmail.com"
         message["to"] = "hralvarez@bencomodentalclinic.com"
         message["subject"] = subject
 
-        server.sendmail("javier.rod.dev@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
+        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "sitiowebbencomodentalclinic@gmail.com", message.as_string())
 
         server.quit()
 
@@ -55,15 +55,15 @@ def emailSuggestions():
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
-        server.login("javier.rod.dev@gmail.com", password )
+        server.login("sitiowebbencomodentalclinic@gmail.com", password )
 
         message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
-        message["from"] = "javier.rod.dev@gmail.com"
+        message["from"] = "sitiowebbencomodentalclinic@gmail.com"
         message["to"] = "hralvarez@bencomodentalclinic.com"
         message["subject"] = subject
 
-        server.sendmail("javier.rod.dev@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
+        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "sitiowebbencomodentalclinic@gmail.com", message.as_string())
 
         server.quit()
 
@@ -73,4 +73,4 @@ def emailSuggestions():
         return render_template('home.html')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True, port=5000)
