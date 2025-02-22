@@ -1,7 +1,8 @@
-from flask import Flask, render_template, request, url_for
 import smtplib
 import os
 from email.mime.text import MIMEText
+from flask import Flask, render_template, request
+
 
 app = Flask(__name__)
 
