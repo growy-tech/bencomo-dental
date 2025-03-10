@@ -37,7 +37,7 @@ def email():
             encoded_password = os.environ.get('MAIL_PASSWORD')
             password = base64.b64decode(encoded_password).decode()
         
-            subject = "Sugerencia en sitio web de Bencomo" 
+            subject = "Mensaje en sitio web de Bencomo" 
             name = request.form["name"]
             email = request.form["email"]
             phone = request.form["phone"]
@@ -50,10 +50,10 @@ def email():
             message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
             message["from"] = "sitiowebbencomodentalclinic@gmail.com"
-            message["to"] = "javier.rod.dev@gmail.com"
+            message["to"] = "halvarez@bencomodentalclinic@gmail.com"
             message["subject"] = subject
 
-            server.sendmail("sitiowebbencomodentalclinic@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
+            server.sendmail("sitiowebbencomodentalclinic@gmail.com", "halvarez@bencomodentalclinic@gmail.com", message.as_string())
 
             server.quit()
 
