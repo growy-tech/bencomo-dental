@@ -1,6 +1,7 @@
 import smtplib
 import os
 import base64
+import requests
 from email.mime.text import MIMEText
 
 from flask import Flask, render_template, request, jsonify
@@ -70,7 +71,7 @@ def verify_turnstile(token, secret_key, remote_ip):
     }
 
     try: 
-        response = request.post('https://challenges.cloudflare.com/turnstile/v0/siteverify', data=data)
+        response = requests.post('https://challenges.cloudflare.com/turnstile/v0/siteverify', data=data)
         result = response.json()
         return result.get('success', False)
     except Exception as e:
