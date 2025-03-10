@@ -12,56 +12,70 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
+
 @app.route('/web/mail', methods=['GET', 'POST'])
 def email():
-    encoded_password = os.environ.get('MAIL_PASSWORD')
+    encoded_password = os.environ.get('MAIL_PASSSWORD')
     password = base64.b64decode(encoded_password).decode()
-    SECRET_KEY = "6Le4MvAqAAAAAEoI6ulWVwY9Yet6Lpjoy2gS9nWu"
 
-    if request.method == 'POST':
-        respuesta_recaptcha = request.form.get('g-recaptcha-reponse')
-        subject = "Comentario en sitio web de Bencomo" 
-        name = request.form["name"]
-        email = request.form["email"]
-        phone = request.form["phone"]
-        msg = request.form["msg"]
+    TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY', 'SECRET_KEY')
 
-        if not respuesta_recaptcha:
-            return jsonify  ({'success': False, 'message': 'Por favor, complete el Captcha'})
+    if request.method == 'GET':
+        return render_template('home.html')
+    
+    elif request.method == 'POST':
+        turnstile_token = request.form.get('cf-turnstile-response', '')
+
+    if verify_turnstile(turnstile_token, TURNSTILE_SECRET_KEY, request.remote_addr):
+        return jsonify({'success': False, 'message': 'Error en la verificacion de seguridad'})
+    
+
+    subject = 'Comentario en sitio de Bencomo'
+    name = request.form.get('name', '')
+    email = request.form.get('email,' '')
+    phone = request.form.get('phone', '')
+    msg = request.form.get('msg', '')
+
+    try: 
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login('sitiowebbencomodentalclinic@gmail.com', password)
+
+        security_info = f"\n\nInformacion de seguridad:\nIP: {request.remote_addr}\nUser-Agent: {request.headers.get('User-Agent', '')}"
         
-        datos = {
-            'secret': SECRET_KEY,
-            'response': respuesta_recaptcha
-        }
+        message_content = f"Nombre: {name}\nEmail: {email}\nTelefono: {phone}\nMensaje: {msg} {security_info}"
+        message = MIMEText(message_content)
 
-        respuesta = request.post('https://www.google.com/recaptcha/api/siteverify', data=datos)
-        resultado = respuesta.json()
+        message["FROM"] = "sitiowebbencomodentalclinic@gmail.com"
+        message["To"] = "javier.rod.dev@gmail.com"
+        message["Subject"] = subject
 
-        if resultado['sucess']:
-            subject = "Comentario en sitio web de Bencomo" 
-            name = request.form["name"]
-            email = request.form["email"]
-            phone = request.form["phone"]
-            msg = request.form["msg"]
+        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
+        server.quit()
 
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login("sitiowebbencomodentalclinic@gmail.com", password )
+        return render_template('home.html')
+    
+    except Exception as e:
+        app.logger.error(f"Error Enviando email: {str(e)}")
+        return jsonify({'success': False, 'message': 'Error al enviar el mensaje'})
 
-            message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
+def verify_turnstile(token, secret_key, remote_ip):
+    if not token:
+        return False
+    
+    data = {
+        'secret': secret_key,
+        'response': token,
+        'remtoteip': remote_ip
+    }
 
-            message["from"] = "sitiowebbencomodentalclinic@gmail.com"
-            message["to"] = "javier.rod.dev@gmail.com"
-            message["subject"] = subject
-
-            server.sendmail("sitiowebbencomodentalclinic@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
-
-            server.quit()
-
-            return render_template('home.html')
-
-        else:
-            return render_template('home.html')
+    try: 
+        response = request.post('https://challenges.cloudflare.com/turnstile/v0/siteverify', data=data)
+        result = response.json()
+        return result.get('success', False)
+    except Exception as e:
+        app.logger.error(f"error verificando turnstile: {str(e)}")
+        return False
 
 @app.route('/web/mail/suggestions', methods=['GET', 'POST'])
 def emailSuggestions():
@@ -94,4 +108,4 @@ def emailSuggestions():
         return render_template('home.html')
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True, port=5500)
