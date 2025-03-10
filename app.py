@@ -8,6 +8,7 @@ from flask import Flask, render_template, request, jsonify
 app = Flask(__name__)
 
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
+TEST_KEY = '0x4AAAAAABAJmIdh1tZu0jIFrnMLQui9F3I'
 
 
 # Main Route
@@ -21,10 +22,10 @@ def email():
     if request.method == 'POST':
         token = request.form.get('cf-turnstile-response')
         if not token:
-            return "error Turnslite, toke no found", 400
+            return "error Turnslite, token not found", 400
         
         payload = {
-            'secret': TURNSTILE_SECRET_KEY,
+            'secret': TEST_KEY,
             'response': token,
             'remoteip': request.remote_addr
         }
