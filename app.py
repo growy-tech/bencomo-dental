@@ -20,7 +20,7 @@ def email():
         return render_template('home.html')
 
     # Obtén la contraseña codificada desde las variables de entorno
-    encoded_password = os.environ.get('MAIL_PASSSWORD')
+    encoded_password = os.environ.get('MAIL_PASSWORD')
     if not encoded_password:
         app.logger.error("La variable de entorno MAIL_PASSSWORD no está configurada")
         return jsonify({'success': False, 'message': 'Error de configuración del servidor 1'})
