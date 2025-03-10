@@ -23,20 +23,20 @@ def email():
     encoded_password = os.environ.get('MAIL_PASSSWORD')
     if not encoded_password:
         app.logger.error("La variable de entorno MAIL_PASSSWORD no está configurada")
-        return jsonify({'success': False, 'message': 'Error de configuración del servidor'})
+        return jsonify({'success': False, 'message': 'Error de configuración del servidor 1'})
 
     try:
         # Decodifica la contraseña
         password = base64.b64decode(encoded_password).decode()
     except Exception as e:
         app.logger.error(f"Error decodificando la contraseña: {str(e)}")
-        return jsonify({'success': False, 'message': 'Error de configuración del servidor'})
+        return jsonify({'success': False, 'message': 'Error de configuración del servidor 2'})
 
     # Obtén la clave secreta de Turnstile desde las variables de entorno
     TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
     if not TURNSTILE_SECRET_KEY:
         app.logger.error("La clave secreta de Turnstile no está configurada")
-        return jsonify({'success': False, 'message': 'Error de configuración del servidor'})
+        return jsonify({'success': False, 'message': 'Error de configuración del servidor 3'})
 
     # Obtén el token de Turnstile desde el formulario
     turnstile_token = request.form.get('cf-turnstile-response', '')
