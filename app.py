@@ -34,12 +34,32 @@ def email():
         result = response.json()
 
         if result.get('success'):
-            return 'Formulario enviado'
-        else:
-            return "Error, turnstile failed"
+            encoded_password = os.environ.get('MAIL_PASSWORD')
+            password = base64.b64decode(encoded_password).decode()
         
-    return 'end'
+            subject = "Sugerencia en sitio web de Bencomo" 
+            name = request.form["name"]
+            email = request.form["email"]
+            phone = request.form["phone"]
+            msg = request.form["msg"]
 
+            server = smtplib.SMTP('smtp.gmail.com', 587)
+            server.starttls()
+            server.login("sitiowebbencomodentalclinic@gmail.com", password )
+
+            message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
+
+            message["from"] = "sitiowebbencomodentalclinic@gmail.com"
+            message["to"] = "javier.rod.dev@gmail.com"
+            message["subject"] = subject
+
+            server.sendmail("sitiowebbencomodentalclinic@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
+
+            server.quit()
+
+        return render_template('home.html')
+    else:
+        return "Error, turnstile failed"
 
 @app.route('/web/mail/suggestions', methods=['GET', 'POST'])
 def emailSuggestions():
