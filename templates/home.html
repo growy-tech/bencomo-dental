@@ -531,8 +531,6 @@
                 <p id="contact-paragraph" class="paragraphs-white text-center">Siempre estamos dispuestos a leerte</p>
                 <!--Form-->
                 <form action="/web/mail" method="post" id="form" class="max-w-[95%] mx-auto p-6 rounded-4xl shadow-md ">
-                    <div class="g-recaptcha" data-sitekey="6Le4MvAqAAAAAH9JR5FVhhpDviXaa4ie_WA9lxmY"></div>
-                <script src="https://www.google.com/recaptcha/api.js" async defer></script>
                     <div class="mb-4">
                         <label id="name-text" for="name" class="block  font-bold mb-2 paragraphs-white">Nombre:</label>
                         <input type="text" id="nombre" name="name" class="w-full rounded-4xl bg-white px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
@@ -563,7 +561,7 @@
                         <button id="send-text" type="submit" class="bg-deepestBlue hover-btn hover-btn-blue  text-white font-medium font-quicksand py-2 px-4 rounded-4xl focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer">Enviar</button>
                     </div>
                 </div>
-                    
+                <input type="hidden" id="recaptchaResponse" name="g-recaptcha-response">
                 </form>
 
             </div>
@@ -966,6 +964,15 @@
 
     <!--Slider #2 Script-->
     <!--Scripts-->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Le4MvAqAAAAAH9JR5FVhhpDviXaa4ie_WA9lxmY"></script>
+    <script>
+    grecaptcha.ready(function() {
+    grecaptcha.execute('6Le4MvAqAAAAAH9JR5FVhhpDviXaa4ie_WA9lxmY', {action: 'submit'}).then(function(token) {
+    // Añadir el token a un campo oculto en tu formulario
+    document.getElementById('recaptchaResponse').value = token;
+        });
+    });
+</script>
     <script src="/static/js/toggleForms.js"></script>
     <script src="/static/js/toggle.js"></script>
     <script src="/static/js/light.js"></script>
