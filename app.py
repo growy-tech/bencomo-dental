@@ -47,10 +47,10 @@ def email():
         message = MIMEText(message_content)
 
         message["FROM"] = "sitiowebbencomodentalclinic@gmail.com"
-        message["To"] = "javier.rod.dev@gmail.com"
+        message["To"] = "hralvarez@bencomodentalclinic.com"
         message["Subject"] = subject
 
-        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
+        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "hralvarez@bencomodentalclinic.com", message.as_string())
         server.quit()
 
         return render_template('home.html')
