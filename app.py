@@ -79,10 +79,10 @@ def emailSuggestions():
         message  = MIMEText(f"subject: {subject}\n\nName: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {msg}")
 
         message["from"] = "sitiowebbencomodentalclinic@gmail.com"
-        message["to"] = "javier.rod.dev@gmail.com"
+        message["to"] = "halvarez@bencomodentalclinic@gmail.com"
         message["subject"] = subject
 
-        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "javier.rod.dev@gmail.com", message.as_string())
+        server.sendmail("sitiowebbencomodentalclinic@gmail.com", "halvarez@bencomodentalclinic@gmail.com", message.as_string())
 
         server.quit()
 
