@@ -42,12 +42,12 @@ def email():
     turnstile_token = request.form.get('cf-turnstile-response', '')
     if not turnstile_token:
         app.logger.error("No se recibió el token de Turnstile")
-        return jsonify({'success': False, 'message': 'Error en la verificación de seguridad'})
+        return jsonify({'success': False, 'message': 'Error en la verificación de seguridad 1'})
 
     # Verifica el token de Turnstile
     if not verify_turnstile(turnstile_token, TURNSTILE_SECRET_KEY, request.remote_addr):
         app.logger.error("Error en la verificación de Turnstile")
-        return jsonify({'success': False, 'message': 'Error en la verificación de seguridad'})
+        return jsonify({'success': False, 'message': 'Error en la verificación de seguridad 2'})
 
     # Obtén los datos del formulario
     name = request.form.get('name', '')
@@ -97,11 +97,8 @@ def verify_turnstile(token, secret_key, remote_ip):
     except requests.exceptions.RequestException as e:
         app.logger.error(f"Error verificando Turnstile: {str(e)}")
         return False
-
-# Inicia la aplicación Flask
-if __name__ == '__main__':
-    app.run(debug=True)
-
+    
+    
 @app.route('/web/mail/suggestions', methods=['GET', 'POST'])
 def emailSuggestions():
     encoded_password = os.environ.get('MAIL_PASSWORD')
@@ -133,4 +130,4 @@ def emailSuggestions():
         return render_template('home.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5500)
+    app.run(debug=True, port=3500)
