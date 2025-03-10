@@ -32,7 +32,7 @@ def email():
 
     subject = 'Comentario en sitio de Bencomo'
     name = request.form.get('name', '')
-    email = request.form.get('email,' '')
+    email = request.form.get('email','')
     phone = request.form.get('phone', '')
     msg = request.form.get('msg', '')
 
@@ -66,7 +66,7 @@ def verify_turnstile(token, secret_key, remote_ip):
     data = {
         'secret': secret_key,
         'response': token,
-        'remtoteip': remote_ip
+        'remoteip': remote_ip
     }
 
     try: 
