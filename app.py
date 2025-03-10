@@ -10,7 +10,7 @@ app = Flask(__name__)
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
 
 
-# Ruta principal
+# Main Route
 @app.route('/')
 def home():
     return render_template('home.html')
