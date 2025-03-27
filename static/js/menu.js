@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const close = document.getElementById('close-icon');
     const open = document.getElementById('open-icon');
 
-    close.addEventListener('click', () => {
+    close.addEventListener('click', (event) => {
         menu.classList.toggle('-translate-x-full')
         open.classList.toggle('hidden');
         if(menu.classList.contains('hidden')){
