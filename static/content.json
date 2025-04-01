@@ -96,8 +96,25 @@
         "formPacienteName" : "Patient name:",
         "formPacientText" : "Suggestion:",
         "formSuggestionsTitle" : "Suggestions",
-        "formSuggestionsSubTitle" : "We'd appreciate your feedback"
-
+        "formSuggestionsSubTitle" : "We'd appreciate your feedback",
+        "membershipsTitle": "Discover our Memberships",
+        "membershipsSubtitle": "Outstanding benefits for you and your family",
+        "membershipIndividualTitle": "Personal",
+        "membershipFamiliarTitle": "Family",
+        "yearlyRenewal": "Yearly Renewal",
+        "membershipsFamilySpecs": "Two adults and two children*",
+        "benefitsDiagnostics": "Complete diagnostics ",
+        "benefitNoCost": "at no cost",
+        "benefitDentalCleanings": " per year.",
+        "benefitTwoCleanings" : "Two dental cleanings",
+        "benefitBlank": "One dental whitening per year at ",
+        "benefitFifty": "50% off",
+        "benefitsThreatments": "Treatments with discounts ",
+        "benefitsThreatmentsTwo": "30% to 50% ",
+        "benefitsThreatmentsThree": "(Includes orthodontics).",
+        "benefitFinancialPlans" : "Direct access ",
+        "benefitFinancialPlansTwo": "to financing plans.",
+        "membershipBuyButtons": "Buy now"
     },
 
     "es":{
@@ -197,7 +214,26 @@
         "formPacienteName" : "Nombre del paciente:",
         "formPacientText" : "Sugerencia:",
         "formSuggestionsTitle" : "Sugerencias",
-        "formSuggestionsSubTitle" : "Apreciamos tus sugerencias"
+        "formSuggestionsSubTitle" : "Apreciamos tus sugerencias",
+        "membershipsTitle": "Descubre nuestras Membresias",
+        "membershipsSubtitle": "Excelentes beneficios para ti y tu familia",
+        "membershipIndividualTitle": "Individual",
+        "membershipFamiliarTitle": "Familiar",
+        "yearlyRenewal": "Renovación Anual",
+        "membershipsFamilySpecs": "2 Adultos y 2 niños*",
+        "benefitsDiagnostics": "Diagnósticos completos ",
+        "benefitNoCost": "sin costo",
+        "benefitDentalCleanings": " al año.",
+        "benefitTwoCleanings" : "2 limpiezas dentales",
+        "benefitBlank": "1 Blanqueamiento dental por año al ",
+        "benefitFifty": "50%",
+        "benefitsThreatments": "Tratamientos con descuentos del ",
+        "benefitsThreatmentsTwo": "30% al 50% ",
+        "benefitsThreatmentsThree": "(Incluye ortodoncia).",
+        "benefitFinancialPlans" : "Acceso directo ",
+        "benefitFinancialPlansTwo": "a planes de financiamiento.",
+        "membershipBuyButtons": "Comprar"
+
 
     }
 }

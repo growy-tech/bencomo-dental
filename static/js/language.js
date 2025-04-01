@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const title = document.getElementById('title');
     const locationMenu = document.getElementById('location-menu');
@@ -102,6 +103,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const formSuggestionsTitle = document.getElementById('contact-title-suggestions');
     const formSuggestionsSubTitle = document.getElementById('contact-paragraph-suggestions');
     const suggestionSend = document.getElementById('send-suggestion');
+    //Memberships section
+    const membershipsTitle = document.getElementById('memberships-title');
+    const membershipsSubtitle = document.getElementById('memberships-subtitle');
+    const membershipIndividualTitle = document.getElementById('membership-individual-name');
+    const membershipFamiliarTitle = document.getElementById('membership-familiar-name');
+    const yearlyRenewal = document.querySelectorAll('.yearly-renewal-text');
+    const membershipsFamilySpecs = document.getElementById('memberships-family-specs');
+    const benefitsDiagnostics = document.querySelectorAll('.benefit-complet-diagnostics');
+    const benefitNoCost= document.querySelectorAll('.benefit-no-cost');
+    const benefitDentalCleanings = document.querySelectorAll('.benefit-dental-cleanings');
+    const benefitTwoCleanings = document.querySelectorAll('.benefit-two-cleanings');
+    const benefitBlank = document.querySelectorAll('.benefit-blank');
+    const benefitFifty= document.querySelectorAll('.benefit-fifty-percent');
+    const benefitsThreatments = document.querySelectorAll('.benefit-treatments-discount');
+    const benefitFinancialPlans = document.querySelectorAll('.benefit-finacial-plans');
+    const membershipBuyButtons = document.querySelectorAll('.memberships-buy-btn');
+
+    console.log(benefitNoCost);
+    console.log(benefitsDiagnostics);
+
+
 
 
 
@@ -112,7 +134,48 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(CONTENT_URL)
         .then(response=>response.json())
         .then(data => {
-            suggestionSend.textContent=data[language].contactSend
+            //Memberships Section
+            membershipIndividualTitle.textContent=data[language].membershipIndividualTitle;
+            membershipsTitle.textContent=data[language].membershipsTitle;
+            membershipsSubtitle.textContent=data[language].membershipsSubtitle;
+            membershipFamiliarTitle.textContent=data[language].membershipFamiliarTitle;
+            yearlyRenewal.forEach(element => {
+                element.textContent=data[language].yearlyRenewal;
+            })
+            membershipsFamilySpecs.textContent=data[language].membershipsFamilySpecs;
+            benefitsDiagnostics.forEach(element => {
+                element.childNodes[0].textContent=data[language].benefitsDiagnostics;
+            })
+            benefitNoCost.forEach(element => {
+                element.textContent=data[language].benefitNoCost;
+            })
+            benefitDentalCleanings.forEach(element => {
+                element.childNodes[1].textContent=data[language].benefitDentalCleanings;
+            })
+            benefitTwoCleanings.forEach(element => {
+                element.textContent=data[language].benefitTwoCleanings;
+            })
+            benefitBlank.forEach(element => {
+                element.childNodes[0].textContent=data[language].benefitBlank;
+            })
+            benefitFifty.forEach(element => {
+                element.textContent=data[language].benefitFifty;
+            })
+            benefitsThreatments.forEach(element => {
+                element.childNodes[0].textContent=data[language].benefitsThreatments;
+                element.childNodes[1].textContent=data[language].benefitsThreatmentsTwo;
+                element.childNodes[2].textContent=data[language].benefitsThreatmentsThree;
+            })
+            benefitFinancialPlans.forEach(element => {
+                element.childNodes[0].textContent=data[language].benefitFinancialPlans;
+                element.childNodes[1].textContent=data[language].benefitFinancialPlansTwo;
+            })
+
+            membershipBuyButtons.forEach(element => {
+                element.textContent=data[language].membershipBuyButtons
+            })            
+
+            suggestionSend.textContent=data[language].contactSend;
             formSuggestionsSubTitle.textContent=data[language].formSuggestionsSubTitle;
             formSuggestionsTitle.textContent=data[language].formSuggestionsTitle;
             formPacientText.textContent=data[language].formPacientText
