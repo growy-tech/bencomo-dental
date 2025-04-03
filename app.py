@@ -1,29 +1,44 @@
 import smtplib
 import os
 import base64
-import requests
 from email.mime.text import MIMEText
+import requests
+import stripe
 from flask import Flask, render_template, request, jsonify
+
+
+
+#Stripe Keys
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+stripe.api_version = '2025-03-31.basil'
+DOMAIN = os.environ.get('DOMAIN')
 
 app = Flask(__name__)
 
+
+
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
 TEST_KEY = '0x4AAAAAABAJmIdh1tZu0jIFrnMLQui9F3I'
+PRICE_ID = 'price_1R9UJT08PmZA3EXpPP28xXVX'
 
 
 # Main Route
 @app.route('/')
 def home():
+    """Function thar return home page"""
     return render_template('home.html')
 
-# Ruta para manejar el envío de correos
+# Route to handle the mails send of the contact main form.
 @app.route('/web/mail', methods=['GET', 'POST'])
 def email():
+    """Function that manages the form of coments
+        in contact section
+    """
     if request.method == 'POST':
         token = request.form.get('cf-turnstile-response')
         if not token:
             return "error Turnslite, token not found", 400
-        
+                
         payload = {
             'secret': TEST_KEY,
             'response': token,
@@ -61,8 +76,10 @@ def email():
     else:
         return "Error, turnstile failed"
 
+#Route to handle the mail send of the suggestions form.
 @app.route('/web/mail/suggestions', methods=['GET', 'POST'])
-def emailSuggestions():
+def email_suggestions():
+    """Function that handles suggestions of contact Section"""
     encoded_password = os.environ.get('MAIL_PASSWORD')
     password = base64.b64decode(encoded_password).decode()
     if request.method == 'POST':
@@ -90,6 +107,43 @@ def emailSuggestions():
 
     else:
         return render_template('home.html')
+
+#Route to create Stripe checkot-session
+@app.route('/create-checkout-session', methods=['POST'])
+def create_checkout_session():
+    try:
+        session = stripe.checkout.Session.create(
+            ui_mode = 'custom',
+            line_items=[
+                {
+                    'price': PRICE_ID,
+                    'quantity': 1,
+                },
+            ],
+            mode='subscription',
+            return_url=DOMAIN + '/return.html?session_id={CHECKOUT_SESSION_ID}',
+        )
+    except Exception as e:
+        return str(e)
+    
+    return jsonify(clientSecret=session.client_secret)
+#Endpoint to retrieve a checkout session
+@app.route('/session-status', methods=['GET'])
+def sessions_status():
+    """Endpoint to retrieve checkout session
+    """
+    session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
+
+    return jsonify(status=session.status, costumer_email=session.costumer_details.email)
+
+@app.route('/checkout', methods=['GET'])
+def checkout_page():
+    return render_template('checkout.html')
+
+@app.route('/return', methods=['GET'])
+def return_page():
+    return render_template('return.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=5500)
