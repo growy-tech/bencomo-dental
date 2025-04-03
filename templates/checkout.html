@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <script src="https://js.stripe.com/basil/stripe.js"></script>
+    <script src="/static/js/checkout.js"></script>
+</head>
+<body>
+    <!--Diplay Form-->
+    <form id="payment-form">
+        <label for="">
+            Email
+            <input type="text" id="email" placeholder="you@example.com">
+        </label>
+        <div type="text" id="email-errors"></div>
+        <h3>Payment</h3>
+        <div id="payment-element">
+
+        </div>
+        <button id="submit">
+            <div class="spinner hidden" id="spinner"></div>
+            <span id="button-text">Pay Now</span>
+        </button>
+        <div id="payment-message" class="hidden"></div>
+    </form>
+</body>
+</html>
