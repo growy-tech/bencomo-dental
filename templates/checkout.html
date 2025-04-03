@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
+    <link rel="stylesheet" href="/static/checkout.css">
     <script src="https://js.stripe.com/basil/stripe.js"></script>
-    <script src="/static/js/checkout.js"></script>
+    <script src="/static/js/checkout.js" defer></script>
+    <script src="/static/js/return.js"></script>
 </head>
 <body>
     <!--Diplay Form-->
     <form id="payment-form">
-        <label for="">
+        <label>
             Email
-            <input type="text" id="email" placeholder="you@example.com">
+            <input type="text" id="email" placeholder="you@example.com"/>
         </label>
         <div type="text" id="email-errors"></div>
         <h3>Payment</h3>

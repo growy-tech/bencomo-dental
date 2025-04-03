@@ -4,7 +4,7 @@ import base64
 from email.mime.text import MIMEText
 import requests
 import stripe
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 
 
 
@@ -19,8 +19,6 @@ app = Flask(__name__)
 
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
 TEST_KEY = '0x4AAAAAABAJmIdh1tZu0jIFrnMLQui9F3I'
-PRICE_ID = 'price_1R9UJT08PmZA3EXpPP28xXVX'
-
 
 # Main Route
 @app.route('/')
@@ -108,30 +106,43 @@ def email_suggestions():
     else:
         return render_template('home.html')
 
-#Route to create Stripe checkot-session
+#Route to configurate stripe session and choose the price id
+@app.route('/config', methods=['GET'])
+def get_prices():
+    return({
+        'personalPlan': os.getenv('PERSONAL_PLAN_PRICE_ID'),
+        'familyPlan': os.getenv('FAMILY_PLAN_PRICE_ID')
+    })
+
+@app.route('/checkout-session', methods=['GET'])
+def get_checkout_session():
+    id = request.args.get('sessionId')
+    checkout_session = stripe.checkout.Session.retrieve(id)
+    return jsonify(checkout_session)
+
+#Route to create Stripe checkout-session
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
+    price = 'price_1R9rpp03Pt1W3mkVII4NhU3W'
+    URL_DOMAIN = os.getenv('DOMAIN')
+
     try:
         session = stripe.checkout.Session.create(
-            ui_mode = 'custom',
-            line_items=[
-                {
-                    'price': PRICE_ID,
-                    'quantity': 1,
-                },
-            ],
             mode='subscription',
-            return_url=DOMAIN + '/return.html?session_id={CHECKOUT_SESSION_ID}',
+            ui_mode= 'custom',
+            return_url= URL_DOMAIN + '/return.html?session_id={CHECKOUT_SESSION_ID}',
+            line_items=[{
+                'price': price,
+                'quantity': 1
+            }],
         )
     except Exception as e:
-        return str(e)
+        return jsonify({'ERROR': {'message': str(e)}}), 400
     
     return jsonify(clientSecret=session.client_secret)
-#Endpoint to retrieve a checkout session
+
 @app.route('/session-status', methods=['GET'])
-def sessions_status():
-    """Endpoint to retrieve checkout session
-    """
+def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
 
     return jsonify(status=session.status, costumer_email=session.costumer_details.email)
@@ -144,6 +155,9 @@ def checkout_page():
 def return_page():
     return render_template('return.html')
 
+@app.route('/success', methods=['GET'])
+def success_page():
+    return render_template('success.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=5500)
