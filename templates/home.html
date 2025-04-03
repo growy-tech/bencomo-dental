@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/splide.min.css">
     <script src="/static/js/splide.min.js" ></script>    
+    <script src="/static/js/script.js"></script>
     <title id="title">Bencomo Clinica Dental</title>
 </head>
         <!-- Google tag (gtag.js) -->
@@ -38,7 +39,7 @@
         </div>
         <div class="flex flex-row items-center justify-center gap-3">
             <a id="payment-link" href="https://buy.stripe.com/eVa16h2rL71t1G07ss" class="payment-anchor bg-deepestBlue rounded-4xl  hover-btn-blue py-1 px-3">
-                <p id="stripe-text" class="text-white item-link payment-link">Pagar en línea</span></p>
+                <p id="stripe-text" class="text-white item-link payment-link text-center">Pagar en línea</span></p>
             </a>
             <div id="selector-es" class="hover-btn-blue selector-es cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
                 <!--Espanol-->
@@ -150,29 +151,38 @@
             <div class="flex flex-col md:flex-row gap-12 md:gap-20 lg:gap-38 mt-8">
                 <!--individual container-->
                 <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl p-5 items-center gap-8 max-w-[300px]">
-                    <!--Title and price-->
-                    <div class="min-h-[132px]">
-                        <h4 id="membership-individual-name" class="font-quicksand text-3xl font-bold text-white text-center ">Individual</h4>
-                        <p class="font-quicksand text-2xl font-bold text-white text-center">$1,499.00</p>
-                        <p class="font-quickand font-light text-white text-center mb-4 yearly-renewal-text">Renovación Anual</p>
-                    </div>
-                    <!--Items-->
-                    <ul class="flex flex-col font-quicksand text-lg font-normal text-white gap-4">
-                        <li class="benefit-complet-diagnostics">Diagnósticos completos <span class="font-bold benefit-no-cost">sin costo</span>.</li>
-                        <div class="w-[100%] h-[2px] bg-white"></div>
-                        <li class="benefit-dental-cleanings"><span class="font-bold benefit-two-cleanings">2 limpiezas dentales</span> al año.</li>
-                        <div class="w-[100%] h-[2px] bg-white"></div>
-                        <li class="benefit-blank">1 Blanqueamiento dental por año al <span class="font-bold benefit-fifty-percent">50%</span>.</li>
-                        <div class="w-[100%] h-[2px] bg-white"></div>
-                        <li class="benefit-treatments-discount">Tratamientos con descuentos del <span class="font-bold benefit-thirty-to-fifty">30% al 50% </span> (Incluye ortodoncia).</li>
-                        <div class="w-[100%] h-[2px] bg-white"></div>
-                        <li class="benefit-finacial-plans"><span class="font-bold benefit-direct-access">Acceso directo</span> a planes de financiamiento.</li>
-                        <div class="w-[100%] h-[2px] bg-white"></div>
-                        <a id="" href="" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">Comprar</a>
+                    <form action="/create-checkout-session" method="POST">
+                        <input type="hidden" id="personalPlan" name="priceId">
+                        <!--Title and price-->
+                        <div class="min-h-[132px]">
+                            <h4 id="membership-individual-name" class="font-quicksand text-3xl font-bold text-white text-center ">Individual</h4>
+                            <p class="font-quicksand text-2xl font-bold text-white text-center">$1,499.00</p>
+                            <p class="font-quickand font-light text-white text-center mb-4 yearly-renewal-text">Renovación Anual</p>
+                        </div>
+                        <!--Items-->
+                        <ul class="flex flex-col font-quicksand text-lg font-normal text-white gap-4">
+                            <li class="benefit-complet-diagnostics">Diagnósticos completos <span class="font-bold benefit-no-cost">sin costo</span>.</li>
+                            <div class="w-[100%] h-[2px] bg-white"></div>
+                            <li class="benefit-dental-cleanings"><span class="font-bold benefit-two-cleanings">2 limpiezas dentales</span> al año.</li>
+                            <div class="w-[100%] h-[2px] bg-white"></div>
+                            <li class="benefit-blank">1 Blanqueamiento dental por año al <span class="font-bold benefit-fifty-percent">50%</span>.</li>
+                            <div class="w-[100%] h-[2px] bg-white"></div>
+                            <li class="benefit-treatments-discount">Tratamientos con descuentos del <span class="font-bold benefit-thirty-to-fifty">30% al 50% </span> (Incluye ortodoncia).</li>
+                            <div class="w-[100%] h-[2px] bg-white"></div>
+                            <li class="benefit-finacial-plans"><span class="font-bold benefit-direct-access">Acceso directo</span> a planes de financiamiento.</li>
+                            <div class="w-[100%] h-[2px] bg-white"></div>
+                            <button id="personal-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
+                                Comprar
+                            </button>
+                    </form>
+                    
+                        
                 </div>
                 <!--Familiar container-->
                 <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl p-5 items-center gap-8 max-w-[300px]">
-                    <!--Title and price-->
+                    <form action="/create-checkout-session" method="POST">
+                        <input type="hidden" id="familyPlan" name="priceId">
+                        <!--Title and price-->
                     <div class="">
                         <h4 id="membership-familiar-name" class="font-quicksand text-3xl font-bold text-white text-center ">Familiar</h4>
                         <p class="font-quicksand text-2xl font-bold text-white text-center">$2,399.00</p>
@@ -191,7 +201,12 @@
                         <div class="w-[100%] h-[2px] bg-white"></div>
                         <li class="benefit-finacial-plans"><span class="font-bold  benefit-direct-access">Acceso directo</span> a planes de financiamiento.</li>
                         <div class="w-[100%] h-[2px] bg-white"></div>
-                        <a href="" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">Comprar</a>
+                        <button id="family-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
+                            Comprar
+                        </button>
+                    </form>
+                    
+                        
                 </div>
             </div>
             <p class="font-quicksand mt-10">*Menores de hasta 16 años.</p>
