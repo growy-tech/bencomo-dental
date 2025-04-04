@@ -114,7 +114,9 @@
         "benefitsThreatmentsThree": "(Includes orthodontics).",
         "benefitFinancialPlans" : "Direct access ",
         "benefitFinancialPlansTwo": "to financing plans.",
-        "membershipBuyButtons": "Buy now"
+        "membershipBuyButtons": "Buy now",
+        "personalPlanPrice": "$99 USD",
+        "familyPlanPrice": "$199 USD"
     },
 
     "es":{
@@ -232,8 +234,9 @@
         "benefitsThreatmentsThree": "(Incluye ortodoncia).",
         "benefitFinancialPlans" : "Acceso directo ",
         "benefitFinancialPlansTwo": "a planes de financiamiento.",
-        "membershipBuyButtons": "Comprar"
-
+        "membershipBuyButtons": "Comprar",
+        "personalPlanPrice": "$1,499.00 MXN",
+        "familyPlanPrice": "$2,399 MXN"
 
     }
 }
