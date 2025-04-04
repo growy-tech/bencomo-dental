@@ -361,7 +361,15 @@ document.addEventListener('DOMContentLoaded', () => {
     englishSelectorElements.forEach(element => {
         element.addEventListener('click', () => {
             loadContent('en');
-            espVideo.classList.toggle('hidden');
+            if(espVideo.classList.contains('hidden')){
+            }else{
+                espVideo.classList.add('hidden')
+            }
+            if(engVideo.classList.contains('hidden')){
+                engVideo.classList.remove('hidden');
+            }else{
+                
+            }
             element.classList.add('hidden');
             spanishSelectorElements.forEach(element => {
                 element.classList.remove('hidden');
@@ -372,7 +380,15 @@ document.addEventListener('DOMContentLoaded', () => {
     spanishSelectorElements.forEach(element => {
         element.addEventListener('click', () => {
             loadContent('es');
-            engVideo.classList.toggle('hidden');
+            if(engVideo.classList.contains('hidden')){
+            }else{
+                engVideo.classList.add('hidden');
+            }
+            if(espVideo.classList.contains('hidden')){
+                espVideo.classList.remove('hidden')
+            }else{
+
+            }
             element.classList.add('hidden');
             englishSelectorElements.forEach(element => {
                 element.classList.remove('hidden');
