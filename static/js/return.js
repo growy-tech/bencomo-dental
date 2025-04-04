@@ -5,7 +5,6 @@ async function initialize() {
   const urlParams = new URLSearchParams(queryString);
   const sessionId = urlParams.get("session_id");
   const response = await fetch(`/session-status?session_id=${sessionId}`);
-  console.log(sessionId);
   const session = await response.json();
 
   if (session.status == "open") {

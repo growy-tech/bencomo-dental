@@ -4,12 +4,12 @@ import base64
 from email.mime.text import MIMEText
 import requests
 import stripe
-from flask import Flask, render_template, request, jsonify, redirect
+from flask import Flask, render_template, request, jsonify
 
 
 
 #Stripe Keys
-stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+stripe.api_key = 'sk_test_51Qk9mP03Pt1W3mkVynbd68bSQAc2YtZKbL0W3832p5M5df7oGf4PM1aMJshwgP0683KQA6fIjz4JFMykoCDLB84R00fEp1OOZq'
 stripe.api_version = '2025-03-31.basil'
 DOMAIN = os.environ.get('DOMAIN')
 
@@ -114,50 +114,35 @@ def get_prices():
         'familyPlan': os.getenv('FAMILY_PLAN_PRICE_ID')
     })
 
-@app.route('/checkout-session', methods=['GET'])
-def get_checkout_session():
-    id = request.args.get('sessionId')
-    checkout_session = stripe.checkout.Session.retrieve(id)
-    return jsonify(checkout_session)
-
-#Route to create Stripe checkout-session
-@app.route('/create-checkout-session', methods=['POST'])
+app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
-    price = 'price_1R9rpp03Pt1W3mkVII4NhU3W'
-    URL_DOMAIN = os.getenv('DOMAIN')
-
     try:
         session = stripe.checkout.Session.create(
+            ui_mode = 'custom',
+            line_items=[
+                {
+                    'price': 'price_1R9rpp03Pt1W3mkVII4NhU3W',
+                    'quantity': 1,
+                },
+            ],
             mode='subscription',
-            ui_mode= 'custom',
-            return_url= URL_DOMAIN + '/return.html?session_id={CHECKOUT_SESSION_ID}',
-            line_items=[{
-                'price': price,
-                'quantity': 1
-            }],
+            return_url=DOMAIN + '/return.html?session_id={CHECKOUT_SESSION_ID}',
         )
     except Exception as e:
-        return jsonify({'ERROR': {'message': str(e)}}), 400
-    
+        return str(e)
+
     return jsonify(clientSecret=session.client_secret)
 
 @app.route('/session-status', methods=['GET'])
 def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
 
-    return jsonify(status=session.status, costumer_email=session.costumer_details.email)
+    return jsonify(status=session.status, customer_email=session.customer_details.email)
+
 
 @app.route('/checkout', methods=['GET'])
 def checkout_page():
     return render_template('checkout.html')
-
-@app.route('/return', methods=['GET'])
-def return_page():
-    return render_template('return.html')
-
-@app.route('/success', methods=['GET'])
-def success_page():
-    return render_template('success.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=5500)
