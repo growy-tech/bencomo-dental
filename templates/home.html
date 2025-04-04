@@ -558,7 +558,7 @@
                     <img id="light-on" src="{{ url_for('static', filename='img/light-ac.webp')}}" alt="Icono para encender luz" class="hidden size-12">
                 </button>
             </div>
-            <video id="esp-video" src="{{ url_for('static', filename='img/testimony-video.mp4') }}" class="mb-20 max-w-[95%] lg:max-w-[848px] mx-auto rounded-4xl hidden" type="video/mp4" controls ></video>
+            <video id="esp-video" src="{{ url_for('static', filename='img/testimony-video.mp4') }}" class="mb-20 max-w-[95%] lg:max-w-[848px] mx-auto rounded-4xl " type="video/mp4" controls ></video>
             <video id="eng-video" src="{{ url_for('static', filename='img/testimony-video-en.mp4') }}" class="mb-20 max-w-[95%] lg:max-w-[848px] mx-auto rounded-4xl " type="video/mp4" controls ></video>
         </div>
     </section>
@@ -570,11 +570,11 @@
             <div class="flex flex-col lg:basis-2/3 rounded-4xl bg-gray lg:w-[35%] lg:h-[595px]">
                 <div class="flex flex-col  w-[90%] sm:w-[60%] lg:w-[65%]  mx-auto items-center gap-3 mt-6">
                     <h1 id="payment-title" class="headers text-center lg:text-left">Métodos de pago aceptados</h1>
-                    <img src="/static/img/cash-icon.webp" alt="Icono de efectivo" class="size-14">
+                    <img src="{{url_for('static', filename='img/cash-icon.webp') }}" alt="Icono de efectivo" class="size-14">
                     <p id="cash-text" class="paragraph">Efectivo</p>
-                    <img src="/static/img/card-icon.webp" alt="Icono de tarjetas" class="size-14">
+                    <img src="{{url_for('static', filename='img/card-icon.webp') }}" alt="Icono de tarjetas" class="size-14">
                     <p id="card-text" class="paragraph">Tarjetas debito y credito</p>
-                    <img src="/static/img/transfer-icon.webp" alt="Icono de transferencias" class="size-14">
+                    <img src="{{url_for('static', filename='img/transfer-icon.webp') }}" alt="Icono de transferencias" class="size-14">
                     <p id="transfer-text" class="paragraph">Transferencia</p>
                     <div class="w-[100%] h-1 bg-deepestBlue"></div>
                     <a id="payment-link" href="https://buy.stripe.com/eVa16h2rL71t1G07ss" class="payment-a bg-deepestBlue px-14 py-1 rounded-4xl mb-6 hover-btn hover-btn-blue payment-anchor">
@@ -586,11 +586,11 @@
             <div class="flex flex-col lg:basis-3/3 rounded-4xl bg-gradient-to-r from-deepestBlue to-lightBlue  lg:h-[595px]">
                 <div class="flex flex-col w-[90%] sm:w-[70%] lg:w-[75%] mx-auto items-center justify-center gap-7 lg:gap-5 mt-6">
                     <h1 id="info-payment-title" class="headers-white text-center lg:text-center mt-6 lg:mt-4">Pensando en tu bienestar</h1>
-                    <img src="/static/img/check.webp" alt="" class="size-14">
+                    <img src="{{url_for('static', filename='img/check.webp')}}" alt="" class="size-14">
                     <p id="info-payment-paragraph" class="font-white paragraphs paragraphs-white text-center">Son bienvendas tarjetas internacionales</p>
-                    <img src="/static/img/check.webp" alt="" class="size-14">
+                    <img src="{{url_for('static', filename='img/check.webp')}}" alt="" class="size-14">
                     <p id="info-payment-paragraph-2" class="font-white paragraphs paragraphs-white text-center">Planes de finaciamiento directo</p>
-                    <img src="/static/img/payment-graph.webp" alt="" class="size-60">
+                    <img src="{{url_for('static', filename='img/payment-graph.webp')}}" alt="" class="size-60">
                 </div>
             </div>
         </div>
@@ -598,7 +598,7 @@
 
     <!--Contact Section-->
     <section id="contact-section" class="opacity-0 transition-opacity duration-1000 overflow-hidden">
-        <div class="flex flex-col lg:flex-row relative w-[95%] bg-[url(/static/img/ubication-bg.png)] bg-cover rounded-4xl mx-auto mb-10">
+        <div class="flex flex-col lg:flex-row relative w-[95%] bg-cover rounded-4xl mx-auto mb-10" style="background-image: url({{url_for('static', filename='/img/ubication-bg.png')}});">
             <div class="absolute inset-0 z-1 opacity-95 bg-lightBlue rounded-4xl"></div>
             <!--Form-->
             <div id="contact-form" class="flex flex-col basis-1/2 w-[95%] mx-auto z-10 rounded-4xl gap-3">
@@ -681,16 +681,16 @@
                 <div class="flex flex-col gap-5">
                     <a id="facebook-link" href="https://www.facebook.com/BencomoDentalClinicjrz/reviews" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
                         <p id="facebook-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">Facebook</p>
-                        <img src="/static/img/fb-icon.webp" alt="Icono de Facebook" class="w-[23px]">
+                        <img src="{{url_for('static', filename='img/fb-icon.webp')}}" alt="Icono de Facebook" class="w-[23px]">
                     </a>
                     <a id="instagram-link" href="https://www.instagram.com/bencomodentalclinicjrz/" class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
                         <p id="instagram-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">Instagram</p>
-                        <img src="/static/img/ig-icon.webp" alt="Icono de Instagram" class="size-10">
+                        <img src="{{url_for('static', filename='img/ig-icon.webp')}}" alt="Icono de Instagram" class="size-10">
                     </a>
                     <p id="message-text" class="paragraphs-white mx-auto">También puedes mandarnos mensaje:</p>
                     <a id="whatsapp-link" href="https://wa.me/526566098566?text=  Hola, estaba en su página de internet, y necesito más información." class="flex flex-row mx-auto hover-btn-blue hover-btn bg-deepestBlue w-[300px] justify-center items-center rounded-4xl gap-3">
                         <p id="whatsapp-text" class="font-quicksand font-medium text-white text-center text-2xl py-2">WhatsApp</p>
-                        <img src="/static/img/whatsapp-white.webp" alt="Icono de WhatsApp" class="size-10">
+                        <img src="{{url_for('static', filename='img/whatsapp-white.webp')}}" alt="Icono de WhatsApp" class="size-10">
                     </a>
                 </div>
             </div>
@@ -708,14 +708,14 @@
             <h1 id="faq-title" class="headers text-center mt-10">Dudas frecuentes</h1>
             <!--Horarios-->
             <div id="hours-fix" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto z-10">
-                <img id="arrow-hours" src="/static/img/arrow.webp" class="size-10 object-contain ml-3 my-2" alt="">
+                <img id="arrow-hours" src="{{url_for('static', filename='img/arrow.webp')}}" class="size-10 object-contain ml-3 my-2" alt="">
                 <h1 id="faq-1-title" class="text-2xl paragraphs-white font-bold faq-item faq-question z-10">¿Cuáles son los horarios?<h1>
                 <div class="text-deepestBlue">.</div>
             </div>
             <!--Div to show-->
             <div id="hours-div" class="mx-auto -mt-7 bg-white border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
                 <div class="flex flex-row items-center justify-between ">
-                    <img id="arrow-hours" src="/static/img/arrow.webp" class="size-10  object-contain ml-3 my-2 hidden md:flex " alt="icono de mostrar mas">
+                    <img id="arrow-hours" src="{{url_for('static', filename='img/arrow.webp')}}" class="size-10  object-contain ml-3 my-2 hidden md:flex " alt="icono de mostrar mas">
                     <div class="flex flex-col mx-auto md:mx-auto">
                         <h1 id="days-1" class="paragraphs font-bold text-center mt-12">Lunes a Viernes</h1>
                         <h1 class="text-center paragraphs ">9:00 am - 7:00 pm</h1>
@@ -728,31 +728,31 @@
     
             <!--Ubicacion-->
             <div id="ubication" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto z-10">
-                <img id="arrow-ubication" src="/static/img/arrow.webp" class="size-10 object-contain ml-3 my-2" alt="Icono para mostrar">
+                <img id="arrow-ubication" src="{{url_for('static', filename='img/arrow.webp')}}" class="size-10 object-contain ml-3 my-2" alt="Icono para mostrar">
                 <h1 id="faq-2-title" class="text-2xl paragraphs-white font-bold faq-item faq-question ">¿Cómo llegar a la clínica?</h1>
                 <div class="text-backgroundGreen">.</div>
             </div>
             <!--Div to show-->
             <div id="ubication-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl bg-white z-1">
                 <div class="flex flex-row items-center justify-between">
-                    <img id="arrow-hours" src="/static/img/arrow.png" class="object-contain ml-3 my-2 hidden md:flex" alt="">
+                    <img id="arrow-hours" src="{{url_for('static', filename='img/arrow.webp')}}" class="object-contain ml-3 my-2 hidden md:flex" alt="">
                     <div class="flex flex-col mx-auto md:mx-auto">
                         <h1 id="faq-2-content" class="text-center mt-14 font-bold paragraphs">Ve aqui como llegar:</h1>
-                        <video src="/static/img/how-to.mp4" controls type="video/mp4" class="mb-10 rounded-4xl max-w-[95%] mx-auto"></video>
+                        <video src="{{url_for('static', filename='img/how-to.mp4') }}" controls type="video/mp4" class="mb-10 rounded-4xl max-w-[95%] mx-auto"></video>
                     </div>
                     <div class="bg-white hidden md:flex">.</div>
                 </div>          
             </div>
             <!--Metodos de pago-->
             <div id="pay" class="cursor-pointer mt-10 flex flex-row items-center justify-between bg-deepestBlue rounded-4xl w-full max-w-[1270px] mx-auto">
-                <img id="arrow-pay" src="/static/img/arrow.webp" class="size-10 object-contain ml-3 my-2" alt="Icono para mostrar">
+                <img id="arrow-pay" src="{{url_for('static', filename='img/arrow.webp')}}"class="size-10 object-contain ml-3 my-2" alt="Icono para mostrar">
                 <h1 id="faq-3-title" class="text-2xl paragraphs-white font-bold faq-item faq-question z-10">¿Aceptan aseguranzas?</h1>
                 <div class="text-backgroundGreen">.</div>
             </div>
             <!--Div to show-->
             <div id="pay-div" class="mx-auto -mt-7 bg-backgroundWhite border-2 border-deepestBlue w-full max-w-[1270px] transition duration-300 ease-in-out hidden rounded-4xl">
                 <div class="flex flex-row items-center justify-between">
-                    <img id="arrow-hours" src="/static/img/arrow.webp" class="size-10 object-contain ml-3 my-2 hidden md:flex" alt="Icono para mostrar">
+                    <img id="arrow-hours" src="{{url_for('static', filename='img/arrow.webp')}}" class="size-10 object-contain ml-3 my-2 hidden md:flex" alt="Icono para mostrar">
                     <div class="flex flex-col mx-auto md:mx-auto">
                         <h1 id="faq-3-content" class="text-center font-bold paragraphs mt-14">Si, aceptamos las siguientes aseguranzas americanas:</h1>
                         <!--slide-->
@@ -760,121 +760,121 @@
                             <section id="insurances-slide" class="splide flex  justify-end animate-scroll opacity-0 transition-opacity duration-1000 mb-10 max-w-[95%] overflow-hidden" aria-label="Splide Basic HTML Example ">
                                 <div class="splide__arrows">
                                     <button class="splide__arrow splide__arrow--prev">
-                                        <img src="/static/img/right-arrow.webp" alt="Icono para anterior" class="rotate-180">
+                                        <img src="{{url_for('static', filename='img/right-arrow.webp')}}" alt="Icono para anterior" class="rotate-180">
                                     </button>
                                     <button class="splide__arrow splide__arrow--next">
-                                        <img src="/static/img/right-arrow.webp" alt="Icono para siguiente">
+                                        <img src="{{url_for('static', filename='img/right-arrow.webp')}}" alt="Icono para siguiente">
                                     </button>
                                 </div>
                                 <div class="splide__track splide__track_ m-0 mt-8 overflow-hidden max-w-[75%]">
                                     <ul class="splide__list items-end">
                                         <!--1 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-1.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-1.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--2 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-2.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-2.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--3 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-3.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-3.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--4 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-4.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-4.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--5 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-5.webp" alt="Logo de aseguranza" >
+                                            <img src="{{url_for('static' ,filename='img/s-5.webp') }}" alt="Logo de aseguranza" >
                                         </li>
                                         <!--6 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-6.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-6.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--7 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-7.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-7.webp') }}"alt="Logo de aseguranza">
                                         </li>
                                         <!--8 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-8.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-8.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--9 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-9.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-9.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--10 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-10.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-10.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--11 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-11.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-11.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--12 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-12.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-12.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--13 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-13.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-13.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--14 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-14.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-14.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--15 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-15.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-15.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--16 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-16.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-16.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--17 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-17.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-17.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--18 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-18.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-18.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--19 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-19.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-19.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--20 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-20.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-20.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--21 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-21.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-21.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--22 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-22.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-22.webp') }}"alt="Logo de aseguranza">
                                         </li>
                                         <!--23 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-23.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-23.webp') }}"alt="Logo de aseguranza">
                                         </li>
                                         <!--24 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-24.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-24.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--25 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-25.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-25.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--26 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-26.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-26.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         <!--27 Container-->
                                         <li class="splide__slide flex items-center max-w-[75%]">
-                                            <img src="/static/img/s-27.webp" alt="Logo de aseguranza">
+                                            <img src="{{url_for('static' ,filename='img/s-27.webp') }}" alt="Logo de aseguranza">
                                         </li>
                                         
                                     </ul>
@@ -887,10 +887,10 @@
                         <h1 id="faq-3-content-2" class="text-center font-bold paragraphs">Y las siguientes aseguranzas mexicanas:</h1>
                         <ul class="flex flex-row mx-auto">
                             <li>
-                                <img src="/static/img/sm-1.webp" alt="Logo de aseguranza">
+                                <img src="{{url_for('static', filename='img/sm-1.webp')}}" alt="Logo de aseguranza">
                             </li>
                             <li>
-                                <img src="/static/img/sm-2.webp" alt="Logo de aseguranza">
+                                <img src="{{url_for('static', filename='img/sm-2.webp')}}" alt="Logo de aseguranza">
                             </li>
                         </ul>
                     </div>
@@ -911,7 +911,7 @@
                 <!--1-->
                 <div class="flex flex-col lg:basis-1/3 mx-auto items-center">
                     <a href="#hero">
-                        <img src="/static/img/logo-white.webp" alt="Logo de Bencomo Blanco" class="w-[200px]">
+                        <img src="{{url_for('static', filename='/img/logo-white.webp')}}" alt="Logo de Bencomo Blanco" class="w-[200px]">
                     </a>
                     <p class="font-quicksand text-white font-medium text-center">Epsilon 1823, Magnaplex, 32419 Juárez, Chih</p>
                     <p class="font-quicksand text-white font-medium">656-609-8566</p>
@@ -921,13 +921,13 @@
                     <h1 id="follow-us-text" class="headers-white text-center">Síguenos</h1>
                     <div class="flex flex-row justify-center gap-6">
                         <a href="https://www.facebook.com/BencomoDentalClinicjrz">
-                            <img src="/static/img/ig-icon.webp" alt="Icono Instagram" class="size-10">
+                            <img src="{{url_for('static' ,filename='img/ig-icon.webp')}}" alt="Icono Instagram" class="size-10">
                         </a>
                         <a href="https://www.instagram.com/bencomodentalclinicjrz/">
-                            <img src="/static/img/fb-icon.webp" alt="Icono Facebook" class="w-[23px]">
+                            <img src="{{url_for('static', filename='img/fb-icon.webp')}}" alt="Icono Facebook" class="w-[23px]">
                         </a>                       
                         <a href="https://wa.me/526566098566?text=  Hola, estaba en su página de internet, y necesito más información.">
-                            <img src="/static/img/whatsapp-white.webp" alt="Icono WhatsApp" class="size-10">
+                            <img src="{{url_for('static', filename='img/whatsapp-white.webp')}}" alt="Icono WhatsApp" class="size-10">
                         </a>
                     </div>
                 </div>'
