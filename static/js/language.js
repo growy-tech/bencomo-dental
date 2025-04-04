@@ -121,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const membershipBuyButtons = document.querySelectorAll('.memberships-buy-btn');
     const personalPlanPrice = document.getElementById('personal-plan-price');
     const familyPlanPrice = document.getElementById('family-plan-price');
+    const espVideo = document.getElementById('esp-video');
+    const engVideo = document.getElementById('eng-video');
+    const membershipAclaration = document.getElementById('membership-aclaration');
 
     console.log(benefitNoCost);
     console.log(benefitsDiagnostics);
@@ -136,7 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(CONTENT_URL)
         .then(response=>response.json())
         .then(data => {
+            //Videos
+
             //Memberships Section
+            membershipAclaration.textContent=data[language].membershipAclaration;
             membershipIndividualTitle.textContent=data[language].membershipIndividualTitle;
             membershipsTitle.textContent=data[language].membershipsTitle;
             membershipsSubtitle.textContent=data[language].membershipsSubtitle;
@@ -300,7 +306,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 element.href = data[language].paymentLink
             )
 
-            testimonyVideoOne.src = data[language].testimonyVideoOne;
             suggestionText.textContent = data[language].suggestionText;
             
         })
@@ -316,8 +321,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     //Selector browser settings
-    const languageSelector = (browserLanguage) => {           
+    const languageSelector = (browserLanguage) => {  
+        engVideo.classList.add('hidden');         
         if(browserLanguage === 'es'){
+            if(espVideo.classList.contains('hidden')){
+                espVideo.classList.remove('hidden');
+            }
             spanishSelectorElements.forEach(element => {
                 element.classList.add('hidden');
                 englishSelectorElements.forEach(elementEnglish => {
@@ -326,6 +335,10 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
         if(browserLanguage === 'en'){
+            espVideo.classList.add('hidden');
+            if(engVideo.classList.contains('hidden')){
+                engVideo.classList.remove('hidden');
+            }
             englishSelectorElements.forEach(element => {
                 element .classList.add('hidden');
                 spanishSelectorElements.forEach(element => {
@@ -348,6 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
     englishSelectorElements.forEach(element => {
         element.addEventListener('click', () => {
             loadContent('en');
+            espVideo.classList.toggle('hidden');
             element.classList.add('hidden');
             spanishSelectorElements.forEach(element => {
                 element.classList.remove('hidden');
@@ -358,6 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
     spanishSelectorElements.forEach(element => {
         element.addEventListener('click', () => {
             loadContent('es');
+            engVideo.classList.toggle('hidden');
             element.classList.add('hidden');
             englishSelectorElements.forEach(element => {
                 element.classList.remove('hidden');

@@ -212,7 +212,7 @@
                         
                 </div>
             </div>
-            <p class="font-quicksand mt-10">*Menores de hasta 16 años.</p>
+            <p  id="membership-aclaration" class="font-quicksand mt-10">*Menores de hasta 16 años.</p>
         </div>
     </section>
 
@@ -504,10 +504,10 @@
                     <!--Arrows-->
                     <div class="flex flex-row mx-auto mt-3 mb-3 gap-3">
                         <button id="arrow-left" class="cursor-pointer">
-                            <img src="/static/img/left-arrow-white.webp" alt="icono anterior">
+                            <img src="{{url_for('static', filename='img/left-arrow-white.webp') }}" alt="icono anterior">
                         </button>
                         <button id="arrow-right" class="cursor-pointer">
-                            <img src="/static/img/right-arrow-white.webp" alt="icono siguiente">
+                            <img src="{{url_for('static', filename='img/right-arrow-white.webp') }}" alt="icono siguiente">
                         </button>
                     </div>
 
@@ -520,23 +520,23 @@
                     <h1 id="testimony-img-title" class="headers-white text-center w-[80%] mb-4 lg:mb-12 mt-4">Una <span id="picture-paragraph" class="line-through">imagen</span> sonrisa vale más que mil palabras</h1>
                     <!--Image-1-->
                     <div id="testimony-image-1" class="flex flex-col w-[95%] max-w-[650px] mx-auto  mt-7 ">
-                        <img src="/static/img/smile-1.webp" alt="Imagen de un antes y despues" class="mx-auto">
+                        <img src="{{ url_for('static' ,filename='/img/smile-1.webp') }}" alt="Imagen de un antes y despues" class="mx-auto">
                     </div>
                     <!--Image-2-->
                     <div id="testimony-image-2" class="flex flex-col w-[95%] max-w-[650px] justify-center mt-7 mx-auto">
-                        <img src="/static/img/smile-2.webp" alt="Imagen de un antes y despues" class="mx-auto">
+                        <img src="{{ url_for('static' ,filename='/img/smile-2.webp') }}" alt="Imagen de un antes y despues" class="mx-auto">
                     </div>
                     <!--Image-3-->
                     <div id="testimony-image-3" class="flex flex-col w-[95%] max-w-[650px] justify-center mt-7 mx-auto">
-                        <img src="/static/img/smile-3.webp" alt="Imagen de un antes y despues" class="mx-auto">
+                        <img src="{{ url_for('static' ,filename='/img/smile-3.webp') }}" alt="Imagen de un antes y despues" class="mx-auto">
                     </div>
                     <!--Arrows-->
                     <div class="flex flex-row mt-3 mb-6 gap-3">
                         <button id="testimony-image-arrow-left" class="cursor-pointer">
-                            <img src="/static/img/left-arrow-white.webp" alt="Icono anterior" class="mx-auto">
+                            <img src="{{url_for('static', filename='img/left-arrow-white.webp') }}" alt="Icono anterior" class="mx-auto">
                         </button>
                         <button id="testimony-image-arrow-right" class="cursor-pointer">
-                            <img src="/static/img/right-arrow-white.webp" alt="Icono siguiente" class="mx-auto">
+                            <img src="{{url_for('static', filename='img/right-arrow-white.webp') }}"alt="Icono siguiente" class="mx-auto">
                         </button>
                     </div>
                 </div>
@@ -554,11 +554,12 @@
                 <p id="light-paragraph" class="text-lightBlue font-nunito text-center">Apaga la luz para ver mejor</p>
                 <p id="light-paragraph-2" class="text-lightBlue font-nunito text-center hidden">Enciende la luz</p>
                 <button id="" class="cursor-pointer">
-                    <img id="light-off" src="/static/img/light-des.webp" alt="Icono para apagar luz" class="size-12">
-                    <img id="light-on" src="/static/img/light-ac.webp" alt="Icono para encender luz" class="hidden size-12">
+                    <img id="light-off" src="{{ url_for('static', filename='img/light-des.webp')}}" alt="Icono para apagar luz" class="size-12">
+                    <img id="light-on" src="{{ url_for('static', filename='img/light-ac.webp')}}" alt="Icono para encender luz" class="hidden size-12">
                 </button>
             </div>
-            <video id="testimony-video" src="/static/img/testimony-video.mp4" class="mb-20 max-w-[95%] lg:max-w-[848px] mx-auto rounded-4xl" type="video/mp4" controls ></video>
+            <video id="esp-video" src="{{ url_for('static', filename='img/testimony-video.mp4') }}" class="mb-20 max-w-[95%] lg:max-w-[848px] mx-auto rounded-4xl hidden" type="video/mp4" controls ></video>
+            <video id="eng-video" src="{{ url_for('static', filename='img/testimony-video-en.mp4') }}" class="mb-20 max-w-[95%] lg:max-w-[848px] mx-auto rounded-4xl " type="video/mp4" controls ></video>
         </div>
     </section>
 
@@ -972,7 +973,7 @@
                 formMessage.textContent = "Error al enviar el mensaje";
             })
         })
-    </script>
+    </scrip>
     
     </script>
     <!--Slider #1 Script-->
