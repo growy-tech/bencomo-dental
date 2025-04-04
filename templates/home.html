@@ -6,6 +6,7 @@
     <meta name="description" content="Clínica dental Bencomo, ubicada en Ciudad Juárez, a solo 5 minutos del Paso, Texas, resultados excelentes en poco tiempo. Aceptamos Aseguranzas americanas.">
     <link rel="shorcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='output.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
@@ -13,6 +14,7 @@
     <script src="{{url_for('static', filename='/js/splide.min.js')}}" ></script>    
     <script src="{{ url_for('static', filename='/js/script.js') }}"></script>
     <script src="{{ url_for('static', filename='js/checkout.js') }}"></script>
+
     <title id="title">Bencomo Clinica Dental</title>
 </head>
         <!-- Google tag (gtag.js) -->
@@ -216,7 +218,7 @@
 
     <!--Location Section-->
     <section id="location" class="animate-scroll opacity-0 transition-opacity duration-1000">
-        <div class="flex flex-col relative bg-[url(/static/img/ubication-bg.png)] bg-cover rounded-4xl w-[95%] max-w-[748px] lg:max-w-[95%] xl:max-w-[95%] items-center justify-center mx-auto mt-28 h-auto xl:h-[700px] ">
+        <div class="flex flex-col relative  bg-cover rounded-4xl w-[95%] max-w-[748px] lg:max-w-[95%] xl:max-w-[95%] items-center justify-center mx-auto mt-28 h-auto xl:h-[700px]" style="background-image: url('{{ url_for('static', filename='img/ubication-bg.webp') }}');">
             <div class="absolute inset-0 z-1 opacity-95 bg-lightBlue rounded-4xl"></div>
             <!--Content-->
             <h1 id="location-title" class="headers-white w-[95%] mt-10 mb-3 z-10">Ubicación</h1>
@@ -271,7 +273,7 @@
                                     <p id="doctor-des-1" class="font-quicksand font-medium text-base lg:text-lg text-white">Ondontologia General y Rehabilitacion Oral</p>
                                     <a href="https://ff.healthatom.io/MiA5W6" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
                                         <p class="appointment-buttons  font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/date-white.webp" alt="Icono de agendar cita" class="size-8">
+                                        <img src="{{url_for('static', filename='/img/date-white.webp') }}" alt="Icono de agendar cita" class="size-8">
                                     </a>
                                 </div>
                             </div>
@@ -280,14 +282,14 @@
                         <!--Second Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-2.webp" alt="Imagen Doctor Emmanuel" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="{{url_for('static', filename='/img/person-2.webp') }}" alt="Imagen Doctor Emmanuel" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
                                     <p class="doctor-title-male font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctor</p>
                                     <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Emmanuel Ferniza</h1>
                                     <p id="doctor-des-2" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Endodoncista</p>
                                     <a href="https://wa.me/526566098566?text=Hola, me interesa una cita con el Doctor Emmanuel Ferniza." class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
                                         <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/whatsapp-white.webp" alt="Icono para WhatsApp" class="size-8">
+                                        <img src="{{url_for('static', filename='img/whatsapp-white.webp') }}" alt="Icono para WhatsApp" class="size-8">
                                     </a>
                                 </div>
                             </div>
@@ -296,14 +298,14 @@
                         <!--Third Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-3.webp" alt="Imagen del doctor Ever Renteria" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="{{url_for('static', filename='/img/person-3.webp') }}" alt="Imagen del doctor Ever Renteria" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
                                     <p class="doctor-title-male font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctor</p>
                                     <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Ever Rentería</h1>
                                     <p id="doctor-des-3" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Maxilofacial</p>
                                     <a href="https://wa.me/526566098566?text=Hola, me interesa una cita con el Doctor Ever Rentería." class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
                                         <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/whatsapp-white.webp" alt="Icono para WhatsApp" class="size-8">
+                                        <img src="{{url_for('static', filename='img/whatsapp-white.webp') }}" alt="Icono para WhatsApp" class="size-8">
                                     </a>
                                 </div>
                             </div>
@@ -311,14 +313,14 @@
                         <!--Fourth Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-4.webp" alt="Imagen del doctor Oscar Chaparro" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="{{url_for('static', filename='/img/person-4.webp') }}" alt="Imagen del doctor Oscar Chaparro" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
                                     <p class="doctor-title-male font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctor</p>
                                     <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Oscar Chaparro</h1>
                                     <p id="doctor-des-4" class=" font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Odontología General</p>
                                     <a href="https://ff.healthatom.io/MiA5W6" class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
                                         <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/date-white.webp" alt="Icono para agendar cita" class="size-8">
+                                        <img src="{{url_for('static', filename='/img/date-white.webp') }}" alt="Icono para agendar cita" class="size-8">
                                     </a>
                                 </div>
                             </div>
@@ -328,14 +330,14 @@
                         <!--Sixth Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-6.webp" alt="Imagen de la Doctora Selma Perez" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="{{url_for('static', filename='/img/person-6.webp') }}" alt="Imagen de la Doctora Selma Perez" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
                                     <p class="doctor-title-female font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctora</p>
                                     <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Selma Pérez</h1>
                                     <p id="doctor-des-6" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Odontopediatra</p>
                                     <a href="https://wa.me/526566098566?text=Hola, me interesa una cita con la Doctora Selma Perez." class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
                                         <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/whatsapp-white.webp" alt="Icono para WhatsApp" class="size-8">
+                                        <img src="{{url_for('static', filename='img/whatsapp-white.webp') }}" alt="Icono para WhatsApp" class="size-8">
                                     </a>
                                 </div>
                             </div>
@@ -344,14 +346,14 @@
                         <!--Seven Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col group cont bg-white rounded-4xl transition-colors duration-1000">
-                                <img src="/static/img/person-7.webp" alt="Imagen del doctor Carlos Beltran" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="{{url_for('static', filename='/img/person-7.webp') }}" alt="Imagen del doctor Carlos Beltran" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col group w-[90%] mx-auto mb-6 gap-1">
                                     <p class="doctor-title-male font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Doctor</p>
                                     <h1 class="font quicksand font-bold text-xl lg:text-2xl text-deepestBlue">Carlos Beltrán</h1>
                                     <p id="doctor-des-7" class="font-quicksand font-medium text-base lg:text-lg text-deepestBlue">Ortodoncia</p>
                                     <a href="https://wa.me/526566098566?text=Hola, me interesa una cita con la Doctor Carlos Beltrán." class="hover-btn gap-3 hover-btn-blue flex flex-row items-center bg-deepestBlue text-white rounded-4xl justify-center">
                                         <p class="appointment-buttons font-quicksand font-medium text-white text-lg lg:text-2xl">Agendar Cita</p>
-                                        <img src="/static/img/whatsapp-white.webp" alt="Icono WhatsApp" class="size-8">
+                                        <img src="{{url_for('static', filename='img/whatsapp-white.webp') }}" alt="Icono WhatsApp" class="size-8">
                                     </a>
                                 </div>
                             </div>
@@ -369,7 +371,7 @@
     <section id="Testimonies" class="animate-scroll opacity-0 transition-opacity duration-1000">
         <div class="flex flex-col  lg:flex-row w-[95%] mx-auto justify-center gap-3 lg:h-[800px]">
             <!--Left and first Container-->
-            <div class="flex flex-col bg-[url(/static/img/ubication-bg.png)] rounded-4xl w-[100%] min-h-[800px] lg:w-[50%] justify-center relative">
+            <div class="flex flex-col testimonie-first-div rounded-4xl w-[100%] min-h-[800px] lg:w-[50%] justify-center relative">
                 <div class="absolute inset-0 z-1 opacity-95 bg-deepestBlue rounded-4xl"></div>
                 <div class="flex flex-col w-[80%] mx-auto h-[90%] z-10">
                     <h1 id="testimony-title" class="headers-white text-center w-[100%] mb-4 mt-4">Nuestros pacientes hablan por nosotros</h1>
