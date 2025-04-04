@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Clínica dental Bencomo, ubicada en Ciudad Juárez, a solo 5 minutos del Paso, Texas, resultados excelentes en poco tiempo. Aceptamos Aseguranzas americanas.">
-    <link rel="shorcut icon" href="/static/img/favicon.ico" type="image/x-icon">
+    <link rel="shorcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='output.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='splide.min.css')}}">
     <script src="{{url_for('static', filename='/js/splide.min.js')}}" ></script>    
-    <script src="/static/js/script.js"></script>
-    <script src="/static/js/checkout.js"></script>
+    <script src="{{ url_for('static', filename='/js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/checkout.js') }}"></script>
     <title id="title">Bencomo Clinica Dental</title>
 </head>
         <!-- Google tag (gtag.js) -->
@@ -45,12 +45,12 @@
             <div id="selector-es" class="hover-btn-blue selector-es cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
                 <!--Espanol-->
                 <p  class="text-white item-link">Español</p>
-                <img id="mx-flag" src="/static/img/mx.webp" alt="Selector de idioma Español" class="">
+                <img id="mx-flag" src="{{url_for('static', filename='img/mx.webp') }}" alt="Selector de idioma Español" class="">
             </div>
             <div id="selector-en" class="selector-en hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
                 <!--English-->
                 <p  class="text-white item-link">English</p>
-                <img id="us-flag" src="/static/img/us.webp" alt="Selector de idioma Ingles" class="">
+                <img id="us-flag" src="{{url_for('static', filename='img/us.webp') }}"  alt="Selector de idioma Ingles" class="">
             </div>
         </div>
     </div>
@@ -58,25 +58,25 @@
     <div class="mt-5 min-h-12 flex flex-row relative max-w-[95%] mx-auto items-center justify-between lg:hidden">
         <div class="max-w-[220px]">
             <a href="#hero">
-                <img src="/static/img/logo.webp" class="" alt="Logo Bencomo Dental">
+                <img src="{{url_for('static', filename='/img/logo.webp') }}" class="" alt="Logo Bencomo Dental">
             </a>
             
         </div>
-            <img id="open-icon" src="/static/img/open.webp" class="size-10" alt="Icono para abrir menu">
+            <img id="open-icon" src="{{url_for('static', filename='/img/open.webp') }}" class="size-10" alt="Icono para abrir menu">
         
     </div>
     
     <div id="menu" class="flex flex-col absolute transition-transform duration-500 ease-in-out -translate-x-full left-0 gap-6 w-[85%] text-center bg-gray rounded-br-2xl rounded-tr-2xl shadow-gray-500 shadow-2xl h-dvh">
-        <img id="close-icon" src="/static/img/close.webp" class=" size-10 mx-auto mt-12" alt="Icono para cerrar menu ">
+        <img id="close-icon" src="{{url_for('static', filename='/img/close.webp') }}" class=" size-10 mx-auto mt-12" alt="Icono para cerrar menu ">
         <div id="selector-es-menu" class="selector-es hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
             <!--Espanol-->
             <p  class="text-white font-quicksand font-bold">Español</p>
-            <img id="mx-flag" src="/static/img/mx.webp" alt="Selector de idioma Español" class="">
+            <img id="mx-flag" src="{{url_for('static', filename='/img/mx.webp')}}" alt="Selector de idioma Español" class="">
         </div>
         <div id="selector-en-menu" class="selector-en hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
             <!--English-->
             <p  class="text-white font-quicksand font-bold">English</p>
-            <img id="us-flag" src="/static/img/us.webp" alt="Selector de idioma ingles" class="">
+            <img id="us-flag" src="{{url_for('static', filename='/img/us.webp')}}" alt="Selector de idioma ingles" class="">
         </div>
         <a href="" class="payment-anchor bg-deepestBlue rounded-4xl hover-btn-blue flex items-center mx-auto py-1 px-4">
             <p class="text-white payment-link font-bold">Pagar en linea</p>
@@ -95,7 +95,7 @@
             <!--Items Container-->
             <div class="flex flex-col w-[100%] max-w-[748px] xl:max-w-[90%] xl:flex-row mx-auto">
                 <div class="mt-28 mx-auto xl:min-w-[50%] flex justify-end">
-                    <img id="hero-img" src="/static/img/hero-img.webp" alt="imagen principal" class="">
+                    <img id="hero-img" src="{{url_for('static', filename='img/hero-img.webp') }}" alt="imagen principal" class="">
                 </div>
 
                 <div class="flex flex-col justify-center xl:items-start xl:min-w-[50%]">
@@ -108,14 +108,14 @@
                         <a id="" href="#our-specialists" class="">
                             <div class="hover-btn hover-btn-white flex flex-row justify-center gap-2 items-center text-center py-2 w-[95%] xl:w-[250px] 2xl:w-[400px] text-deepestBlue font-quicksand font-bold text-2xl xl:text-3xl bg-white rounded-3xl mx-auto">
                                 <p class="appointment-buttons">Agendar Cita</p>
-                                <img src="/static/img/date-icon.svg" alt="icon para agendar citas" class="size-8">
+                                <img src="{{url_for('static', filename='img/date-icon.svg') }}" alt="icon para agendar citas" class="size-8">
                             </div>
                         </a>
         
                         <a href="#location" class="">
                             <div class="hover-btn hover-btn-blue transition-all duration-1000 flex flex-row justify-center gap-2 items-center text-center py-2 w-[95%] xl:w-[250px] 2xl:w-[300px] text-white font-quicksand font-bold text-2xl xl:text-3xl bg-deepestBlue rounded-3xl mx-auto">
                                 <p class="location-button">Ubicación</p>
-                                <img src="/static/img/gps-icon.webp"  alt="icono para Ubicación" class="size-8">
+                                <img src="{{url_for('static', filename='/img/gps-icon.webp') }}"  alt="icono para Ubicación" class="size-8">
                             </div>
                         </a>
                     </div>
@@ -137,7 +137,7 @@
             </div>
             <div class="flex flex-col  xl:h-[500px] justify-around xl:items-start">
                 <h1 id="about-video-title" class="headers text-center xl:ml-4 mb-10">Un video sobre nosotros</h1>
-                <video src="/static/img/about-us-video.mp4" type="video/mp4" controls class="w-[95%] max-w-[748px] mx-auto rounded-4xl mb-10"></video>
+                <video src="{{url_for('static', filename='/img/about-us-video.mp4')}}" type="video/mp4" controls class="w-[95%] max-w-[748px] mx-auto rounded-4xl mb-10"></video>
             </div>
         </div>
     </section>
@@ -224,10 +224,10 @@
                 <!--First Div-->
                 <div class="flex z-10 lg:w-[50%]">
                     <div class="flex flex-col  bg-white rounded-4xl">
-                        <img src="/static/img/location-image.webp" alt="Imagen de bencomo dental" class="w-[100%] rounded-t-4xl">
+                        <img src="{{url_for('static', filename='img/location-image.webp') }}" alt="Imagen de bencomo dental" class="w-[100%] rounded-t-4xl">
                         <div class="flex flex-col gap-3">
                             <div class="flex flex-row items-center">
-                                <img src="/static/img/gps-blue-icon.svg"  alt="Icono para Ubicación" class="size-8">
+                                <img src="{{url_for('static', filename='/img/gps-blue-icon.svg') }}"  alt="Icono para Ubicación" class="size-8">
                                 <h1 class="headers">Ciudad Juarez</h1>
                             </div>
                             <p  id="location-paragraph" class="paragraphs w-[98%] mx-auto">A solo 5 minutos del puente libre, nos encuentras en Épsilon 1823, Magnaplex (justo al costado del Hotel Maria Bonita, sobre Rafael Pérez Serna).</p>
@@ -253,10 +253,10 @@
             <section id="specialists-slide" class="splide animate-scroll opacity-0 transition-opacity duration-1000" aria-label="Splide Basic HTML Example ">
                 <div class="splide__arrows">
                     <button class="splide__arrow splide__arrow--prev">
-                        <img src="/static/img/right-arrow.webp" alt="Icono para anterior" class="rotate-180">
+                        <img src="{{url_for('static', filename='/img/right-arrow.webp')}}" alt="Icono para anterior" class="rotate-180">
                     </button>
                     <button class="splide__arrow splide__arrow--next">
-                        <img src="/static/img/right-arrow.webp" alt="Icono para siguiente">
+                        <img src="{{url_for('static', filename='/img/right-arrow.webp')}}" alt="Icono para siguiente">
                     </button>
                 </div>
                 <div class="splide__track">
@@ -264,7 +264,7 @@
                         <!--First Container-->
                         <li class="splide__slide">
                             <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl">
-                                <img src="/static/img/person-1.webp" alt="imagen dentista Melissa" class="rounded-4xl mt-6 w-[90%] mx-auto">
+                                <img src="{{url_for('static', filename='img/person-1.webp') }}" alt="imagen dentista Melissa" class="rounded-4xl mt-6 w-[90%] mx-auto">
                                 <div class="flex flex-col w-[90%] mx-auto mb-6 gap-1">
                                     <p class="doctor-title-female font-quicksand font-medium text-base lg:text-lg text-white">Doctora</p>
                                     <h1 class="font quicksand font-bold text-xl lg:text-2xl text-white">Melissa Bencomo</h1>
@@ -1044,8 +1044,8 @@
     <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
     <script src="{{url_for('static', filename='/js/language.js') }}"></script>
     <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
-    <script src="/static/js/scroll.js"></script>
-    <script src="/static/js/testimony-slider.js"></script>
+    <script src="{{url_for('static', filename='js/scroll.js') }}"></script>
+    <script src="{{url_for('static', filename='js/testimony-slider.js') }}"></script>
     <script> const CONTENT_URL= "{{ url_for('static', filename='content.json') }}" </script>
 </body>
 
