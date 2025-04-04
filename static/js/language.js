@@ -119,6 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const benefitsThreatments = document.querySelectorAll('.benefit-treatments-discount');
     const benefitFinancialPlans = document.querySelectorAll('.benefit-finacial-plans');
     const membershipBuyButtons = document.querySelectorAll('.memberships-buy-btn');
+    const personalPlanPrice = document.getElementById('personal-plan-price');
+    const familyPlanPrice = document.getElementById('family-plan-price');
 
     console.log(benefitNoCost);
     console.log(benefitsDiagnostics);
@@ -172,8 +174,11 @@ document.addEventListener('DOMContentLoaded', () => {
             })
 
             membershipBuyButtons.forEach(element => {
-                element.textContent=data[language].membershipBuyButtons
-            })            
+                element.textContent=data[language].membershipBuyButtons;
+            })
+            
+            personalPlanPrice.textContent=data[language].personalPlanPrice;
+            familyPlanPrice.textContent=data[language].familyPlanPrice;
 
             suggestionSend.textContent=data[language].contactSend;
             formSuggestionsSubTitle.textContent=data[language].formSuggestionsSubTitle;
