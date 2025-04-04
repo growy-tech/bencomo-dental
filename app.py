@@ -9,11 +9,11 @@ from flask import Flask, render_template, request, jsonify
 
 
 #Stripe Keys
-stripe.api_key = 'sk_test_51Qk9mP03Pt1W3mkVynbd68bSQAc2YtZKbL0W3832p5M5df7oGf4PM1aMJshwgP0683KQA6fIjz4JFMykoCDLB84R00fEp1OOZq'
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 stripe.api_version = '2025-03-31.basil'
 DOMAIN = os.environ.get('DOMAIN')
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='',static_folder='static')
 
 
 
@@ -114,7 +114,7 @@ def get_prices():
         'familyPlan': os.getenv('FAMILY_PLAN_PRICE_ID')
     })
 
-app.route('/create-checkout-session', methods=['POST'])
+@app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
         session = stripe.checkout.Session.create(
@@ -133,12 +133,12 @@ def create_checkout_session():
 
     return jsonify(clientSecret=session.client_secret)
 
+
 @app.route('/session-status', methods=['GET'])
 def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
 
     return jsonify(status=session.status, customer_email=session.customer_details.email)
-
 
 @app.route('/checkout', methods=['GET'])
 def checkout_page():

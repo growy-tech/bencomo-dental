@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Clínica dental Bencomo, ubicada en Ciudad Juárez, a solo 5 minutos del Paso, Texas, resultados excelentes en poco tiempo. Aceptamos Aseguranzas americanas.">
     <link rel="shorcut icon" href="/static/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/static/output.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/splide.min.css">
-    <script src="/static/js/splide.min.js" ></script>    
+    <link rel="stylesheet" href="{{ url_for('static', filename='splide.min.css')}}">
+    <script src="{{url_for('static', filename='/js/splide.min.js')}}" ></script>    
     <script src="/static/js/script.js"></script>
-    <scripta src="/static/js/checkout.js"></script>
+    <script src="/static/js/checkout.js"></script>
     <title id="title">Bencomo Clinica Dental</title>
 </head>
         <!-- Google tag (gtag.js) -->
@@ -30,7 +30,7 @@
     <div class="mt-5 w-[95%] mx-auto hidden lg:flex justify-between items-center">
         <div class="flex flex-row items-center gap-3 xl:gap-6">
             <a href="#hero">
-                <img src="/static/img/logo.webp" alt="Logo de Bencomo Dental" class="w-[180px] flex lg:w-[208px]"> 
+                <img src="{{ url_for('static', filename='/img/logo.webp') }}" alt="Logo de Bencomo Dental" class="w-[180px] flex lg:w-[208px]"> 
             </a>
             <a id="specialists" class="item-link" href="#our-specialists">Especialistas</a>
             <a id="reviews" class="item-link" href="#Testimonies">Testimonios</a>
@@ -152,7 +152,7 @@
             <div class="flex flex-col md:flex-row gap-12 md:gap-20 lg:gap-38 mt-8">
                 <!--individual container-->
                 <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl p-5 items-center gap-8 max-w-[300px]">
-                    <form action="/create-checkout-session" method="POST">
+                    <form action="" method="">
                         <input type="hidden" id="personalPlan" name="priceId">
                         <!--Title and price-->
                         <div class="min-h-[132px]">
@@ -181,7 +181,7 @@
                 </div>
                 <!--Familiar container-->
                 <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl p-5 items-center gap-8 max-w-[300px]">
-                    <form action="/create-checkout-session" method="POST">
+                    <form action="" method="">
                         <input type="hidden" id="familyPlan" name="priceId">
                         <!--Title and price-->
                     <div class="">
@@ -1038,12 +1038,12 @@
     <!--Slider #2 Script-->
     <!--Scripts-->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <script src="/static/js/toggleForms.js"></script>
-    <script src="/static/js/toggle.js"></script>
-    <script src="/static/js/light.js"></script>
-    <script src="/static/js/menu.js"></script>
-    <script src="/static/js/language.js"></script>
-    <script src="/static/js/animations.js"></script>
+    <script src="{{ url_for('static', filename='js/toggleForms.js') }}"></script>
+    <script src="{{ url_for('static', filename='/js/toggle.js') }}"></script>
+    <script src="{{url_for('static', filename='/js/light.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
+    <script src="{{url_for('static', filename='/js/language.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
     <script src="/static/js/scroll.js"></script>
     <script src="/static/js/testimony-slider.js"></script>
     <script> const CONTENT_URL= "{{ url_for('static', filename='content.json') }}" </script>

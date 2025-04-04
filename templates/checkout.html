@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
-    <link rel="stylesheet" href="/static/checkout.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='checkout.css')}}">
     <script src="https://js.stripe.com/basil/stripe.js"></script>
-    <script src="/static/js/checkout.js" defer></script>
+    <script src="{{ url_for('static', filename='js/checkout.js') }}" defer></script>
     <script src="/static/js/return.js"></script>
 </head>
 <body>
