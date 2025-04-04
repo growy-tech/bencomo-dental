@@ -91,7 +91,7 @@
         "testimoniesFooter": "Testimonies",
         "growyText": "Designed, developed and created by Growy",
         "paymentLink": "https://buy.stripe.com/eVa16h2rL71t1G07ss",
-        "testimonyVideoOne": "/static/img/testimony-video-en.mp4",
+        "testimonyVideoOne": "{{url_for('static',filename='img/testimony-video.mp4')}}",
         "suggestionText" : "I have a suggestion",
         "formPacienteName" : "Patient name:",
         "formPacientText" : "Suggestion:",
@@ -116,7 +116,8 @@
         "benefitFinancialPlansTwo": "to financing plans.",
         "membershipBuyButtons": "Buy now",
         "personalPlanPrice": "$99 USD",
-        "familyPlanPrice": "$199 USD"
+        "familyPlanPrice": "$199 USD",
+        "membershipAclaration": "*Under 16 years old"
     },
 
     "es":{
@@ -211,7 +212,7 @@
         "testimoniesFooter": "Testimonios",
         "growyText": "Diseñado, desarrollado y creado por Growy",
         "paymentLink": "https://buy.stripe.com/bIY3epgiB85x70kdQR",
-        "testimonyVideoOne": "/static/img/testimony-video.mp4",
+        "testimonyVideoOne": "{{ url_for('static', filename='img/testimony-video.mp4') }}",
         "suggestionText" : "Tengo una sugerencia",
         "formPacienteName" : "Nombre del paciente:",
         "formPacientText" : "Sugerencia:",
@@ -236,7 +237,8 @@
         "benefitFinancialPlansTwo": "a planes de financiamiento.",
         "membershipBuyButtons": "Comprar",
         "personalPlanPrice": "$1,499.00 MXN",
-        "familyPlanPrice": "$2,399 MXN"
+        "familyPlanPrice": "$2,399 MXN",
+        "membershipAclaration": "*Menores de hasta 16 años."
 
     }
 }
