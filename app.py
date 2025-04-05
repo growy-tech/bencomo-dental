@@ -4,19 +4,24 @@ import base64
 from email.mime.text import MIMEText
 import requests
 import stripe
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect, url_for
+from stripe_products import get_stripe_products, get_product_per_id
 
 
+
+app = Flask(__name__, static_url_path='',static_folder='static')
 
 #Stripe Keys
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 stripe.api_version = '2025-03-31.basil'
 DOMAIN = os.environ.get('DOMAIN')
+#Subscriptions ids
+SUBSCRIPTION_PRODUCTS = {
+    "personal": "price_1R9FBA03Pt1W3mkVsLss3fwk",
+    "family": "familyplan"
+}
 
-app = Flask(__name__, static_url_path='',static_folder='static')
-
-
-
+#turnstile cloudflare keys
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
 TEST_KEY = '0x4AAAAAABAJmIdh1tZu0jIFrnMLQui9F3I'
 
@@ -106,22 +111,22 @@ def email_suggestions():
     else:
         return render_template('home.html')
 
-#Route to configurate stripe session and choose the price id
-@app.route('/config', methods=['GET'])
-def get_prices():
-    return({
-        'personalPlan': os.getenv('PERSONAL_PLAN_PRICE_ID'),
-        'familyPlan': os.getenv('FAMILY_PLAN_PRICE_ID')
-    })
 
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
+    subscription_type = request.form.get('subscription-type')
+    
+    if subscription_type not in SUBSCRIPTION_PRODUCTS:
+        return jsonify(error="Tipo de subscripcion invalido"), 400
+
+    price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
+
     try:
         session = stripe.checkout.Session.create(
             ui_mode = 'custom',
             line_items=[
                 {
-                    'price': 'price_1R9rpp03Pt1W3mkVII4NhU3W',
+                    'price': price_id,
                     'quantity': 1,
                 },
             ],
@@ -134,15 +139,25 @@ def create_checkout_session():
     return jsonify(clientSecret=session.client_secret)
 
 
+@app.route('/checkout/<subscription_type>')
+def checkout(subscription_type):
+    if subscription_type not in SUBSCRIPTION_PRODUCTS:
+        return redirect(url_for('home'))
+    
+    return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso")
+
 @app.route('/session-status', methods=['GET'])
 def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
-
+    
     return jsonify(status=session.status, customer_email=session.customer_details.email)
 
-@app.route('/checkout', methods=['GET'])
-def checkout_page():
-    return render_template('checkout.html')
+
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=5500)

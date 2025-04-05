@@ -154,8 +154,6 @@
             <div class="flex flex-col md:flex-row gap-12 md:gap-20 lg:gap-38 mt-8">
                 <!--individual container-->
                 <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl p-5 items-center gap-8 max-w-[300px]">
-                    <form action="" method="">
-                        <input type="hidden" id="personalPlan" name="priceId">
                         <!--Title and price-->
                         <div class="min-h-[132px]">
                             <h4 id="membership-individual-name" class="font-quicksand text-3xl font-bold text-white text-center ">Individual</h4>
@@ -174,17 +172,17 @@
                             <div class="w-[100%] h-[2px] bg-white"></div>
                             <li class="benefit-finacial-plans"><span class="font-bold benefit-direct-access">Acceso directo</span> a planes de financiamiento.</li>
                             <div class="w-[100%] h-[2px] bg-white"></div>
-                            <button id="personal-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
-                                Comprar
-                            </button>
+                            <a href="/checkout/personal">
+                                <button id="personal-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
+                                    Comprar
+                                </button>
+                            </a>
                     </form>
                     
                         
                 </div>
                 <!--Familiar container-->
                 <div class="flex flex-col bg-gradient-to-b from-deepestBlue to-lightBlue rounded-4xl p-5 items-center gap-8 max-w-[300px]">
-                    <form action="" method="">
-                        <input type="hidden" id="familyPlan" name="priceId">
                         <!--Title and price-->
                     <div class="">
                         <h4 id="membership-familiar-name" class="font-quicksand text-3xl font-bold text-white text-center ">Familiar</h4>
@@ -204,10 +202,11 @@
                         <div class="w-[100%] h-[2px] bg-white"></div>
                         <li class="benefit-finacial-plans"><span class="font-bold  benefit-direct-access">Acceso directo</span> a planes de financiamiento.</li>
                         <div class="w-[100%] h-[2px] bg-white"></div>
-                        <button id="family-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
-                            Comprar
-                        </button>
-                    </form>
+                        <a href="/checkout/family">
+                            <button id="family-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
+                                Comprar
+                            </button>
+                        </a>
                     
                         
                 </div>

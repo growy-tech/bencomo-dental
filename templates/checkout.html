@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout</title>
+    <title>Checkout - {{ subscription_type|capitalize }} Plan</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='checkout.css')}}">
     <script src="https://js.stripe.com/basil/stripe.js"></script>
     <script src="{{ url_for('static', filename='js/checkout.js') }}" defer></script>
-    <script src="/static/js/return.js"></script>
+    
 </head>
 <body>
+
+    <h1>Finalizar subscripcion {{ subscription_type|capitalize }}</h1>
+
+
+    <h1>Info del plan</h1>
+    {% if subscription_type == 'personal' %}
+    <h1>personal plan</h1>
+    {% elif subscription_type == 'family' %}
+    <h1>Family plan</h1>
     <!--Diplay Form-->
+    {% endif %}
     <form id="payment-form">
         <label>
             Email
