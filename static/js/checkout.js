@@ -1,8 +1,16 @@
 // This is your test publishable API key.
-const stripe = Stripe("pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso");
+const stripe = Stripe("pk_live_51Qk9mP03Pt1W3mkVdzhtHLeDsLJlcvUhkXjuFWxcgPl6IsCVxw9TEkXU46sIfP4DLtmLCO0ON8JuQ7SYJNZFvkVS00QNK8ypUI");
+var subscriptionType = document.getElementById('subscription-type').textContent;
 
+
+checkSubscriptionType(subscriptionType);
 initialize();
 let checkout;
+
+
+
+
+console.log(subscriptionType);
 
 const validateEmail = async (email) => {
   const updateResult = await checkout.updateEmail(email);
@@ -17,6 +25,7 @@ document
 
 // Fetches a Checkout Session and captures the client secret
 async function initialize() {
+  
   const fetchClientSecret = () =>
     fetch("/create-checkout-session", {
       method: "POST",
@@ -59,6 +68,27 @@ async function initialize() {
   const paymentElement = checkout.createPaymentElement();
   paymentElement.mount("#payment-element");
 }
+
+async function checkSubscriptionType(subscriptionType){
+  console.log(subscriptionType);
+  if(!subscriptionType){
+    console.error("subscriptionType is required");
+    return Promise.reject("subscriptionType is required");
+  }
+  return fetch('/check-subscription-type', {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ textValue : subscriptionType })
+  })
+    .then(response => {
+      if(!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+}
+
+
 
 async function handleSubmit(e) {
   e.preventDefault();
