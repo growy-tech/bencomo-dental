@@ -10,18 +10,34 @@
     
 </head>
 <body>
-
-    <h1>Finalizar subscripcion {{ subscription_type|capitalize }}</h1>
+    
+    <h1></h1>
 
 
     <h1>Info del plan</h1>
-    {% if subscription_type == 'personal' %}
-    <h1>personal plan</h1>
-    {% elif subscription_type == 'family' %}
-    <h1>Family plan</h1>
+    {% if subscription_type == 'personalMx' %}
+    <h1>Membresia Individual</h1>
+    {% elif subscription_type == 'familyMx' %}
+    <h1>Membresia Familiar</h1>
+    {% elif subscription_type == 'personalUs' %}
+    <h1>Personal Membership</h1>
+    {% elif subscription_type == 'familyUs' %}
+    <h1>Family Membership</h1>
     <!--Diplay Form-->
     {% endif %}
+    {% if subscription_type == 'personalMx' %}
     <form id="payment-form">
+        <p id="subscription-type" class="hidden">personalMx</p>
+    {% elif subscription_type == 'familyMx' %}
+    <form id="payment-form">
+        <p id="subscription-type" class="hidden">familyMx</p>
+    {% elif subscription_type == 'personalUs' %}
+    <form id="payment-form">
+        <p id="subscription-type" class="hidden">personalUs</p>
+    {% elif subscription_type == 'familyUs' %}
+    <form id="payment-form">
+        <p id="subscription-type" class="hidden">familyUs</p>
+    {% endif  %}
         <label>
             Email
             <input type="text" id="email" placeholder="you@example.com"/>

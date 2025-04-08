@@ -12,8 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='splide.min.css')}}">
     <script src="{{url_for('static', filename='/js/splide.min.js')}}" ></script>    
-    <script src="{{ url_for('static', filename='/js/script.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/checkout.js') }}"></script>
 
     <title id="title">Bencomo Clinica Dental</title>
 </head>
@@ -172,7 +170,7 @@
                             <div class="w-[100%] h-[2px] bg-white"></div>
                             <li class="benefit-finacial-plans"><span class="font-bold benefit-direct-access">Acceso directo</span> a planes de financiamiento.</li>
                             <div class="w-[100%] h-[2px] bg-white"></div>
-                            <a href="/checkout/personal">
+                            <a href="/checkout/personalMx" id="buy-personal-route">
                                 <button id="personal-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
                                     Comprar
                                 </button>
@@ -202,7 +200,7 @@
                         <div class="w-[100%] h-[2px] bg-white"></div>
                         <li class="benefit-finacial-plans"><span class="font-bold  benefit-direct-access">Acceso directo</span> a planes de financiamiento.</li>
                         <div class="w-[100%] h-[2px] bg-white"></div>
-                        <a href="/checkout/family">
+                        <a href="/checkout/familyMx" id="buy-family-route">
                             <button id="family-plan-btn" class="memberships-buy-btn font-quick font-bold text-xl bg-white rounded-4xl text-deepestBlue text-center hover:scale-105">
                                 Comprar
                             </button>
@@ -972,7 +970,7 @@
                 formMessage.textContent = "Error al enviar el mensaje";
             })
         })
-    </scrip>
+    </script>
     
     </script>
     <!--Slider #1 Script-->

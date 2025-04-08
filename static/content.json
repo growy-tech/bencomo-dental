@@ -117,7 +117,9 @@
         "membershipBuyButtons": "Buy now",
         "personalPlanPrice": "$99 USD",
         "familyPlanPrice": "$199 USD",
-        "membershipAclaration": "*Under 16 years old"
+        "membershipAclaration": "*Under 16 years old",
+        "buyFamilyButton" : "/checkout/familyUs",
+        "buyPersonalButton": "/checkout/personalUs"
     },
 
     "es":{
@@ -238,7 +240,8 @@
         "membershipBuyButtons": "Comprar",
         "personalPlanPrice": "$1,499.00 MXN",
         "familyPlanPrice": "$2,399 MXN",
-        "membershipAclaration": "*Menores de hasta 16 años."
-
+        "membershipAclaration": "*Menores de hasta 16 años.",
+        "buyFamilyButton" : "/checkout/familyMx",
+        "buyPersonalButton": "/checkout/personalMx"
     }
 }

@@ -124,6 +124,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const espVideo = document.getElementById('esp-video');
     const engVideo = document.getElementById('eng-video');
     const membershipAclaration = document.getElementById('membership-aclaration');
+    const buyFamilyButton = document.getElementById('buy-family-route');
+    const buyPersonalButton = document.getElementById('buy-personal-route');
 
     console.log(benefitNoCost);
     console.log(benefitsDiagnostics);
@@ -142,6 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
             //Videos
 
             //Memberships Section
+            buyFamilyButton.href=data[language].buyFamilyButton;
+            buyPersonalButton.href=data[language].buyPersonalButton;
             membershipAclaration.textContent=data[language].membershipAclaration;
             membershipIndividualTitle.textContent=data[language].membershipIndividualTitle;
             membershipsTitle.textContent=data[language].membershipsTitle;
