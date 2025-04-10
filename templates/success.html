@@ -1,44 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Stripe Checkout Sample</title>
-    <meta name="description" content="A demo of Stripe Payment Intents" />
-
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="css/normalize.css" />
-    <link rel="stylesheet" href="css/global.css" />
-
-    <script src="./success.js" defer></script>
-  </head>
-
-  <body>
-    <div class="togethere-background"></div>
-    <div class="sr-root">
-      <div class="sr-main">
-        <div class="sr-payment-summary completed-view">
-            <h1>Your payment succeeded</h1>
-            <h4>
-              View CheckoutSession response:
-            </h4>
-          </div>
-          <div class="completed-view-section">
-            <pre>
-
-            </pre>
-            <button onclick="window.location.href = '/';">Restart demo</button>
-
-            <form action="/customer-portal" method="POST">
-              <!-- In practice, use the Stripe customer ID on the server to redirect to the customer portal. This is for demo: -->
-              <input type="hidden" name="sessionId" id="sessionId" />
-
-              <button>Manage Billing</button>
-            </form>
-          </div>
-        </div>
-        <div class="sr-content">
-        </div>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css')}}">
+    <link rel="shorcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='/js/language-success.js' ) }}"></script>
+    <title>Pago Aprobado</title>
+</head>
+<body>
+    <div class="flex flex-col items-center justify-center">
+        <h1 id="title" class="font-quicksand text-3xl text-deepestBlue font-black text-center mt-10 mb-10">Pago Aceptado</h1>
+        <p   p id="paragraph" class="font-quicksand text-deepestBlue text-lg font-medium text-center">Hemos procesado tu pago, enviaremos  informacion al mail que registrate para el la transaccion.</p>
+        <a id="back-button" href="{{ url_for('home') }}" class="font-bold text-2xl text-center bg-deepestBlue text-white p-3 mx-auto rounded-4xl mt-6">Regresar</a>
     </div>
-  </body>
+    
+
+    <script> const CONTENT_URL= "{{ url_for('static', filename='content-success.json') }}" </script>
+</body>
 </html>

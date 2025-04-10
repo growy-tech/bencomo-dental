@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: Quicksand,  BlinkMacSystemFont, sans-serif;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   display: flex;
@@ -16,8 +16,6 @@ form {
   width: 35vw;
   min-width: 500px;
   align-self: center;
-  box-shadow: 0px 0px 0px 0.5px rgba(50, 50, 93, 0.1),
-    0px 2px 5px 0px rgba(50, 50, 93, 0.1), 0px 1px 1.5px 0px rgba(0, 0, 0, 0.07);
   border-radius: 7px;
   padding: 40px;
   margin-top: auto;
@@ -57,8 +55,8 @@ form {
 
 /* Buttons and links */
 button {
-  background: #0055de;
-  font-family: Arial, sans-serif;
+  background: #1C2340;
+  font-family: Quicksand, sans-serif;
   color: #ffffff;
   border-radius: 4px;
   border: 0;
@@ -70,6 +68,11 @@ button {
   transition: all 0.2s ease;
   box-shadow: 0px 4px 5.5px 0px rgba(0, 0, 0, 0.07);
   width: 100%;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
 }
 button:hover {
   filter: contrast(115%);
