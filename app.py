@@ -26,7 +26,7 @@ SUBSCRIPTION_PRODUCTS = {
     "personalUs": "price_1RCN1m03Pt1W3mkV6uGXfrCK",
     "familyUs": "price_1RCN2T03Pt1W3mkV1n20fVzi"
 }
-
+price_id = 'price_1RCMzQ03Pt1W3mkVEty6xkE7'
 
 #turnstile cloudflare keys
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
