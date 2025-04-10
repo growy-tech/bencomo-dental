@@ -148,6 +148,7 @@ def no_cache(view):
 @no_cache
 def create_checkout_session():
     try:
+        price_id = None
         price_id = request.cookies.get('price_id')
         # Crea la sesión de Stripe
         session = stripe.checkout.Session.create(
