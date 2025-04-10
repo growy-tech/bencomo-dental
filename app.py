@@ -144,7 +144,7 @@ def no_cache(view):
     return no_cache_wrapper
         
 
-@app.route('/create-checkout-session', methods=['POST'])
+@app.route('/create-checkout-session', methods=['POST'], endpoint='create_checkout_session')
 @no_cache
 def create_checkout_session():
     try:
@@ -170,7 +170,7 @@ def create_checkout_session():
         return jsonify(error=str(e)), 500
 
 
-@app.route('/checkout/<subscription_type>')
+@app.route('/checkout/<subscription_type>', endpoint='checkout')
 @no_cache
 def checkout(subscription_type):
     if subscription_type not in SUBSCRIPTION_PRODUCTS:
@@ -178,7 +178,7 @@ def checkout(subscription_type):
     
     return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso")
 
-@app.route('/session-status', methods=['GET'])
+@app.route('/session-status', methods=['GET'], endpoint='session_status')
 @no_cache
 def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
