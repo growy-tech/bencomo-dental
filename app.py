@@ -6,13 +6,18 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 import requests
 import stripe
-from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for
+from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for, session
 import stripe.error
 
 
 
 app = Flask(__name__, static_url_path='',static_folder='static')
 # CORS(app)
+app.config['SESSION_COOKIE_SECURE'] = True  # Solo enviar cookies a través de HTTPS
+app.config['SESSION_COOKIE_HTTPONLY'] = True  # Evita el acceso a cookies desde JavaScript
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Protege contra ataques CSRF
+app.secret_key = os.environ.get('FLASK_SECRET_KEY')
+print(f"Secret key: {app.secret_key}")
 
 #Stripe Keys
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
@@ -126,6 +131,8 @@ def check_subscription_type():
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
         response = jsonify({'price_id': price_id})
         response.set_cookie('price_id', price_id)
+
+        session['price_id'] = price_id
         print(subscription_type)
         print(price_id)
 
@@ -149,9 +156,9 @@ def no_cache(view):
 def create_checkout_session():
     try:
         #price_id = None
-        price_id = request.cookies.get('price_id')
+        price_id = session.get('price_id')
         # Crea la sesión de Stripe
-        session = stripe.checkout.Session.create(
+        stripe_session = stripe.checkout.Session.create(
             ui_mode='custom',
             line_items=[
                 {
@@ -164,7 +171,7 @@ def create_checkout_session():
         )
 
         # Devuelve el clientSecret
-        return jsonify(clientSecret=session.client_secret)
+        return jsonify(clientSecret=stripe_session.client_secret)
 
     except Exception as e:
         # Maneja errores y devuelve un mensaje claro
