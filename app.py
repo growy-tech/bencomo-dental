@@ -26,7 +26,7 @@ SUBSCRIPTION_PRODUCTS = {
     "personalUs": "price_1RCN1m03Pt1W3mkV6uGXfrCK",
     "familyUs": "price_1RCN2T03Pt1W3mkV1n20fVzi"
 }
-price_id = 'price_1RCMzQ03Pt1W3mkVEty6xkE7'
+# price_id = 'price_1RCMzQ03Pt1W3mkVEty6xkE7'
 
 #turnstile cloudflare keys
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
@@ -122,14 +122,14 @@ def email_suggestions():
 def check_subscription_type():
     try:
         data = request.get_json()
-        global price_id
         subscription_type = data.get('textValue')
-        
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
+        response = jsonify({'price_id': price_id})
+        response.set_cookie('price_id', price_id)
         print(subscription_type)
         print(price_id)
 
-        return jsonify(price_id)
+        return response
     except Exception as e:
         return e
 
@@ -148,6 +148,7 @@ def no_cache(view):
 @no_cache
 def create_checkout_session():
     try:
+        price_id = request.cookies.get('price_id')
         # Crea la sesión de Stripe
         session = stripe.checkout.Session.create(
             ui_mode='custom',

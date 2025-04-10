@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="expires" content="0">
     <title>Checkout | Bencomo Dental Clinic</title>
     <link rel="shorcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='checkout.css')}}">
@@ -95,7 +98,7 @@
             {% endif %}
         </div>
     
-        <form id="payment-form" class="mx-auto w-[95%]">
+        <form id="payment-form" class="">
         {% if subscription_type == 'personalMx' %}
             <p id="subscription-type" class="hidden">personalMx</p>
         {% elif subscription_type == 'familyMx' %}
@@ -115,7 +118,6 @@
             <div id="payment-element">
     
             </div>
-           
 
             <button id="submit">
                 <div class="spinner hidden " id="spinner"></div>
@@ -125,6 +127,16 @@
         </form>
 
     </div>
-
+    <script>
+    window.onload = function() {
+if (!localStorage.getItem('paginaRecargada')) {
+    localStorage.setItem('paginaRecargada', 'true');
+    window.location.reload();
+} else {
+    
+    console.log('Página ya recargada, continuando...');
+}
+};
+    </script>
 </body>
 </html>
