@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 import requests
 import stripe
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for
 import stripe.error
 
 
@@ -133,9 +133,19 @@ def check_subscription_type():
     except Exception as e:
         return e
 
-
+#Decorator for handle cache
+def no_cache(view):
+    def no_cache_wrapper(*args, **kwargs):
+        response = make_response(view(*args, **kwargs))
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+        return response
+    return no_cache_wrapper
+        
 
 @app.route('/create-checkout-session', methods=['POST'])
+@no_cache
 def create_checkout_session():
     try:
         # Crea la sesión de Stripe
@@ -161,6 +171,7 @@ def create_checkout_session():
 
 
 @app.route('/checkout/<subscription_type>')
+@no_cache
 def checkout(subscription_type):
     if subscription_type not in SUBSCRIPTION_PRODUCTS:
         return redirect(url_for('home'))
@@ -168,6 +179,7 @@ def checkout(subscription_type):
     return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso")
 
 @app.route('/session-status', methods=['GET'])
+@no_cache
 def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
     
