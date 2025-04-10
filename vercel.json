@@ -1,28 +1,9 @@
 {
-  "version": 2,
-  "builds": [
-    { "src": "app.py", "use": "@vercel/python" }
-  ],
-  "headers": [
-    {
-      "source": "/checkout/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate, max-age=0" },
-        { "key": "Expires", "value": "0" },
-        { "key": "Pragma", "value": "no-cache" }
-      ]
-    },
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate, max-age=0" },
-        { "key": "Expires", "value": "0" },
-        { "key": "Pragma", "value": "no-cache" }
-      ]
-    }
-  ],
-  "routes": [
-    { "src": "/checkout/(.*)", "dest": "/checkout/$1" },
-    { "src": "/(.*)", "dest": "app.py" }
-  ]
+    "version": 2,
+    "builds": [
+      { "src": "app.py", "use": "@vercel/python" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "app.py" }
+    ]
 }
