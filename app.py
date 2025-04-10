@@ -3,9 +3,11 @@ import smtplib
 import os
 import base64
 from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart 
 import requests
 import stripe
 from flask import Flask, render_template, request, jsonify, redirect, url_for
+import stripe.error
 
 
 
@@ -15,13 +17,14 @@ app = Flask(__name__, static_url_path='',static_folder='static')
 #Stripe Keys
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 stripe.api_version = '2025-03-31.basil'
+
 DOMAIN = os.environ.get('DOMAIN')
 #Subscriptions ids
 SUBSCRIPTION_PRODUCTS = {
-    "personalMx": "price_1RABPo03Pt1W3mkVydPB6pzM",
-    "familyMx": "price_1RABTU03Pt1W3mkVyjIARByn",
-    "personalUs": "price_1RBhu003Pt1W3mkVpklFwIMs",
-    "familyUs": "price_1RBhsv03Pt1W3mkV9s5m9fLX"
+    "personalMx": "price_1RCMzQ03Pt1W3mkVEty6xkE7",
+    "familyMx": "price_1RCN0003Pt1W3mkVJlRXb929",
+    "personalUs": "price_1RCN1m03Pt1W3mkV6uGXfrCK",
+    "familyUs": "price_1RCN2T03Pt1W3mkV1n20fVzi"
 }
 price_id = None
 
@@ -135,36 +138,6 @@ def check_subscription_type():
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
-        # data = request.get_json()
-        
-        # subscription_type = data.get('textValue')
-
-        # price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
-        # print(price_id)
-        # # Verifica si el encabezado Content-Type es application/json
-        # if not request.is_json:
-        #     return jsonify(error="Content-Type debe de ser application/json"), 415
-
-        # # Obtén el JSON del cuerpo de la solicitud
-        # data = request.get_json()
-        # if not data:
-        #     return jsonify(error="No se recibió ningún dato"), 400
-
-        # # Obtén el tipo de suscripción
-        # subscription_type = data.get('textValue')
-        # if not subscription_type:
-        #     return jsonify(error="El campo 'textValue' es requerido"), 400
-
-        # print("subscription_type recibido:", subscription_type)
-
-        # # Verifica si el tipo de suscripción es válido
-        # if subscription_type not in SUBSCRIPTION_PRODUCTS:
-        #     return jsonify(error="Tipo de subscripción no válido"), 400
-
-        # # Obtén el price_id correspondiente
-        # price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
-        # print("price_id:", price_id)
-
         # Crea la sesión de Stripe
         session = stripe.checkout.Session.create(
             ui_mode='custom',
@@ -175,7 +148,7 @@ def create_checkout_session():
                 },
             ],
             mode='subscription',
-            return_url=DOMAIN + '/return.html?session_id={CHECKOUT_SESSION_ID}',
+            return_url=url_for('success', _external=True) + '?session_id={CHECKOUT_SESSION_ID}',
         )
 
         # Devuelve el clientSecret
@@ -192,7 +165,7 @@ def checkout(subscription_type):
     if subscription_type not in SUBSCRIPTION_PRODUCTS:
         return redirect(url_for('home'))
     
-    return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_live_51Qk9mP03Pt1W3mkVdzhtHLeDsLJlcvUhkXjuFWxcgPl6IsCVxw9TEkXU46sIfP4DLtmLCO0ON8JuQ7SYJNZFvkVS00QNK8ypUI")
+    return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso")
 
 @app.route('/session-status', methods=['GET'])
 def session_status():
@@ -200,10 +173,107 @@ def session_status():
     
     return jsonify(status=session.status, customer_email=session.customer_details.email)
 
+#send mail webhook
+@app.route('/webhook', methods=['POST'])
+def stripe_webhook():
+    payload = request.get_data(as_text=True)
+    sig_header = request.headers.get('Stripe-Signature')
+    endpoint_secret = os.environ.get('STRIPE_WEBHOOK_SECRET')
 
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, endpoint_secret
+        )
+    except ValueError as e:
+        print('invalid payload')
+        return jsonify(success=False), 400
+    except stripe.error.SignatureVerificationError as e:
+        print('Invalid signature')
+        return jsonify(success=False), 400
+    
+    #handle checkout.session.completed
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
 
+        #get the customer email
+        customer_email = session.get('customer_details',{}).get('email')
+        subscription_id = session.get('subscription')
+        amount = session.get('amount_total')
+        print(amount)
 
+        subject = None
+        mail_template = "mail.html"
+        if amount == 239900:
+            subscription_id = subscription_id
+            subject = "Bienvenido a Bencomo Dental Plus"
+            mail_template = "mail_family_mx.html"
+        elif amount == 149900: 
+            subscription_id = subscription_id
+            subject = "Bienvenido a Bencomo Dental Plus"
+            mail_template = "mail_personal_mx.html"
+        elif amount  == 9900:
+            subscription_id = subscription_id
+            subject = "Welcome to your membership"
+            mail_template = "mail_personal_us.html"
+        elif amount == 19900:
+            subscription_id = subscription_id
+            subject = "Welcome to your membership"
+            mail_template = "mail_family_us.html"
+        else:
+            message_body = f"Bienvenido a tu plan Bencomo Dental Plus {subscription_id}"
+            subject = "Welcome to your membership | Bienvenido a tu membresia"
+        
+        if customer_email:
+            send_confirmation_email(customer_email, subscription_id, subject, mail_template)
 
+    return jsonify(success=True), 200
+
+def send_confirmation_email(customer_email, subscription_id, subject, template_name):
+    try:
+        # Decodifica la contraseña del correo
+        encoded_password_memberships = os.environ.get('MAIL_MEMBERSHIPS_PASSWORD')
+        password = base64.b64decode(encoded_password_memberships).decode()
+
+        # Carga el archivo HTML correspondiente como plantilla
+        template_path = f"templates/{template_name}"
+        with open(template_path, "r") as file:
+            html_template = file.read()
+
+        # Reemplaza los valores dinámicos en la plantilla
+        html_content = html_template.format(
+            subscription_id=subscription_id,
+            subject=subject, customer_email=customer_email
+        )
+
+        # Configura el servidor SMTP
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login("membresias@bencomodentalclinic.com", password)
+
+        # Crea el mensaje de correo
+        message = MIMEMultipart("alternative")
+        message["from"] = "membresias@bencomodentalclinic.com"
+        message["to"] = customer_email
+        message["subject"] = subject
+
+        # Adjunta el contenido HTML al correo
+        message.attach(MIMEText(html_content, "html"))
+
+        # Envía el correo
+        server.sendmail("membresias@bencomodentalclinic.com", customer_email, message.as_string())
+        server.quit()
+
+        print(f"Correo enviado a {customer_email}")
+    except Exception as e:
+        print(f"Error al enviar el correo {str(e)}")
+
+@app.route('/success')
+def success():
+    return render_template('success.html')
+
+@app.route('/cancel')
+def cancel():
+    return render_template('cancel.html')
 
 
 

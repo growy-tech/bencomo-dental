@@ -3,55 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout - {{ subscription_type|capitalize }} Plan</title>
+    <title>Checkout | Bencomo Dental Clinic</title>
+    <link rel="shorcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='checkout.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='output.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <script src="https://js.stripe.com/basil/stripe.js"></script>
     <script src="{{ url_for('static', filename='js/checkout.js') }}" defer></script>
     
 </head>
 <body>
-    
-    <h1></h1>
-
-
-    <h1>Info del plan</h1>
     {% if subscription_type == 'personalMx' %}
-    <h1>Membresia Individual</h1>
+    <p class="hidden" id="pay-text">Pagar</p>
+    <p class="hidden" id="now-text">ahora</p>
     {% elif subscription_type == 'familyMx' %}
-    <h1>Membresia Familiar</h1>
+    <p class="hidden" id="pay-text">Pagar</p>
+    <p class="hidden" id="now-text">ahora</p>
     {% elif subscription_type == 'personalUs' %}
-    <h1>Personal Membership</h1>
+    <p class="hidden" id="pay-text">Pay</p>
+    <p class="hidden" id="now-text">now</p>
     {% elif subscription_type == 'familyUs' %}
-    <h1>Family Membership</h1>
-    <!--Diplay Form-->
+    <p class="hidden" id="pay-text">Pay</p>
+    <p class="hidden" id="now-text">now</p>
     {% endif %}
-    {% if subscription_type == 'personalMx' %}
-    <form id="payment-form">
-        <p id="subscription-type" class="hidden">personalMx</p>
-    {% elif subscription_type == 'familyMx' %}
-    <form id="payment-form">
-        <p id="subscription-type" class="hidden">familyMx</p>
-    {% elif subscription_type == 'personalUs' %}
-    <form id="payment-form">
-        <p id="subscription-type" class="hidden">personalUs</p>
-    {% elif subscription_type == 'familyUs' %}
-    <form id="payment-form">
-        <p id="subscription-type" class="hidden">familyUs</p>
-    {% endif  %}
-        <label>
-            Email
-            <input type="text" id="email" placeholder="you@example.com"/>
-        </label>
-        <div type="text" id="email-errors"></div>
-        <h3>Payment</h3>
-        <div id="payment-element">
+    <div class="w-[95%] mx-auto mt-6">
+        <img src="{{ url_for('static', filename='/img/logo.webp') }}" alt="Logo Bencomo Dental Clinic" class="w-[180px]">
+    </div>
+    <h1 class="text-3xl font-quicksand font-bold text-deepestBlue text-center mt-3">Checkout</h1>
+    
+    <h1 class="text-2xl font-quicksand font-semibold text-deepestBlue text-center mt-1">
+        {% if subscription_type == 'personalMx' %}
+        Membresia Individual
+        {% elif subscription_type == 'familyMx' %}
+        Membresia Familiar
+        {% elif subscription_type == 'personalUs' %}
+        Personal Membership
+        {% elif subscription_type == 'familyUs' %}
+        Family Membership
+    </h1>
+    <!--Diplay Form-->
+        {% endif %}
+    <div class="flex flex-col lg:max-w-[80%] lg:flex-row items-center justify-center mx-auto gap-16 mt-2 lg:mt-10">
+        <div class="flex flex-col w-[95%] lg:w-1/2 mx-auto justify-center lg:order-2">
+            <ul class="flex flex-col text-center flex-wrap font-quicksand font-medium text-lg mt-2 lg:text-left">
+                {% if subscription_type == 'personalUs' %}
+                <li>Price: <span class="font-bold">$99.00 USD</span></li>
+                <li>Complete diagnostics at no cost.</li>
+                <li>Yearly Renewal</li>
+                <li>Two dental cleanings per year.</li>
+                <li>One dental whitening per year at 50% off.</li>
+                <li>Treatments with discounts 30% to 50% (Includes orthodontics).</li>
+                <li>Direct access to financing plans.</li>
+                {% elif subscription_type == 'familyUs' %}
+                <li>Price: <span class="font-bold">$199.00 USD</span></li>
+                <li>Yearly Renewal</li>
+                <li>Two adults and two children*</li>
+                <li>Complete diagnostics at no cost.</li>
+                <li>Two dental cleanings per year.</li>
+                <li>One dental whitening per year at 50% off.</li>
+                <li>Treatments with discounts 30% to 50% (Includes orthodontics).</li>
+                <li>Direct access to financing plans.</li>
+                {% endif %}
 
+                {% if subscription_type == 'personalMx' %}
+                <li>Precio: <span class="font-bold">$1,499.00 MXN</span></li>
+                <li>Diagnósticos completos sin costo.</li>
+                <li>Renovación Anual</li>
+                <li>2 limpiezas dentales al año.</li>
+                <li>1 Blanqueamiento dental por año al 50%.</li>
+                <li>Tratamientos con descuentos del 30% al 50% (Incluye ortodoncia).</li>
+                <li>Acceso directo a planes de financiamiento.</li>
+                {% elif subscription_type == 'familyMx' %}
+                <li>Precio: <span class="font-bold">$2,399.00 MXN</span></li>
+                <li>Renovación Anual</li>
+                <li>2 Adultos y 2 niños*</li>
+                <li>Diagnósticos completos sin costo.</li>
+                <li>2 limpiezas dentales al año.</li>
+                <li>1 Blanqueamiento dental por año al 50%.</li>
+                <li>Tratamientos con descuentos del 30% al 50% (Incluye ortodoncia).</li>
+                <li>Acceso directo a planes de financiamiento.</li>
+                {% endif %}
+            </ul>
+            {% if subscription_type == 'personalUs' %} 
+            <a href="{{ url_for('home')}}" class="text-center w-[64%] max-w-[420px] bg-deepestBlue text-white p-1.5 font-quicksand text-lg font-bold rounded-4xl mx-auto lg:mx-0 mb-10 mt-5">Back</a>
+            {% elif subscription_type == 'familyUs' %} 
+            <a href="{{ url_for('home')}}" class="text-center w-[64%] max-w-[420px] bg-deepestBlue text-white p-1.5 font-quicksand text-lg font-bold rounded-4xl mx-auto lg:mx-0 mb-10 mt-5">Back</a>
+            {% elif subscription_type == 'personalMx' %} 
+            <a href="{{ url_for('home')}}" class="text-center w-[64%] max-w-[420px] bg-deepestBlue text-white p-1.5 font-quicksand text-lg font-bold rounded-4xl mx-auto lg:mx-0 mb-10 mt-5">Regresar</a>
+            {% elif subscription_type == 'familyMx' %} 
+            <a href="{{ url_for('home')}}" class="text-center w-[64%] max-w-[420px] bg-deepestBlue text-white p-1.5 font-quicksand text-lg font-bold rounded-4xl mx-auto lg:mx-0 mb-10 mt-5">Regresar</a>
+            {% endif %}
         </div>
-        <button id="submit">
-            <div class="spinner hidden" id="spinner"></div>
-            <span id="button-text">Pay Now</span>
-        </button>
-        <div id="payment-message" class="hidden"></div>
-    </form>
+    
+        <form id="payment-form" class="mx-auto w-[95%]">
+        {% if subscription_type == 'personalMx' %}
+            <p id="subscription-type" class="hidden">personalMx</p>
+        {% elif subscription_type == 'familyMx' %}
+            <p id="subscription-type" class="hidden">familyMx</p>
+        {% elif subscription_type == 'personalUs' %}
+            <p id="subscription-type" class="hidden">personalUs</p>
+        {% elif subscription_type == 'familyUs' %}
+            <p id="subscription-type" class="hidden">familyUs</p>
+        {% endif  %}
+        
+            <label class="text-lg font-quicksand text-deepestBlue font-medium">
+                Email
+                <input type="text" id="email" placeholder="you@example.com" class="text-lg w-[100%]"/>
+            </label>
+            <div type="text" id="email-errors"></div>
+            <h3 class="text-lg font-quicksand text-deepestBlue font-medium">Payment</h3>
+            <div id="payment-element">
+    
+            </div>
+           
+
+            <button id="submit">
+                <div class="spinner hidden " id="spinner"></div>
+                <span id="button-text" value="Pay" class="bg-deepestBlue text-white p-1.5 font-quicksand text-lg font-bold rounded-4xl mx-auto">Pay Now</span>
+            </button>
+            <div id="payment-message" class="hidden"></div>
+        </form>
+
+    </div>
+
 </body>
 </html>

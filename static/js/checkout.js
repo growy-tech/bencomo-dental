@@ -1,5 +1,5 @@
 // This is your test publishable API key.
-const stripe = Stripe("pk_live_51Qk9mP03Pt1W3mkVdzhtHLeDsLJlcvUhkXjuFWxcgPl6IsCVxw9TEkXU46sIfP4DLtmLCO0ON8JuQ7SYJNZFvkVS00QNK8ypUI");
+const stripe = Stripe("pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso");
 var subscriptionType = document.getElementById('subscription-type').textContent;
 
 
@@ -42,9 +42,16 @@ async function initialize() {
     elementsOptions: { appearance },
   });
 
-  document.querySelector("#button-text").textContent = `Pay ${
-    checkout.session().total.total.amount
-  } now`;
+  var payText = document.getElementById("pay-text").textContent;
+  var nowText = document.getElementById("now-text").textContent;
+  console.log(payText);
+  console.log(nowText);
+  document.querySelector("#button-text").textContent = `${payText} ${checkout.session().total.total.amount} ${nowText}`;
+  
+  
+  // `Pagar ${
+  //   checkout.session().total.total.amount
+  // } ahora`;
   const emailInput = document.getElementById("email");
   const emailErrors = document.getElementById("email-errors");
 
