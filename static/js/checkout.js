@@ -1,12 +1,18 @@
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
   
   // This is your test publishable API key.
 const stripe = Stripe("pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso");
 var subscriptionType = document.getElementById('subscription-type').textContent;
 
+try{
+  await checkSubscriptionType(subscriptionType);
+  await initialize();
+} catch(error){
+  console.error('Error during initializaciont: error')
+}
 
 checkSubscriptionType(subscriptionType);
 initialize();
