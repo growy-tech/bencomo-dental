@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const espVideo = document.getElementById('esp-video');
     const engVideo = document.getElementById('eng-video');
     const membershipAclaration = document.getElementById('membership-aclaration');
+    const membershipAclarationTwo = document.getElementById('membership-aclarationTwo');
     const buyFamilyButton = document.getElementById('buy-family-route');
     const buyPersonalButton = document.getElementById('buy-personal-route');
 
@@ -147,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             buyFamilyButton.href=data[language].buyFamilyButton;
             buyPersonalButton.href=data[language].buyPersonalButton;
             membershipAclaration.textContent=data[language].membershipAclaration;
+            membershipAclarationTwo.textContent=data[language].membershipAclarationTwo;
             membershipIndividualTitle.textContent=data[language].membershipIndividualTitle;
             membershipsTitle.textContent=data[language].membershipsTitle;
             membershipsSubtitle.textContent=data[language].membershipsSubtitle;

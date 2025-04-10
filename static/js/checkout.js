@@ -17,7 +17,6 @@ let checkout;
 
 
 
-
 console.log(subscriptionType);
 
 const validateEmail = async (email) => {
