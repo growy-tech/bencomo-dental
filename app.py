@@ -127,7 +127,6 @@ def check_subscription_type():
     try:
         data = request.get_json()
         global price_id
-        price_id = None
         subscription_type = data.get('textValue')
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
         #print(subscription_type)
