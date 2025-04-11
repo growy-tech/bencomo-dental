@@ -30,7 +30,6 @@ SUBSCRIPTION_PRODUCTS = {
     "personalUs": "price_1RCN1m03Pt1W3mkV6uGXfrCK",
     "familyUs": "price_1RCN2T03Pt1W3mkV1n20fVzi"
 }
-price_id = None
 
 #turnstile cloudflare keys
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
@@ -126,7 +125,6 @@ def email_suggestions():
 def check_subscription_type():
     try:
         data = request.get_json()
-        global price_id
         subscription_type = data.get('textValue')
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
         #print(subscription_type)
@@ -152,7 +150,14 @@ def no_cache(view):
 @no_cache
 def create_checkout_session():
     try:
+        data = request.get_json()
+        subscription_type = data.get('subscriptionType')
+
+        if not subscription_type or subscription_type not in SUBSCRIPTION_PRODUCTS:
+            return jsonify(error="Invalid or missing subscription type"), 400
         
+        price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
+
         # Crea la sesión de Stripe
         stripe_session = stripe.checkout.Session.create(
             ui_mode='custom',
