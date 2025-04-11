@@ -6,18 +6,22 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 import requests
 import stripe
-from flask import Flask, render_template, request, jsonify, redirect, url_for
+from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for, session
 import stripe.error
 
 
 
 app = Flask(__name__, static_url_path='',static_folder='static')
 # CORS(app)
+app.config['SESSION_COOKIE_SECURE'] = True  # Solo enviar cookies a través de HTTPS
+app.config['SESSION_COOKIE_HTTPONLY'] = True  # Evita el acceso a cookies desde JavaScript
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Protege contra ataques CSRF
+app.secret_key = os.environ.get('FLASK_SECRET_KEY')
+print(f"Secret key: {app.secret_key}")
 
 #Stripe Keys
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
 stripe.api_version = '2025-03-31.basil'
-
 DOMAIN = os.environ.get('DOMAIN')
 #Subscriptions ids
 SUBSCRIPTION_PRODUCTS = {
@@ -123,23 +127,35 @@ def check_subscription_type():
     try:
         data = request.get_json()
         global price_id
+        price_id = None
         subscription_type = data.get('textValue')
-        
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
-        print(subscription_type)
-        print(price_id)
+        #print(subscription_type)
+        #print(price_id)
 
         return jsonify(price_id)
+    
     except Exception as e:
         return e
 
+#Decorator for handle cache
+def no_cache(view):
+    def no_cache_wrapper(*args, **kwargs):
+        response = make_response(view(*args, **kwargs))
+        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
+        response.headers["Pragma"] = "no-cache"
+        response.headers["Expires"] = "0"
+        return response
+    return no_cache_wrapper
+        
 
-
-@app.route('/create-checkout-session', methods=['POST'])
+@app.route('/create-checkout-session', methods=['POST','GET'], endpoint='create_checkout_session')
+@no_cache
 def create_checkout_session():
     try:
+        
         # Crea la sesión de Stripe
-        session = stripe.checkout.Session.create(
+        stripe_session = stripe.checkout.Session.create(
             ui_mode='custom',
             line_items=[
                 {
@@ -152,7 +168,7 @@ def create_checkout_session():
         )
 
         # Devuelve el clientSecret
-        return jsonify(clientSecret=session.client_secret)
+        return jsonify(clientSecret=stripe_session.client_secret)
 
     except Exception as e:
         # Maneja errores y devuelve un mensaje claro
@@ -160,14 +176,16 @@ def create_checkout_session():
         return jsonify(error=str(e)), 500
 
 
-@app.route('/checkout/<subscription_type>')
+@app.route('/checkout/<subscription_type>', endpoint='checkout')
+@no_cache
 def checkout(subscription_type):
     if subscription_type not in SUBSCRIPTION_PRODUCTS:
         return redirect(url_for('home'))
     
     return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso")
 
-@app.route('/session-status', methods=['GET'])
+@app.route('/session-status', methods=['GET'], endpoint='session_status')
+@no_cache
 def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
     
