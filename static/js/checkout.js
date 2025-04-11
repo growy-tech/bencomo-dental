@@ -1,6 +1,5 @@
 // This is your test publishable API key.
 const stripe = Stripe("pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso");
-
 let checkout;
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -20,8 +19,23 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
+
+
+
+const validateEmail = async (email) => {
+  const updateResult = await checkout.updateEmail(email);
+  const isValid = updateResult.type !== "error";
+
+  return { isValid, message: !isValid ? updateResult.error.message : null };
+};
+
+document
+  .querySelector("#payment-form")
+  .addEventListener("submit", handleSubmit);
+
+// Fetches a Checkout Session and captures the client secret
 async function initialize(subscriptionType) {
-  // Send subscriptionType to the server and fetch the clientSecret
+  
   const fetchClientSecret = () =>
     fetch("/create-checkout-session", {
       method: "POST",
@@ -29,62 +43,41 @@ async function initialize(subscriptionType) {
       body: JSON.stringify({ subscriptionType: subscriptionType }),
     })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        if(!response.ok){
+          throw new Error (`HTTP! status:' ${response.status}`);
         }
         return response.json();
       })
       .then((data) => {
-        if (!data.clientSecret) {
+        if(!data.clientSecret) {
           throw new Error("clientSecret not returned from server");
         }
         return data.clientSecret;
       });
 
   const appearance = {
-    theme: "stripe",
+    theme: 'stripe',
   };
-
-  // Initialize Stripe Checkout
   checkout = await stripe.initCheckout({
     fetchClientSecret,
     elementsOptions: { appearance },
   });
 
-  // Configure the payment button text
-  const payText = document.getElementById("pay-text").textContent;
-  const nowText = document.getElementById("now-text").textContent;
+  var payText = document.getElementById("pay-text").textContent;
+  var nowText = document.getElementById("now-text").textContent;
+  console.log(payText);
+  console.log(nowText);
   document.querySelector("#button-text").textContent = `${payText} ${checkout.session().total.total.amount} ${nowText}`;
-
-  // Create and mount the payment element
-  const paymentElement = checkout.createPaymentElement();
-  paymentElement.mount("#payment-element");
-
-  // Wait for the payment element to be ready
-  paymentElement.on("ready", () => {
-    console.log("Stripe payment element is ready.");
-    document.querySelectorAll(".hidden").forEach((el) => {
-      el.classList.remove("hidden");
-    });
-  });
-
-  // Handle errors in the payment element
-  paymentElement.on("change", (event) => {
-    const errorContainer = document.getElementById("payment-message");
-    if (event.error) {
-      errorContainer.textContent = event.error.message;
-      errorContainer.classList.remove("hidden");
-    } else {
-      errorContainer.textContent = "";
-      errorContainer.classList.add("hidden");
-    }
-  });
-
-  // Configure email validation
+  
+  
+  // `Pagar ${
+  //   checkout.session().total.total.amount
+  // } ahora`;
   const emailInput = document.getElementById("email");
   const emailErrors = document.getElementById("email-errors");
 
   emailInput.addEventListener("input", () => {
+    // Clear any validation errors
     emailErrors.textContent = "";
   });
 
@@ -99,16 +92,14 @@ async function initialize(subscriptionType) {
       emailErrors.textContent = message;
     }
   });
+
+  const paymentElement = checkout.createPaymentElement();
+  paymentElement.mount("#payment-element");
 }
 
-const validateEmail = async (email) => {
-  const updateResult = await checkout.updateEmail(email);
-  const isValid = updateResult.type !== "error";
 
-  return { isValid, message: !isValid ? updateResult.error.message : null };
-};
 
-document.querySelector("#payment-form").addEventListener("submit", handleSubmit);
+//Handle submit
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -124,10 +115,12 @@ async function handleSubmit(e) {
 
   const { error } = await checkout.confirm();
 
-  // Handle errors during payment confirmation
-  if (error) {
-    showMessage(error.message);
-  }
+  // This point will only be reached if there is an immediate error when
+  // confirming the payment. Otherwise, your customer will be redirected to
+  // your `return_url`. For some payment methods like iDEAL, your customer will
+  // be redirected to an intermediate site first to authorize the payment, then
+  // redirected to the `return_url`.
+  showMessage(error.message);
 
   setLoading(false);
 }
@@ -146,6 +139,7 @@ function showMessage(messageText) {
   }, 4000);
 }
 
+// Show a spinner on payment submission
 function setLoading(isLoading) {
   if (isLoading) {
     // Disable the button and show a spinner
@@ -158,3 +152,4 @@ function setLoading(isLoading) {
     document.querySelector("#button-text").classList.remove("hidden");
   }
 }
+
