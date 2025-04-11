@@ -1,13 +1,13 @@
 {
     "es" : {
-        "title" : "Pago Aceptado",
-        "paragraph": "Procesamos tu pago, enviaremos información al mail que registraste para el pago.",
+        "title" : "Gracias",
+        "paragraph": "En Bencomo agradecemos mucho la compra de tu subscripción, recibirás información en tu correo electrónico registrado en breve.",
         "backButton": "Regresar"
     },
 
     "en" : {
-        "title": "Acepted Payment",
-        "paragraph" : "We processed your payment; we will send information to the email you registered for the payment.",
+        "title": "Thank you",
+        "paragraph" : "At Bencomo, we greatly appreciate your subscription purchase. You will receive information at your registered email address shortly.",
         "backButton": "Back"
     }
 }

@@ -7,12 +7,13 @@
     <link rel="shorcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
     <script src="{{ url_for('static', filename='/js/language-success.js' ) }}"></script>
-    <title>Pago Aprobado</title>
+    <title>Muchas Gracias</title>
 </head>
 <body>
     <div class="flex flex-col items-center justify-center">
-        <h1 id="title" class="font-quicksand text-3xl text-deepestBlue font-black text-center mt-10 mb-10">Pago Aceptado</h1>
-        <p   p id="paragraph" class="font-quicksand text-deepestBlue text-lg font-medium text-center">Hemos procesado tu pago, enviaremos  informacion al mail que registrate para el la transaccion.</p>
+        <img src="{{ url_for('static', filename='img/logo.webp')}}" alt="Logo bencomo Dental Clinic" class="w-96 mt-11">
+        <h1 id="title" class="font-quicksand text-3xl text-deepestBlue font-black text-center mt-10 mb-10">Gracias</h1>
+        <p   p id="paragraph" class="font-quicksand text-deepestBlue text-lg font-medium text-center">En Bencomo agradecemos mucho la compra de tu subscripción, recibirás información en tu correo electrónico registrado en breve.</p>
         <a id="back-button" href="{{ url_for('home') }}" class="font-bold text-2xl text-center bg-deepestBlue text-white p-3 mx-auto rounded-4xl mt-6">Regresar</a>
     </div>
     
