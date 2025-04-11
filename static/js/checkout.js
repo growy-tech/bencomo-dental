@@ -65,8 +65,7 @@ async function initialize(subscriptionType) {
 
   var payText = document.getElementById("pay-text").textContent;
   var nowText = document.getElementById("now-text").textContent;
-  console.log(payText);
-  console.log(nowText);
+
   document.querySelector("#button-text").textContent = `${payText} ${checkout.session().total.total.amount} ${nowText}`;
   
   

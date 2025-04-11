@@ -17,7 +17,6 @@ app.config['SESSION_COOKIE_SECURE'] = True  # Solo enviar cookies a través de H
 app.config['SESSION_COOKIE_HTTPONLY'] = True  # Evita el acceso a cookies desde JavaScript
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Protege contra ataques CSRF
 app.secret_key = os.environ.get('FLASK_SECRET_KEY')
-print(f"Secret key: {app.secret_key}")
 
 #Stripe Keys
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
@@ -127,8 +126,6 @@ def check_subscription_type():
         data = request.get_json()
         subscription_type = data.get('textValue')
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
-        #print(subscription_type)
-        #print(price_id)
 
         return jsonify(price_id)
     
@@ -221,8 +218,7 @@ def stripe_webhook():
         customer_email = session.get('customer_details',{}).get('email')
         subscription_id = session.get('subscription')
         amount = session.get('amount_total')
-        print(amount)
-
+        
         subject = None
         mail_template = "mail.html"
         if amount == 239900:
