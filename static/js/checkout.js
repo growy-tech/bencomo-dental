@@ -1,62 +1,90 @@
 // This is your test publishable API key.
 const stripe = Stripe("pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso");
-var subscriptionType = document.getElementById('subscription-type').textContent;
 
-
-checkSubscriptionType(subscriptionType);
-initialize();
 let checkout;
 
+document.addEventListener("DOMContentLoaded", async () => {
+  const subscriptionType = document.getElementById("subscription-type").textContent;
 
+  if (!subscriptionType) {
+    console.error("subscriptionType is required");
+    return;
+  }
 
+  try {
+    // Initialize Stripe Checkout with subscriptionType
+    await initialize(subscriptionType);
+  } catch (error) {
+    console.error("Error initializing Stripe Checkout:", error);
+    showMessage("Error initializing payment. Please try again.");
+  }
+});
 
-console.log(subscriptionType);
-
-const validateEmail = async (email) => {
-  const updateResult = await checkout.updateEmail(email);
-  const isValid = updateResult.type !== "error";
-
-  return { isValid, message: !isValid ? updateResult.error.message : null };
-};
-
-document
-  .querySelector("#payment-form")
-  .addEventListener("submit", handleSubmit);
-
-// Fetches a Checkout Session and captures the client secret
-async function initialize() {
-  
+async function initialize(subscriptionType) {
+  // Send subscriptionType to the server and fetch the clientSecret
   const fetchClientSecret = () =>
     fetch("/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ subscriptionType: subscriptionType }),
     })
-      .then((r) => r.json())
-      .then((r) => r.clientSecret);
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        if (!data.clientSecret) {
+          throw new Error("clientSecret not returned from server");
+        }
+        return data.clientSecret;
+      });
 
   const appearance = {
-    theme: 'stripe',
+    theme: "stripe",
   };
+
+  // Initialize Stripe Checkout
   checkout = await stripe.initCheckout({
     fetchClientSecret,
     elementsOptions: { appearance },
   });
 
-  var payText = document.getElementById("pay-text").textContent;
-  var nowText = document.getElementById("now-text").textContent;
-  console.log(payText);
-  console.log(nowText);
+  // Configure the payment button text
+  const payText = document.getElementById("pay-text").textContent;
+  const nowText = document.getElementById("now-text").textContent;
   document.querySelector("#button-text").textContent = `${payText} ${checkout.session().total.total.amount} ${nowText}`;
-  
-  
-  // `Pagar ${
-  //   checkout.session().total.total.amount
-  // } ahora`;
+
+  // Create and mount the payment element
+  const paymentElement = checkout.createPaymentElement();
+  paymentElement.mount("#payment-element");
+
+  // Wait for the payment element to be ready
+  paymentElement.on("ready", () => {
+    console.log("Stripe payment element is ready.");
+    document.querySelectorAll(".hidden").forEach((el) => {
+      el.classList.remove("hidden");
+    });
+  });
+
+  // Handle errors in the payment element
+  paymentElement.on("change", (event) => {
+    const errorContainer = document.getElementById("payment-message");
+    if (event.error) {
+      errorContainer.textContent = event.error.message;
+      errorContainer.classList.remove("hidden");
+    } else {
+      errorContainer.textContent = "";
+      errorContainer.classList.add("hidden");
+    }
+  });
+
+  // Configure email validation
   const emailInput = document.getElementById("email");
   const emailErrors = document.getElementById("email-errors");
 
   emailInput.addEventListener("input", () => {
-    // Clear any validation errors
     emailErrors.textContent = "";
   });
 
@@ -71,31 +99,16 @@ async function initialize() {
       emailErrors.textContent = message;
     }
   });
-
-  const paymentElement = checkout.createPaymentElement();
-  paymentElement.mount("#payment-element");
 }
 
-async function checkSubscriptionType(subscriptionType){
-  console.log(subscriptionType);
-  if(!subscriptionType){
-    console.error("subscriptionType is required");
-    return Promise.reject("subscriptionType is required");
-  }
-  return fetch('/check-subscription-type', {
-    method: 'POST',
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ textValue : subscriptionType })
-  })
-    .then(response => {
-      if(!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-}
+const validateEmail = async (email) => {
+  const updateResult = await checkout.updateEmail(email);
+  const isValid = updateResult.type !== "error";
 
+  return { isValid, message: !isValid ? updateResult.error.message : null };
+};
 
+document.querySelector("#payment-form").addEventListener("submit", handleSubmit);
 
 async function handleSubmit(e) {
   e.preventDefault();
@@ -111,12 +124,10 @@ async function handleSubmit(e) {
 
   const { error } = await checkout.confirm();
 
-  // This point will only be reached if there is an immediate error when
-  // confirming the payment. Otherwise, your customer will be redirected to
-  // your `return_url`. For some payment methods like iDEAL, your customer will
-  // be redirected to an intermediate site first to authorize the payment, then
-  // redirected to the `return_url`.
-  showMessage(error.message);
+  // Handle errors during payment confirmation
+  if (error) {
+    showMessage(error.message);
+  }
 
   setLoading(false);
 }
@@ -135,7 +146,6 @@ function showMessage(messageText) {
   }, 4000);
 }
 
-// Show a spinner on payment submission
 function setLoading(isLoading) {
   if (isLoading) {
     // Disable the button and show a spinner
