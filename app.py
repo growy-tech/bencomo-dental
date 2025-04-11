@@ -129,40 +129,27 @@ def check_subscription_type():
         data = request.get_json()
         subscription_type = data.get('textValue')
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
-        response = jsonify({'price_id': price_id})
-        response.set_cookie('price_id', price_id)
-
-        session['price_id'] = price_id
         print(subscription_type)
         print(price_id)
 
-        return response
+        return jsonify({'price_id': price_id})
     except Exception as e:
         return e
 
 #Decorator for handle cache
-def no_cache(view):
-    def no_cache_wrapper(*args, **kwargs):
-        response = make_response(view(*args, **kwargs))
-        response.headers["Cache-Control"] = "no-store, no-cache, must-revalidate, max-age=0"
-        response.headers["Pragma"] = "no-cache"
-        response.headers["Expires"] = "0"
-        return response
-    return no_cache_wrapper
+
         
 
-@app.route('/create-checkout-session', methods=['POST'], endpoint='create_checkout_session')
-@no_cache
+@app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
         #price_id = None
-        price_id = session.get('price_id')
         # Crea la sesión de Stripe
         stripe_session = stripe.checkout.Session.create(
             ui_mode='custom',
             line_items=[
                 {
-                    'price': price_id,
+                    'price': 'price_1RCN0003Pt1W3mkVJlRXb929',
                     'quantity': 1,
                 },
             ],
@@ -179,16 +166,14 @@ def create_checkout_session():
         return jsonify(error=str(e)), 500
 
 
-@app.route('/checkout/<subscription_type>', endpoint='checkout')
-@no_cache
+@app.route('/checkout/<subscription_type>')
 def checkout(subscription_type):
     if subscription_type not in SUBSCRIPTION_PRODUCTS:
         return redirect(url_for('home'))
     
     return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso")
 
-@app.route('/session-status', methods=['GET'], endpoint='session_status')
-@no_cache
+@app.route('/session-status', methods=['GET'])
 def session_status():
     session = stripe.checkout.Session.retrieve(request.args.get('session_id'))
     
