@@ -6,18 +6,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart 
 import requests
 import stripe
-from flask import Flask, render_template, request, jsonify, redirect, make_response, url_for, session
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 import stripe.error
 
 
 
 app = Flask(__name__, static_url_path='',static_folder='static')
 # CORS(app)
-app.config['SESSION_COOKIE_SECURE'] = True  # Solo enviar cookies a través de HTTPS
-app.config['SESSION_COOKIE_HTTPONLY'] = True  # Evita el acceso a cookies desde JavaScript
-app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # Protege contra ataques CSRF
-app.secret_key = os.environ.get('FLASK_SECRET_KEY')
-print(f"Secret key: {app.secret_key}")
 
 #Stripe Keys
 stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
@@ -31,7 +26,7 @@ SUBSCRIPTION_PRODUCTS = {
     "personalUs": "price_1RCN1m03Pt1W3mkV6uGXfrCK",
     "familyUs": "price_1RCN2T03Pt1W3mkV1n20fVzi"
 }
-# price_id = 'price_1RCMzQ03Pt1W3mkVEty6xkE7'
+price_id = None
 
 #turnstile cloudflare keys
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY')
@@ -127,29 +122,28 @@ def email_suggestions():
 def check_subscription_type():
     try:
         data = request.get_json()
+        global price_id
         subscription_type = data.get('textValue')
+        
         price_id = SUBSCRIPTION_PRODUCTS[subscription_type]
         print(subscription_type)
         print(price_id)
 
-        return jsonify({'price_id': price_id})
+        return jsonify(price_id)
     except Exception as e:
         return e
 
-#Decorator for handle cache
 
-        
 
 @app.route('/create-checkout-session', methods=['POST'])
 def create_checkout_session():
     try:
-        #price_id = None
         # Crea la sesión de Stripe
-        stripe_session = stripe.checkout.Session.create(
+        session = stripe.checkout.Session.create(
             ui_mode='custom',
             line_items=[
                 {
-                    'price': 'price_1RCN0003Pt1W3mkVJlRXb929',
+                    'price': price_id,
                     'quantity': 1,
                 },
             ],
@@ -158,7 +152,7 @@ def create_checkout_session():
         )
 
         # Devuelve el clientSecret
-        return jsonify(clientSecret=stripe_session.client_secret)
+        return jsonify(clientSecret=session.client_secret)
 
     except Exception as e:
         # Maneja errores y devuelve un mensaje claro
