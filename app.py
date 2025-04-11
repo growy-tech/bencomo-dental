@@ -149,7 +149,7 @@ def no_cache(view):
     return no_cache_wrapper
         
 
-@app.route('/create-checkout-session', methods=['POST','GET'], endpoint='create_checkout_session')
+@app.route('/create-checkout-session', methods=['POST'], endpoint='create_checkout_session')
 @no_cache
 def create_checkout_session():
     try:
