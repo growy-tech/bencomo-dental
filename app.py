@@ -25,10 +25,10 @@ stripe.api_version = '2025-03-31.basil'
 DOMAIN = os.environ.get('DOMAIN')
 #Subscriptions ids
 SUBSCRIPTION_PRODUCTS = {
-    "personalMx": "price_1RCMzQ03Pt1W3mkVEty6xkE7",
-    "familyMx": "price_1RCN0003Pt1W3mkVJlRXb929",
-    "personalUs": "price_1RCN1m03Pt1W3mkV6uGXfrCK",
-    "familyUs": "price_1RCN2T03Pt1W3mkV1n20fVzi"
+    "personalMx": "price_1RCly403Pt1W3mkVphhSYW6w",
+    "familyMx": "price_1RCly203Pt1W3mkVOEWqoyi4",
+    "personalUs": "price_1RClxy03Pt1W3mkVnFuOupwj",
+    "familyUs": "price_1RClxp03Pt1W3mkVMV3o1dTT"
 }
 
 #turnstile cloudflare keys
@@ -186,7 +186,7 @@ def checkout(subscription_type):
     if subscription_type not in SUBSCRIPTION_PRODUCTS:
         return redirect(url_for('home'))
     
-    return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_test_51Qk9mP03Pt1W3mkVYNF4NQdt3SjinNdpMVo48OAC9PKa4cjVgnBm3yqGpcTcoYAVRjr74oyLYLFs3Fbi0f4Of0xq00BKLGsJso")
+    return render_template('checkout.html',subscription_type=subscription_type, public_key="pk_live_51Qk9mP03Pt1W3mkVdzhtHLeDsLJlcvUhkXjuFWxcgPl6IsCVxw9TEkXU46sIfP4DLtmLCO0ON8JuQ7SYJNZFvkVS00QNK8ypUI")
 
 @app.route('/session-status', methods=['GET'], endpoint='session_status')
 @no_cache
