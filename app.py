@@ -216,32 +216,35 @@ def stripe_webhook():
 
         #get the customer email
         customer_email = session.get('customer_details',{}).get('email')
+        payment_link = session.get('payment_link')
         subscription_id = session.get('subscription')
         amount = session.get('amount_total')
         
-        subject = None
-        mail_template = "mail.html"
-        if amount == 239900:
-            subscription_id = subscription_id
-            subject = "Bienvenido a Bencomo Dental Plus"
-            mail_template = "mail_family_mx.html"
-        elif amount == 149900: 
-            subscription_id = subscription_id
-            subject = "Bienvenido a Bencomo Dental Plus"
-            mail_template = "mail_personal_mx.html"
-        elif amount  == 9900:
-            subscription_id = subscription_id
-            subject = "Welcome to your membership"
-            mail_template = "mail_personal_us.html"
-        elif amount == 19900:
-            subscription_id = subscription_id
-            subject = "Welcome to your membership"
-            mail_template = "mail_family_us.html"
-        else:
-            message_body = f"Bienvenido a tu plan Bencomo Dental Plus {subscription_id}"
-            subject = "Welcome to your membership | Bienvenido a tu membresia"
-        
-        if customer_email:
+
+        if customer_email and payment_link is None:
+            subject = None
+            mail_template = "mail.html"
+            
+            if amount == 239900:
+                subscription_id = subscription_id
+                subject = "Bienvenido a Bencomo Dental Plus"
+                mail_template = "mail_family_mx.html"
+            elif amount == 149900: 
+                subscription_id = subscription_id
+                subject = "Bienvenido a Bencomo Dental Plus"
+                mail_template = "mail_personal_mx.html"
+            elif amount  == 9900:
+                subscription_id = subscription_id
+                subject = "Welcome to your membership"
+                mail_template = "mail_personal_us.html"
+            elif amount == 19900:
+                subscription_id = subscription_id
+                subject = "Welcome to your membership"
+                mail_template = "mail_family_us.html"
+            else:
+                subject = "Welcome to your membership | Bienvenido a tu membresia"
+            
+            #send email
             send_confirmation_email(customer_email, subscription_id, subject, mail_template)
 
     return jsonify(success=True), 200
