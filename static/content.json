@@ -247,7 +247,7 @@
         "membershipAclarationTwo": "**Sujeto a revisión.",
         "buyFamilyButton" : "/checkout/familyMx",
         "buyPersonalButton": "/checkout/personalMx",
-        "privacyLink": "https:bencomodentalclinic.com/privacy-notice-es",
+        "privacyLink": "/privacy-notice-es",
         "privacyLinkText": "Consulta nuestros avisos de privacidad y cookies aquí."
     }
 }
