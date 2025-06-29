@@ -121,7 +121,7 @@
         "membershipAclarationTwo": "**Subject to approval.",
         "buyFamilyButton" : "/checkout/familyUs",
         "buyPersonalButton": "/checkout/personalUs",
-        "privacyLink": "https:bencomodentalclinic.com/privacy-notice-eng",
+        "privacyLink": "/privacy-notice-eng",
         "privacyLinkText": "View our privacy and cookie policies here."
     },
 

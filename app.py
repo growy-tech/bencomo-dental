@@ -297,7 +297,7 @@ def cancel():
     return render_template('cancel.html')
 
 
-@app.route('/privacy-notice')
+@app.route('/privacy-notice-es')
 def privacy_notice_es():
     return render_template('privacy_notice_es.html')
 
