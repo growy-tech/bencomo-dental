@@ -13,7 +13,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='splide.min.css')}}">
     <script src="{{url_for('static', filename='/js/splide.min.js')}}" ></script>    
 
-    <title id="title">Bencomo Clinica Dental</title>
+    <title id="title">Aviso de privacidad</title>
+    
 </head>
         <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3892XS8NZF"></script>
@@ -25,32 +26,32 @@
   gtag('config', 'G-3892XS8NZF');
 </script>
 <body class="bg-white">
-    
+    <!--Privacy notice-->
     <!--Navbar-->
     <div class="mt-5 w-[95%] mx-auto hidden lg:flex justify-between items-center">
         <div class="flex flex-row items-center gap-3 xl:gap-6">
-            <a href="#hero">
+            <a href="{{url_for('home')}}">
                 <img src="{{ url_for('static', filename='/img/logo.webp') }}" alt="Logo de Bencomo Dental" class="w-[180px] flex lg:w-[208px]"> 
             </a>
             <a id="specialists" class="item-link" href="#our-specialists">Especialistas</a>
             <a id="reviews" class="item-link" href="#Testimonies">Testimonios</a>
             <a id="contact" class="item-link" href="#contact-section">Contacto</a>
-            <a id="payment" class="item-link" href="#payment-section">Metodos De Pago</a>
+            <a id="payment" class="item-link" href="#payment-section hidden">Metodos De Pago</a>
             <a id="faq" class="item-link" href="#faq-section">FAQ</a>
         </div>
-        <div class="flex flex-row items-center justify-center gap-3">
-            <a id="payment-link" href="https://buy.stripe.com/eVa16h2rL71t1G07ss" class="payment-anchor bg-deepestBlue rounded-4xl  hover-btn-blue py-1 px-3">
+        <div class="flex flex-row items-center justify-center gap-3 hidden">
+            <a id="payment-link" href="https://buy.stripe.com/eVa16h2rL71t1G07ss" class="payment-anchor bg-deepestBlue rounded-4xl  hover-btn-blue py-1 px-3 hidden">
                 <p id="stripe-text" class="text-white item-link payment-link text-center">Pagar en línea</span></p>
             </a>
-            <div id="selector-es" class="hover-btn-blue selector-es cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
+            <div id="selector-es" class="hover-btn-blue selector-es cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl hidden">
                 <!--Espanol-->
-                <p  class="text-white item-link">Español</p>
-                <img id="mx-flag" src="{{url_for('static', filename='img/mx.webp') }}" alt="Selector de idioma Español" class="">
+                <p  class="text-white item-link hidden">Español</p>
+                <img id="mx-flag" src="{{url_for('static', filename='img/mx.webp') }}" alt="Selector de idioma Español" class="hidden">
             </div>
-            <div id="selector-en" class="selector-en hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl">
+            <div id="selector-en" class="selector-en hover-btn-blue cursor-pointer flex flex-row items-center mx-auto py-1 px-3 bg-deepestBlue rounded-2xl hidden">
                 <!--English-->
-                <p  class="text-white item-link">English</p>
-                <img id="us-flag" src="{{url_for('static', filename='img/us.webp') }}"  alt="Selector de idioma Ingles" class="">
+                <p  class="text-white item-link hidden">English</p>
+                <img id="us-flag" src="{{url_for('static', filename='img/us.webp') }}"  alt="Selector de idioma Ingles" class="hidden">
             </div>
         </div>
     </div>
@@ -88,7 +89,7 @@
         <a id="payment-menu" href="#payment-section" class="item-menu">Métodos de pago</a>
         <a id="faq-menu" class="mb-10 item-menu" href="#faq-section">FAQ</a>
     </div>
-
+    <div class="hidden">
     <!--Hero Section-->
     <section id="hero" class="opacity-0 transition-opacity duration-1000">
         <div class="mt-4 flex flex-col w-[95%] bg-gradient-to-br from-lightBlue to-deepBlue mx-auto rounded-3xl">
@@ -701,9 +702,190 @@
             </div>
         </div>
     </section>
+    
+    <!--Aviso de privacidad-->
+    <div class="privacy-content-wrapper p-4 max-w-4xl mx-auto">
+
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 border-b-2 border-gray-200 pb-4 mb-8 mt-6">Aviso de Privacidad</h1>
+
+        <a href="{{ url_for('privacy_notice_eng' ) }}" class="text-center mx-auto mb-2 font-bold">English Version here</a>
+
+        <p class="mb-4 mt-4">Con fundamento en los artículos 15, 16 y demás aplicables de la <b>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</b>, <b>BENCOMO DENTAL GROUP</b> pone a su disposición el siguiente Aviso de Privacidad.</p>
+
+        <p class="mb-4"><b>BENCOMO DENTAL GROUP</b> es responsable del uso y protección de sus datos personales. En este sentido y atendiendo a las obligaciones legales establecidas en la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, a través de este instrumento se informa a los titulares de los datos la información que de ellos se recaba y los fines que se le darán a dicha información.</p>
+
+        <p class="mb-4">Además de lo anterior, informamos a usted que <b>BENCOMO DENTAL GROUP</b> tiene su domicilio ubicado en: <b>Épsilon 1823 Fracc Magnaplex 32419, Ciudad Juárez, Chihuahua.</b></p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Para qué fines utilizaremos sus datos personales?</h2>
+
+        <p class="mb-4">Los datos personales que recabamos de usted serán utilizados para las siguientes <b>finalidades principales</b>, las cuales son necesarias para concretar nuestra relación con usted, así como para atender los servicios y/o pedidos que solicite a través de nuestro sitio web y, en su caso, en la clínica:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><b>Contacto:</b> Para responder a sus consultas, comentarios o sugerencias enviadas a través de nuestros formularios en línea.</li>
+            <li class="mb-2"><b>Proceso de Compra (Checkout con Stripe):</b> Para gestionar sus pedidos, procesar pagos y, en su caso, coordinar la entrega de productos o servicios adquiridos en línea.</li>
+            <li class="mb-2"><b>Facturación:</b> En caso de que solicite facturas por los servicios o productos adquiridos.</li>
+            <li class="mb-2"><b>Historial Médico / Consulta Clínica:</b> Para la atención presencial en nuestras instalaciones, en caso de que decida agendar una cita o visitar nuestro consultorio.</li>
+        </ul>
+
+        <p class="mb-4">De manera adicional, utilizaremos su información personal para las siguientes <b>finalidades secundarias</b> que no son necesarias para el servicio solicitado, pero que nos permiten y facilitan brindarle una mejor atención:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><b>Publicidad y Promociones:</b> Para enviarle información sobre nuestros servicios, promociones, ofertas o novedades que consideremos de su interés, siempre y cuando usted lo autorice.</li>
+            <li class="mb-2">Realización de análisis estadísticos y de mejora de nuestros servicios en el sitio web.</li>
+        </ul>
+
+        <p class="mb-4">En caso de que no desee que sus datos personales se utilicen para estas finalidades secundarias, por favor, indíquelo al momento de proporcionar sus datos o envíe un correo a <b class="text-blue-600">bencomodentalclinic@gmail.com</b>. Su negativa en este sentido no será motivo para que le neguemos los servicios y productos que contrata con nosotros.</p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Cómo obtendremos sus datos personales?</h2>
+
+        <p class="mb-4">El responsable podrá recabar sus datos personales a través de los siguientes medios:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><b>Directamente:</b> Cuando nos los proporciona a través de los formularios de contacto, sugerencias o comentarios en nuestra página web, o durante el proceso de compra (checkout).</li>
+            <li class="mb-2"><b>En nuestro consultorio:</b> Cuando visita nuestras instalaciones de forma presencial.</li>
+            <li class="mb-2">Por correo electrónico o teléfono.</li>
+        </ul>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Qué datos personales recabaremos?</h2>
+
+        <p class="mb-4">Para llevar a cabo las finalidades descritas en el presente aviso de privacidad, utilizaremos los siguientes datos personales:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><b>Datos de identificación y contacto:</b> Nombre completo, dirección de correo electrónico, número de teléfono.</li>
+            <li class="mb-2"><b>Datos de facturación:</b> Constancia de situación fiscal (solo si requiere factura), dirección.</li>
+            <li class="mb-2"><b>Datos de pago:</b> Información necesaria para procesar pagos a través de <b>Stripe</b> (ej. datos de tarjeta de crédito/débito). <b>Es importante mencionar que nosotros no almacenamos directamente los datos completos de su tarjeta, ya que estos son procesados de forma segura por Stripe.</b></li>
+            <li class="mb-2"><b>Información de los formularios:</b> Contenido de sus comentarios o sugerencias.</li>
+        </ul>
+
+        <p class="mb-4">En caso de que usted decida visitarnos en el consultorio, adicionalmente podremos recabar los siguientes datos personales, incluyendo datos sensibles, que son esenciales para la atención médica:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2">Fecha de nacimiento</li>
+            <li class="mb-2">Estado civil</li>
+            <li class="mb-2">Antecedentes de salud</li>
+            <li class="mb-2">Historial clínico fotográfico</li>
+            <li class="mb-2">Seguro social (en algunos casos)</li>
+            <li class="mb-2">Contacto de emergencia</li>
+            <li class="mb-2">Identificación oficial vigente</li>
+            <li class="mb-2">Historial médico (generado durante su atención)</li>
+        </ul>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Con quién compartiremos su información personal y para qué fines?</h2>
+
+        <p class="mb-4">Por otra parte, informamos a usted que sus datos personales <b>no serán compartidos con ninguna autoridad, empresa, organización o persona distintas a nosotros</b>, salvo las excepciones que se mencionan a continuación y serán utilizados exclusivamente para los fines señalados:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><b>Stripe, Inc.:</b> Para el procesamiento seguro de sus pagos en línea a través de nuestro checkout. Stripe es un proveedor de servicios de pago externo que cumple con altos estándares de seguridad y privacidad. Le recomendamos revisar su propio aviso de privacidad en <a href="https://stripe.com/privacy" target="_blank" class="text-blue-600 hover:underline">https://stripe.com/privacy</a>.</li>
+            <li class="mb-2"><b>Autoridades competentes:</b> En los casos previstos por la ley para el cumplimiento de obligaciones legales o requerimientos judiciales.</li>
+        </ul>
+
+        <p class="mb-4">Nos comprometemos a no transferir su información personal a terceros sin su consentimiento, salvo las excepciones previstas en el artículo 37 de la LFPDPPP, así como a realizar esta transferencia en los términos que fija esa ley.</p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Cómo puede acceder, rectificar, cancelar u oponerse al uso de sus datos personales (Derechos ARCO)?</h2>
+
+        <p class="mb-4">Usted tiene en todo momento el derecho de conocer qué datos personales tenemos, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación). De igual manera, tiene derecho a que su información se elimine de nuestros registros o base de datos cuando considere que la misma no está siendo utilizada adecuadamente (Cancelación); así como también oponerse al uso de sus datos personales para fines específicos (Oposición). Estos derechos se conocen como <b>Derechos ARCO</b>.</p>
+
+        <p class="mb-4">Para el ejercicio de cualquiera de los Derechos ARCO, se deberá presentar la solicitud respectiva a través del siguiente correo electrónico: <b class="text-blue-600">bencomodentalclinic@gmail.com</b></p>
+
+        <p class="mb-4">La solicitud del ejercicio de estos derechos debe contener la siguiente información:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2">Nombre del solicitante</li>
+            <li class="mb-2">Teléfono del solicitante</li>
+            <li class="mb-2">Contenido o motivo de la solicitud</li>
+            <li class="mb-2">Firma de la solicitud</li>
+        </ul>
+
+        <p class="mb-4">La respuesta a la solicitud se dará en un plazo máximo de <b>15 días hábiles</b> a partir de la recepción de la solicitud y se comunicará vía correo electrónico.</p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Cómo puede revocar su consentimiento para el uso de sus datos personales?</h2>
+
+        <p class="mb-4">Cabe mencionar que en cualquier momento usted puede revocar su consentimiento para el uso de sus datos personales. Asimismo, usted deberá considerar que para ciertos fines la revocación de su consentimiento implicará que no podremos seguir prestándole el servicio que nos solicitó, o la conclusión de su relación con nosotros.</p>
+
+        <p class="mb-4">Para revocar el consentimiento que usted otorga en este acto o para limitar su divulgación, se deberá presentar la solicitud respectiva a través del siguiente correo electrónico: <b class="text-blue-600">bencomodentalclinic@gmail.com</b></p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">Cambios al Aviso de Privacidad</h2>
+
+        <p class="mb-4">Nos comprometemos a mantenerlo informado sobre los cambios que pueda sufrir el presente aviso de privacidad. Sin embargo, usted puede solicitar información si ha sufrido algún cambio a través del siguiente correo electrónico: <b class="text-blue-600">bencomodentalclinic@gmail.com</b>.</p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">Datos de Contacto del Responsable de Datos Personales</h2>
+
+        <p class="mb-4">Los datos de contacto de la persona o departamento de datos personales, que está a cargo de dar trámite a las solicitudes de Derechos ARCO, son los siguientes:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><b>Nombre de la persona responsable:</b> Lic. Héctor Álvarez</li>
+            <li class="mb-2"><b>Domicilio:</b> Épsilon 1823 Fracc Magnaplex 32419, Ciudad Juárez, Chihuahua.</li>
+            <li class="mb-2"><b>Teléfono:</b> (656) 609-8566</li>
+            <li class="mb-2"><b>Correo electrónico:</b> <b class="text-blue-600">bencomodentalclinic@gmail.com</b></li>
+            <li class="mb-2"><b>Página web:</b> <a href="https://www.bencomodentalclinic.com" target="_blank" class="text-blue-600 hover:underline">https://www.bencomodentalclinic.com</a></li>
+        </ul>
+
+        <hr class="my-8 border-t-2 border-gray-300"> <h1 class="text-3xl md:text-4xl font-bold text-center text-gray-900 border-b-2 border-gray-200 pb-4 mb-8">Política de Cookies de BENCOMO DENTAL GROUP</h1>
+        <p class="text-sm text-gray-600 text-right mb-4">Última actualización: 28 de junio de 2025</p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Qué son las cookies?</h2>
+        <p class="mb-4">Las cookies son pequeños archivos de texto que los sitios web colocan en su dispositivo (computadora, tablet, teléfono móvil) cuando los visita. Contienen información que puede ser leída posteriormente por el servidor web que las colocó. Las cookies se utilizan ampliamente para hacer que los sitios web funcionen, o funcionen de manera más eficiente, así como para proporcionar información a los propietarios del sitio.</p>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Cómo utilizamos las cookies en bencomodentalclinic.com?</h2>
+        <p class="mb-4">En <b>BENCOMO DENTAL GROUP</b>, utilizamos cookies por diversas razones. Algunas cookies son necesarias para el funcionamiento técnico de nuestro sitio web, mientras que otras se utilizan para mejorar su experiencia de navegación, analizar cómo usa nuestro sitio o para fines de marketing.</p>
+
+        <p class="mb-4">A continuación, detallamos los tipos de cookies que utilizamos:</p>
+        <ol class="list-decimal ml-6 mb-4">
+            <li class="mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mt-0 mb-2">Cookies Estrictamente Necesarias/Técnicas:</h3>
+                <ul class="list-disc ml-6 mb-2">
+                    <li class="mb-2">Estas cookies son esenciales para que nuestro sitio web funcione correctamente y le permitan navegar y utilizar sus funciones. Sin estas cookies, no podríamos ofrecerle ciertos servicios, como el procesamiento seguro de pagos o la protección contra ataques cibernéticos.</li>
+                    <li class="mb-2"><b>Ejemplos:</b> Cookies de Cloudflare (<code class="bg-gray-100 p-1 rounded text-sm">_cf_bm</code>, <code class="bg-gray-100 p-1 rounded text-sm">__cf_logged_in</code>, <code class="bg-gray-100 p-1 rounded text-sm">__cflb</code>, <code class="bg-gray-100 p-1 rounded text-sm">__cf_chl_tk</code>, <code class="bg-gray-100 p-1 rounded text-sm">__cf_verify_device</code>, <code class="bg-gray-100 p-1 rounded text-sm">AMCV_BADS6F28618A508050A495FB8F6A</code>, <code class="bg-gray-100 p-1 rounded text-sm">_biz_nA</code>, <code class="bg-gray-100 p-1 rounded text-sm">_biz_pendingA</code>, <code class="bg-gray-100 p-1 rounded text-sm">_biz_uid</code>, <code class="bg-gray-100 p-1 rounded text-sm">_biz_flagsA</code>, <code class="bg-gray-100 p-1 rounded text-sm">cf_chl_2</code>, <code class="bg-gray-100 p-1 rounded text-sm">cf_chl_rc</code>) para seguridad y rendimiento del sitio. Cookies de Stripe (<code class="bg-gray-100 p-1 rounded text-sm">__stripe_mid</code>, <code class="bg-gray-100 p-1 rounded text-sm">__stripe_sid</code>) para el procesamiento seguro de pagos.</li>
+                </ul>
+            </li>
+            <li class="mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mt-0 mb-2">Cookies Analíticas o de Rendimiento:</h3>
+                <ul class="list-disc ml-6 mb-2">
+                    <li class="mb-2">Estas cookies recopilan información sobre cómo los visitantes utilizan nuestro sitio web, por ejemplo, qué páginas visitan más a menudo o si reciben mensajes de error. Nos ayudan a comprender el comportamiento de los usuarios en nuestro sitio para mejorar la funcionalidad y la experiencia. La información que recogen estas cookies es anónima y solo se utiliza para fines estadísticos.</li>
+                    <li class="mb-2"><b>Ejemplos:</b> Cookies de Google Analytics (<code class="bg-gray-100 p-1 rounded text-sm">_ga</code>, <code class="bg-gray-100 p-1 rounded text-sm">_gid</code>, <code class="bg-gray-100 p-1 rounded text-sm">_ga_38952KSBNZF</code>, <code class="bg-gray-100 p-1 rounded text-sm">_ga_SQCBOXTXZW</code>, <code class="bg-gray-100 p-1 rounded text-sm">_gat_au</code>, <code class="bg-gray-100 p-1 rounded text-sm">_gcl_au</code>) para seguimiento de visitas y comportamiento del usuario. Cookies de Amplitude (<code class="bg-gray-100 p-1 rounded text-sm">_amp_xxxxxxx</code>) para análisis de productos.</li>
+                </ul>
+            </li>
+            <li class="mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mt-0 mb-2">Cookies de Marketing y Publicidad:</h3>
+                <ul class="list-disc ml-6 mb-2">
+                    <li class="mb-2">Estas cookies se utilizan para rastrear su actividad en nuestro sitio web y otros sitios para mostrarle anuncios relevantes y personalizados. También nos ayudan a medir la efectividad de nuestras campañas publicitarias y a limitar el número de veces que ve un anuncio.</li>
+                    <li class="mb-2"><b>Ejemplos:</b> Cookies de Facebook/Meta Pixel (<code class="bg-gray-100 p-1 rounded text-sm">_fbc</code>, <code class="bg-gray-100 p-1 rounded text-sm">_fbp</code>, <code class="bg-gray-100 p-1 rounded text-sm">_fbc_pixel</code>, <code class="bg-gray-100 p-1 rounded text-sm">_fbp_pixel</code>, <code class="bg-gray-100 p-1 rounded text-sm">_fbp_pixel_v2</code>) para la medición de conversiones de anuncios y la creación de audiencias. Cookies de Reddit (<code class="bg-gray-100 p-1 rounded text-sm">_rdt_uuid</code>) para fines de publicidad en dicha plataforma.</li>
+                </ul>
+            </li>
+            <li class="mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mt-0 mb-2">Cookies de Preferencias/Funcionalidad:</h3>
+                <ul class="list-disc ml-6 mb-2">
+                    <li class="mb-2">Estas cookies permiten que nuestro sitio web recuerde las elecciones que usted hace (como su idioma o región) y proporcionan características mejoradas y más personalizadas.</li>
+                </ul>
+            </li>
+            <li class="mb-4">
+                <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mt-0 mb-2">Cookies de Terceros:</h3>
+                <ul class="list-disc ml-6 mb-2">
+                    <li class="mb-2">Algunas de las cookies mencionadas anteriormente (como las de Google Analytics, Stripe, Facebook, Amplitude, Reddit y Cloudflare) son establecidas por terceros. Estos proveedores externos pueden tener acceso a la información recopilada por sus cookies y regirse por sus propias políticas de privacidad. Le recomendamos revisar sus políticas de privacidad para más detalles:
+                        <ul class="list-disc ml-6 mt-2">
+                            <li class="mb-1"><b>Google:</b> <a href="https://policies.google.com/privacy" target="_blank" class="text-blue-600 hover:underline">https://policies.google.com/privacy</a></li>
+                            <li class="mb-1"><b>Stripe:</b> <a href="https://stripe.com/privacy" target="_blank" class="text-blue-600 hover:underline">https://stripe.com/privacy</a></li>
+                            <li class="mb-1"><b>Meta (Facebook):</b> <a href="https://www.facebook.com/policy.php" target="_blank" class="text-blue-600 hover:underline">https://www.facebook.com/policy.php</a></li>
+                            <li class="mb-1"><b>Cloudflare:</b> <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="text-blue-600 hover:underline">https://www.cloudflare.com/privacypolicy/</a></li>
+                            <li class="mb-1"><b>Amplitude:</b> <a href="https://amplitude.com/privacy" target="_blank" class="text-blue-600 hover:underline">https://amplitude.com/privacy</a></li>
+                            <li class="mb-1"><b>Reddit:</b> <a href="https://www.reddit.com/policies/privacy-policy" target="_blank" class="text-blue-600 hover:underline">https://www.reddit.com/policies/privacy-policy</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+
+        <h2 class="text-2xl md:text-3xl font-semibold text-gray-800 border-b border-gray-300 pb-2 mb-4 mt-8">¿Cómo puede gestionar o deshabilitar las cookies?</h2>
+        <p class="mb-4">Usted tiene el control sobre las cookies. La mayoría de los navegadores web le permiten gestionar sus preferencias de cookies a través de la configuración del navegador. Puede configurar su navegador para que rechace todas las cookies, para que le avise cuando se envíe una cookie o para que acepte solo ciertos tipos de cookies.</p>
+
+        <p class="mb-4">Tenga en cuenta que, si deshabilita las cookies estrictamente necesarias, es posible que algunas partes de nuestro sitio web no funcionen correctamente o que su experiencia de navegación se vea afectada.</p>
+
+        <p class="mb-4">A continuación, le indicamos dónde puede encontrar la configuración de cookies en los navegadores más comunes:</p>
+        <ul class="list-disc ml-6 mb-4">
+            <li class="mb-2"><b>Google Chrome:</b> Configuración &gt; Privacidad y seguridad &gt; Configuración de sitios &gt; Cookies y datos de sitios.</li>
+            <li class="mb-2"><b>Mozilla Firefox:</b> Opciones &gt; Privacidad y seguridad &gt; Cookies y datos del sitio.</li>
+            <li class="mb-2"><b>Microsoft Edge:</b> Configuración &gt; Permisos de sitio &gt; Cookies y datos del sitio.</li>
+            <li class="mb-2"><b>Safari:</b> Preferencias &gt; Privacidad &gt; Gestionar datos de sitios web.</li>
+        </ul>
+
+        <p class="mb-4">Para más información sobre el uso de sus datos personales, por favor, consulte nuestro Aviso de Privacidad completo en <a href="#top" class="text-blue-600 hover:underline">la parte superior de este documento</a>.</p>
+
+    </div> </body>
 
     <!--FAQ-->
-    <section id="faq-section" class="opacity-0 transition-opacity duration-100">
+    <section id="faq-section" class="opacity-0 transition-opacity duration-100 hidden">
         
         <div class="flex flex-col w-[95%] mt-28 mb-28 mx-auto bg-gray rounded-4xl" id="section-faq">
             <h1 id="faq-title" class="headers text-center mt-10">Dudas frecuentes</h1>
@@ -903,9 +1085,9 @@
         </div>
     
     </section>
-
+</div>
     <!--Footer-->
-    <section id="footer" class="opacity-0 transition-opacity duration-100 mb-2">
+    <section id="footer" class="transition-opacity duration-100 mb-2">
         <div class=" flex flex-col w-[95%] mx-auto bg-deepestBlue  rounded-4xl">
             <!--Content-->
             <div class="flex flex-col lg:flex-row mx-auto mt-8 mb-8 gap-2 w-[95%]">
@@ -930,10 +1112,8 @@
                         <a href="https://wa.me/526566098566?text=  Hola, estaba en su página de internet, y necesito más información.">
                             <img src="{{url_for('static', filename='img/whatsapp-white.webp')}}" alt="Icono WhatsApp" class="size-10">
                         </a>
-                        
                     </div>
-                    <a id="privacy-notice" href="{{url_for('privacy_notice_es')}}" class="font-quicksand text-white font-medium mx-auto">Consulta nuestros avisos de privacidad y cookies aqui.</a>
-                </div>
+                </div>'
                 <!--3-->
                 <div class="flex flex-col lg:items-center lg:basis-1/3">
                     <h1 id="site-text" class="headers-white text-center lg: mb-3 w-[100%] ">Sitio</h1>
@@ -1050,7 +1230,6 @@
     <script src="{{ url_for('static', filename='js/menu.js') }}"></script>
     <script src="{{url_for('static', filename='/js/language.js') }}"></script>
     <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
-    <script src="{{url_for('static', filename='js/scroll.js') }}"></script>
     <script src="{{url_for('static', filename='js/testimony-slider.js') }}"></script>
     <script> const CONTENT_URL= "{{ url_for('static', filename='content.json') }}" </script>
 </body>

@@ -297,6 +297,14 @@ def cancel():
     return render_template('cancel.html')
 
 
+@app.route('/privacy-notice')
+def privacy_notice_es():
+    return render_template('privacy_notice_es.html')
+
+
+@app.route('/privacy-notice-eng')
+def privacy_notice_eng():
+    return render_template('privacy_notice_eng.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True, port=5500)

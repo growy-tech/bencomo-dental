@@ -128,6 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const buyFamilyButton = document.getElementById('buy-family-route');
     const buyPersonalButton = document.getElementById('buy-personal-route');
 
+    //Privacy notice
+    const privacyLink = document.getElementById('privacy-notice');
+
     console.log(benefitNoCost);
     console.log(benefitsDiagnostics);
 
@@ -143,7 +146,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response=>response.json())
         .then(data => {
             //Videos
-
+            privacyLink.href=data[language].privacyLink;
+            privacyLink.textContent=data[language].privacyLinkText;
             //Memberships Section
             buyFamilyButton.href=data[language].buyFamilyButton;
             buyPersonalButton.href=data[language].buyPersonalButton;

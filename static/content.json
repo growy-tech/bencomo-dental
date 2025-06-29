@@ -120,7 +120,9 @@
         "membershipAclaration": "*Under 16 years old",
         "membershipAclarationTwo": "**Subject to approval.",
         "buyFamilyButton" : "/checkout/familyUs",
-        "buyPersonalButton": "/checkout/personalUs"
+        "buyPersonalButton": "/checkout/personalUs",
+        "privacyLink": "https:bencomodentalclinic.com/privacy-notice-eng",
+        "privacyLinkText": "View our privacy and cookie policies here."
     },
 
     "es":{
@@ -244,6 +246,8 @@
         "membershipAclaration": "*Menores de hasta 16 años.",
         "membershipAclarationTwo": "**Sujeto a revisión.",
         "buyFamilyButton" : "/checkout/familyMx",
-        "buyPersonalButton": "/checkout/personalMx"
+        "buyPersonalButton": "/checkout/personalMx",
+        "privacyLink": "https:bencomodentalclinic.com/privacy-notice-es",
+        "privacyLinkText": "Consulta nuestros avisos de privacidad y cookies aquí."
     }
 }
